@@ -7,5 +7,5 @@ import com.javaex.service.JUserService;
 @Controller
 public class JUserController {
 
-	private JUserService juserService;     
+	private JUserService juserService;         
 }
