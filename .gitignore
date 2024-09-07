@@ -4,7 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+### STS (Spring Tool Suite) ###
 .apt_generated
 .classpath
 .factorypath
@@ -25,6 +25,8 @@ target/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Gradle Build ###
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
@@ -32,7 +34,10 @@ build/
 ### VS Code ###
 .vscode/
 
+### 기본적으로 모든 파일 무시 ###
 /*
+
+### src 폴더와 그 하위 폴더만 추적 ###
 !src/
 !src/main/
 !src/main/java/
