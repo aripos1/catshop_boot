@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/*
+!src/
+!src/main/
+!src/main/java/
+!src/main/webapp/
+!src/main/java/**
+!src/main/webapp/**
