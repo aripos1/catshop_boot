@@ -15,7 +15,7 @@
 		<header id="header">
 			<div class="header-container">
 				<div class="logo">
-					<a href="../main/index.html"><img src="../../assets/images/Layer 1.png" alt="고양이 로고"></a>
+					<a href=""><img src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고"></a>
 					<h1>야옹이 멍멍해봐</h1>
 				</div>
 			</div>
