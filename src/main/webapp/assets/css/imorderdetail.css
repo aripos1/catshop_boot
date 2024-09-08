@@ -1,0 +1,153 @@
+@charset "UTF-8";
+/* 전체 페이지 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+/* 사이드바 스타일 */
+.sidebar {
+    float: left;
+    width: 180px;
+    background-color: #ffe4e1; /* 사이드바 배경색 연한 핑크 */
+    padding: 15px;
+    height: 100%;
+}
+
+.sidebar h2 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+.sidebar a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebar a:hover {
+    color: #f06292; /* 마우스 오버 시 진한 핑크 */
+}
+
+
+/* 메인 콘텐츠 영역 스타일 */
+.content {
+    margin-left: 220px;
+    padding: 10px;
+}
+
+.content h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 주문 상품 정보 스타일 */
+
+.orderGoods h3{
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.orderGoods table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+    
+}
+
+.orderGoods table th, .orderGoods table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.orderGoods table img {
+    width: 100px;
+    height: auto;
+}
+
+
+/* 구매자 및 받는 사람 정보 스타일 */
+.payUser, .recipient {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.payUser h3, .recipient h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: left;
+ 
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    width: 80px;
+    background-color: #007bff;
+    color: white;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+/* 주문 금액 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+}
+
+/* 버튼 스타일 */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 버튼 컨테이너 스타일 */
+.parent-container {
+    text-align: center;
+    margin-top: 20px;
+}
