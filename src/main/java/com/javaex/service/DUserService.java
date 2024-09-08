@@ -27,7 +27,9 @@ public class DUserService {
 		System.out.println("UserService.exeLogin()");
 		
 		UserVo authUser=duserDao.selectUser(userVo);
+		System.out.println(userVo);
 		
+
 		
 		
 		return authUser;

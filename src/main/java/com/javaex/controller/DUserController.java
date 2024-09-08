@@ -43,15 +43,17 @@ public class DUserController {
 	}
 	
 	
-	
-		/* 로그인 */
+	/* 로그인 */
 	@RequestMapping(value ="/user/login", method = {RequestMethod.GET,RequestMethod.POST})
 	public String login(@ModelAttribute UserVo userVo, HttpSession session) {
 		System.out.println("UserController.login()");
 		
-	
+		UserVo authUser=duserService.exeLogin(userVo);
+		System.out.println(authUser);
 		
-		return "";
+		session.setAttribute("authUser", authUser);
+		
+		return "redirect:/main";
 }
 	
 }

@@ -23,19 +23,23 @@
             </div>
         
             <!-- 비회원     -->
+            <c:if test="${sessionScope.authUser == null}">
             <div class="menu">
                 <button>로그인</button>
                 <button>회원가입</button>
             </div>
-        
-            <!-- 회원 
+        	</c:if>
+         
+         	<!-- 회원 -->
+           <c:if test="${sessionScope.authUser != null}">
             <div class="menu">
-                <P>집사님 어서오세요.</P>
+                <P>${sessionScope.authUser.name}집사님 어서오세요.</P>
                 <button>장바구니</button>
                 <button>마이페이지</button>
                 <button>로그아웃</button>
             </div>
-             -->
+            </c:if>
+            
             <!-- 관리자 
             <div class="menu">
                 <P>관리자님 어서오세요.</P>

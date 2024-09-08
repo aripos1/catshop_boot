@@ -5,11 +5,25 @@
 
 	<mapper namespace="user">
 	
-		<insert id="insert" parameterType="com.javaex.vo.UserVo" >
+	<!-- 회원가입 -->
+	
+	<insert id="insert" parameterType="com.javaex.vo.UserVo" >
 		<![CDATA[
 			insert into user(no, name, id, password, address, hp) 
 			value (null, #{name}, #{id}, #{password}, #{address}, #{hp})
 		]]>
 	</insert>
+	
+		
+	<!-- 로그인 -->
+	<select id="selectByIdPW" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		<![CDATA[
+			select 	no,
+					name
+			from user
+			where id = #{id}
+			and password = #{password}
+		]]>
+	</select>
 	
 	</mapper>

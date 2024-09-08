@@ -22,14 +22,12 @@ public class DUserDao {
 
 	}
 
-	/* 로그인 */
 	public UserVo selectUser(UserVo userVo) {
 		System.out.println("UserDao.selectUser()");
-
-		UserVo authUser = sqlSession.selectOne("user.selectByIdPW", userVo);
-
+		
+		UserVo authUser =sqlSession.selectOne("user.selectByIdPW", userVo);
+		
 		return authUser;
-
 	}
 
 }
