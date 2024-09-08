@@ -1,11 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>header</title>
-    <link rel="stylesheet" href="../../assets/css/reset.css">
-    <link rel="stylesheet" href="../../assets/css/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css">
    
 
 </head>
@@ -15,7 +18,7 @@
     <header id ="header">
         <div class="header-container">
             <div class="logo">
-                <img src="../../assets/images/Layer 1.png" alt="고양이 로고">
+                <img src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고">
                 <h1>야옹이 멍멍해봐</h1>
             </div>
         

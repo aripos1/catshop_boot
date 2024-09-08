@@ -20,7 +20,7 @@ public class DUserController {
 	@RequestMapping(value="/user/joinform",method = {RequestMethod.GET, RequestMethod.POST})
 	public String joinForm() {
 		System.out.println("UserController.ready to joinForm");
-		return "user/joinForm";
+		return "include/header";
 	}
 	
 	
