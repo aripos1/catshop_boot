@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.DUserDao;
+import com.javaex.vo.UserVo;
 
 @Service
 public class DUserService {
@@ -13,7 +14,12 @@ public class DUserService {
 	
 	/*회원가입*/
 	
-	public int exeJoin(userVo userVo) {
-		System.out.println("");
+	public int exeJoin(UserVo userVo) {
+		System.out.println("UserService.exeJoin()");
+		int count=duserDao.insertUser(userVo);
+		
+		return count;
+		
+	
 	}
 }

@@ -19,7 +19,7 @@ public class DUserController {
 	/*회원가입 폼*/
 	@RequestMapping(value="/user/joinform",method = {RequestMethod.GET, RequestMethod.POST})
 	public String joinForm() {
-		System.out.println("UserController.ready to joinForm");
+		System.out.println("UserController.joinForm()");
 		return "user/joinForm";
 	}
 	
@@ -27,7 +27,7 @@ public class DUserController {
 	/*회원가입*/
 	@RequestMapping(value="/user/join", method= {RequestMethod.GET, RequestMethod.POST})
 	public String join(@ModelAttribute UserVo userVo) {
-		System.out.println("UserController.ready to join");
+		System.out.println("UserController.join()");
 		
 		duserService.exeJoin(userVo);
 		
