@@ -12,15 +12,24 @@ public class DUserDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	/*회원가입*/
+	/* 회원가입 */
 	public int insertUser(UserVo userVo) {
 		System.out.println("UserDao.insertUser()");
-		
-		int count =sqlSession.insert("user.insert", userVo);
-		
+
+		int count = sqlSession.insert("user.insert", userVo);
+
 		return count;
-		
+
 	}
-	
-	
+
+	/* 로그인 */
+	public UserVo selectUser(UserVo userVo) {
+		System.out.println("UserDao.selectUser()");
+
+		UserVo authUser = sqlSession.selectOne("user.selectByIdPW", userVo);
+
+		return authUser;
+
+	}
+
 }
