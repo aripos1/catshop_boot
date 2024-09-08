@@ -7,7 +7,7 @@ public class UserVo {
 	private String name;
 	private String id;
 	private String password;
-	private String adress;
+	private String address;
 	private String hp;
 	private int roll;
 	private String content;
@@ -15,20 +15,20 @@ public class UserVo {
 	// 생성자
 	public UserVo() {
 		super();
+	
 	}
-
-	public UserVo(int no, String name, String id, String password, String adress, String hp, int roll, String content) {
+	public UserVo(int no, String name, String id, String password, String address, String hp, int roll,
+			String content) {
 		super();
 		this.no = no;
 		this.name = name;
 		this.id = id;
 		this.password = password;
-		this.adress = adress;
+		this.address = address;
 		this.hp = hp;
 		this.roll = roll;
 		this.content = content;
 	}
-	
 	//메소드 gs
 	public int getNo() {
 		return no;
@@ -62,12 +62,12 @@ public class UserVo {
 		this.password = password;
 	}
 
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getHp() {
@@ -93,11 +93,13 @@ public class UserVo {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	//메소드 일반 
+	//메소드 일반
 	@Override
 	public String toString() {
-		return "UserVo [no=" + no + ", name=" + name + ", id=" + id + ", password=" + password + ", adress=" + adress
+		return "UserVo [no=" + no + ", name=" + name + ", id=" + id + ", password=" + password + ", address=" + address
 				+ ", hp=" + hp + ", roll=" + roll + ", content=" + content + "]";
 	}
-
+	
+	
 }
+	

@@ -5,6 +5,11 @@
 
 	<mapper namespace="user">
 	
-		
+		<insert id="insert" parameterType="com.javaex.vo.UserVo" >
+		<![CDATA[
+			insert into user(no, name, id, password, address, hp) 
+			value (null, #{name}, #{id}, #{password}, #{address}, #{hp})
+		]]>
+	</insert>
 	
 	</mapper>
