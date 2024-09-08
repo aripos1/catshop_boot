@@ -31,7 +31,7 @@ public class DUserController {
 		
 		duserService.exeJoin(userVo);
 		
-		return "user/joinOK";
+		return "user/joinOk";
 	/*아이디체크*/
 	
 	
