@@ -29,7 +29,7 @@
                 <div class="footer-contact">
                     <p>
                         고객센터: 1888-3010<br>
-                        운영시간: 평일 09:00 ~ 17:30<br>
+      "C:/JavaStudy/workspace/catshop/catshop/catshop_html/views/user/hdrjoin.html"                  운영시간: 평일 09:00 ~ 17:30<br>
                         점심시간: 12:00 ~ 13:00<br>
                         고객지원: 토, 일 / 공휴일 휴무<br>
                     </p>

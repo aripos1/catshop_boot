@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+footer {
+    background-color: #f4f4f9;
+    padding: 20px 0;
+    border-top: 2px solid #ffcccb;
+    text-align: center;
+    color: #444;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; /* 요소들이 상단에 맞추어 정렬되도록 변경 */
+    padding: 0 20px; /* 좌우 여백 추가 */
+    flex-wrap: wrap; /* 화면이 좁아지면 요소가 줄을 바꾸게 함 */
+}
+
+.footer-logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.footer-info, .footer-contact {
+    font-size: 14px; /* 텍스트 크기 일관성 있게 조정 */
+    line-height: 1.6;
+}
+
+.footer-info p, .footer-contact p {
+    margin: 0; /* 불필요한 여백 제거 */
+    padding: 10px 0; /* 상하 패딩 추가 */
+}
+
+.footer-info, .footer-contact {
+    max-width: 300px; /* 각각의 영역에 최대 너비 설정 */
+    text-align: left; /* 텍스트를 왼쪽으로 정렬 */
+}
