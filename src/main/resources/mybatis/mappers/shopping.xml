@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+	<mapper namespace="shopping">
+	
+		<select id="selectOne" resultType="com.javaex.vo.ShoppingVo">
+		
+		<![CDATA[
+			SELECT * 
+			FROM shopping 
+			WHERE userNo = ?
+    	]]>
+		
+		</select>
+	
+	</mapper>

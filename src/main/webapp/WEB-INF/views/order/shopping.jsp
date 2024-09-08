@@ -40,7 +40,7 @@
 			<tbody>
 				<tr>
 					<td><input type="checkbox"></td>
-					<td><img src="../../assets/images/download.jfif" alt="상품 A 이미지"></td>
+					<td><img src="${pageContext.request.contextPath}/assets/images/download.jfif" alt="상품 A 이미지"></td>
 					<td>상품 A <br> 옵션 : 부들부들푸딩 <br> 9/25일 배송 예정
 					</td>
 					<td>10,000원</td>

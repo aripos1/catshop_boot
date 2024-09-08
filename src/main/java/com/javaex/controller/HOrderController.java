@@ -7,14 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HOrderController {
 
-	  @RequestMapping(value="/shopping", method= {RequestMethod.GET, RequestMethod.POST})
-	   public String shopping() {
-	      
-	      System.out.println("shopping");
-	      
-	      return "order/shopping";
-	   }
-	
 	  @RequestMapping(value="/orderdetail", method= {RequestMethod.GET, RequestMethod.POST})
 	   public String orderdetail() {
 	      
