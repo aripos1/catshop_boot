@@ -18,7 +18,7 @@
  <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
    
 
-
+ <div id=wrap>
     <!-- 배너 섹션 -->
     <section class="banner">
         <div class="banner-slides">
@@ -64,6 +64,7 @@
             
         </div>
     </section>
+  </div><!-- wrap -->
 	<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
     <script src="script.js"></script>
 </body>

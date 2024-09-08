@@ -10,4 +10,10 @@ public class DUserService {
 
 	@Autowired
 	private DUserDao duserDao;
+	
+	/*회원가입*/
+	
+	public int exeJoin(userVo userVo) {
+		System.out.println("");
+	}
 }

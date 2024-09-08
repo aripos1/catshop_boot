@@ -29,7 +29,7 @@ public class DUserController {
 	public String join(@ModelAttribute UserVo userVo) {
 		System.out.println("UserController.ready to join");
 		
-		d
+		duserService.exeJoin(userVo);
 		
 		return "";
 	/*아이디체크*/
