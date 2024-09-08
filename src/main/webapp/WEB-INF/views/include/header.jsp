@@ -36,7 +36,7 @@
                 <P>${sessionScope.authUser.name}집사님 어서오세요.</P>
                 <button>장바구니</button>
                 <button>마이페이지</button>
-                <button>로그아웃</button>
+                <a href="${pageContext.request.contextPath}/user/logout" id="logoutBtn" class="button">로그아웃</a>
             </div>
             </c:if>
             

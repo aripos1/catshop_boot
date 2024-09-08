@@ -34,26 +34,34 @@ public class DUserController {
 		return "user/joinOk";
 	}
 
-	/*로그인폼*/
-	@RequestMapping(value ="/user/loginform", method = {RequestMethod.GET,RequestMethod.POST})
+	/* 로그인폼 */
+	@RequestMapping(value = "/user/loginform", method = { RequestMethod.GET, RequestMethod.POST })
 	public String loginForm() {
 		System.out.println("UserController.loginForm()");
-	
+
 		return "user/loginForm";
 	}
-	
-	
+
 	/* 로그인 */
-	@RequestMapping(value ="/user/login", method = {RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value = "/user/login", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(@ModelAttribute UserVo userVo, HttpSession session) {
 		System.out.println("UserController.login()");
-		
-		UserVo authUser=duserService.exeLogin(userVo);
+
+		UserVo authUser = duserService.exeLogin(userVo);
 		System.out.println(authUser);
-		
+
 		session.setAttribute("authUser", authUser);
-		
+
 		return "redirect:/main";
-}
-	
+	}
+
+	/* 로그아웃 */
+	@RequestMapping(value = "/user/logout", method = { RequestMethod.GET, RequestMethod.POST })
+	public String logout(HttpSession session) {
+		System.out.println("UserController.logout");
+
+		session.invalidate();
+		return "redirect:/main";
+	}
+
 }
