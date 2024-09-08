@@ -20,7 +20,7 @@ public class DUserController {
 	@RequestMapping(value="/user/joinform",method = {RequestMethod.GET, RequestMethod.POST})
 	public String joinForm() {
 		System.out.println("UserController.ready to joinForm");
-		return "main/index";
+		return "user/joinForm";
 	}
 	
 	
@@ -28,7 +28,9 @@ public class DUserController {
 	@RequestMapping(value="/user/join", method= {RequestMethod.GET, RequestMethod.POST})
 	public String join(@ModelAttribute UserVo userVo) {
 		System.out.println("UserController.ready to join");
-
+		
+		d
+		
 		return "";
 	/*아이디체크*/
 	
