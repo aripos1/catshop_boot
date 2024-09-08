@@ -20,7 +20,7 @@ public class DUserController {
 	@RequestMapping(value="/user/joinform",method = {RequestMethod.GET, RequestMethod.POST})
 	public String joinForm() {
 		System.out.println("UserController.ready to joinForm");
-		return "include/footer";
+		return "main/index";
 	}
 	
 	
@@ -30,5 +30,8 @@ public class DUserController {
 		System.out.println("UserController.ready to join");
 
 		return "";
+	/*아이디체크*/
+	
+	
 	}
 }
