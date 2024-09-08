@@ -2,7 +2,25 @@
 /****************************************************************/
 /* 초기화 관련 ***************************************************/
 /****************************************************************/
+@font-face {
+    font-family: 'GangwonEduPowerExtraBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimChilpanjiugaeTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimNadeuriTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 /* 여백 초기화 */
 body, div, ul, li, dl, dt, ol, h1, h2, h3, h4, h5, h6, 
 input, fieldset, legend, p, select, table, th, td, tr,
@@ -57,11 +75,12 @@ a:hover {text-decoration: none; color: #000000; }
 
 /****************** 공통 ************************/
 /* clearfix */
-<<<<<<< HEAD
-.clearfix{*zoom:1;}
-.clearfix:before, .clearfix:after {display: block; content: ""; line-height: 0;}
-.clearfix:after {clear: both;}
-
+.clearfix::before, .clearfix::after {
+    display: block; 
+    content: ""; 
+    line-height: 0;
+}
+.clearfix::after {clear: both;}
 /* 폼 관련 아몰랑 더 필요하면 말해요 기억안남 */
 input[type="text"]{height: 25px; font-size:12px; font-family: "맑은 고딕", 돋움, 굴림;}
 input[type="password"]{height: 25px; font-size:12px; font-family: "맑은 고딕", 돋움, 굴림;}
@@ -71,16 +90,4 @@ input[type="id"]{height: 25px; font-size:12px; font-family: "맑은 고딕", 돋
 input[type="hp"]{height: 25px; font-size:12px; font-family: "맑은 고딕", 돋움, 굴림;}
 textarea{font-family: "맑은 고딕", 돋움, 굴림;}
 
-
-
-
-
-/* .clearfix{*zoom:1;} */
-.clearfix::before, .clearfix::after {
-    display: block; 
-    content: ""; 
-    line-height: 0;
-}
-.clearfix::after {clear: both;}
->>>>>>> 76d01f7c061565b22fe97f4841a48f03ea20ef2e
 
