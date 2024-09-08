@@ -22,5 +22,18 @@ public class HOrderController {
 	      
 	      return "order/orderDetail";
 	   }
-	
+	  @RequestMapping(value="/orderlist", method= {RequestMethod.GET, RequestMethod.POST})
+	   public String orderlist() {
+	      
+	      System.out.println("orderlist");
+	      
+	      return "order/orderList";
+	   }
+	  @RequestMapping(value="/pay", method= {RequestMethod.GET, RequestMethod.POST})
+	   public String pay() {
+	      
+	      System.out.println("pay");
+	      
+	      return "order/pay";
+	   }
 }
