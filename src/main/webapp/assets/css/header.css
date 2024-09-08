@@ -1,0 +1,114 @@
+@charset "UTF-8";
+#header {
+    /* background-color:  white; */
+    /* padding: 20px; */
+    /* border-bottom: 1px solid #e0e0e0; */
+    /* height: 160px; 전체 헤더 높이를 고정 */
+    margin-bottom: 3px;
+}
+
+.header-container {
+    width: 100%;
+    overflow: hidden; /* float을 사용하기 때문에 clearfix를 위해 추가 */
+}
+
+.logo {
+    float: left; /* 왼쪽 정렬 */
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.logo h1 {
+    display: inline-block;
+    font-size: 24px;
+    color: #333;
+    vertical-align: middle;
+}
+
+.menu {
+    float: right; /* 오른쪽 정렬 */
+    text-align: right;
+}
+
+.menu p {
+    font-size: 16px;
+    color: #555;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.menu button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff6347;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.menu button:hover {
+    background-color: #ff4500;
+}
+
+.search {
+    clear: both; /* float으로 배치된 요소들을 정리 */
+    margin-top: 40px;
+    text-align: center;
+}
+
+.search input {
+    width: 330px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search button {
+    padding: 10px;
+    border: none;
+    background-color: #ff6347;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search button:hover {
+    background-color: #ff4500;
+}
+
+.nav-menu {
+    margin-top: 30px;
+   
+    text-align: center;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline-block; /* 가로로 나열 */
+    margin: 0 30px;
+}
+
+.nav-menu li h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.nav-menu li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #ff6347;
+}
+
+.nav-menu li a:hover {
+    color: #ff4500;
+}
