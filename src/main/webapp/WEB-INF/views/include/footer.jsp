@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>footer</title> 
-    <link rel="stylesheet" href="../../assets/css/reset.css">
-    <link rel="stylesheet" href="../../assets/css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/reset.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css">
    
 </head>
 
@@ -15,7 +19,7 @@
         <footer>
             <div class="footer-container">
                 <div class="footer-logo">
-                    <img src="../../assets/images/Layer 1.png" alt="고양이 로고">
+                    <img src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고">
                 </div>
                 <div class="footer-info">
                     <p>
@@ -29,7 +33,7 @@
                 <div class="footer-contact">
                     <p>
                         고객센터: 1888-3010<br>
-      "C:/JavaStudy/workspace/catshop/catshop/catshop_html/views/user/hdrjoin.html"                  운영시간: 평일 09:00 ~ 17:30<br>
+                        운영시간: 평일 09:00 ~ 17:30<br>
                         점심시간: 12:00 ~ 13:00<br>
                         고객지원: 토, 일 / 공휴일 휴무<br>
                     </p>
