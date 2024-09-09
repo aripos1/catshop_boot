@@ -22,7 +22,7 @@
 			from goods
 			order by reg_date desc
     	]]>
-		
+		 
 	</select>
 	
 	</mapper>
