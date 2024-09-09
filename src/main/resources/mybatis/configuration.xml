@@ -4,14 +4,16 @@
 
 <configuration>
 
-    <typeAliases>
+	<typeAliases>
 
-    </typeAliases>
+	</typeAliases>
 
-    <mappers>
-    
-
-    	<mapper resource="mybatis/mappers/shopping.xml" />
-    </mappers>
+	<mappers>
+		<mapper resource="mybatis/mappers/Jadmin.xml" />
+		<mapper resource="mybatis/mappers/goods.xml" />
+		<mapper resource="mybatis/mappers/shopping.xml" />
+	</mappers>
 
 </configuration>
+
+
