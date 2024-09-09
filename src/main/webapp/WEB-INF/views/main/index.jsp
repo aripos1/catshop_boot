@@ -33,10 +33,10 @@
     <section class="product-list">
         <h2>사료</h2>
         <div class="products">
-         <c:forEach var="product" items="${goodsList}" varStatus="status">
+         <c:forEach var="product" items="${dgoodsList}" varStatus="status">
     		<c:if test="${status.index < 3}">
             <div class="product">
-               <img src="${product.filePath}/${product.saveName}" alt="${product.name}">
+               <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                <p>${product.name}</p><br><p>${product.regDate}</p><p>${product.price}원</p>
             </div>
             </c:if>
