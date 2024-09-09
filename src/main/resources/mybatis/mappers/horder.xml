@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="order">
+
+	<insert id="insertReceipt" parameterType="ReceiptVo">
+		INSERT INTO receipt (user_no, address, total_price, payment, payment_date)
+		VALUES (#{userNo}, #{address}, #{totalPrice}, #{payment}, #{paymentDate})
+	</insert>
+
+	<insert id="insertItem" parameterType="ItemVo">
+		INSERT INTO item (receipt_no, amount, each_price, taste, options_no)
+		VALUES (#{receiptNo}, #{count}, #{eachPrice}, #{taste}, #{optionsNo})
+	</insert>
+
+
+
+
+</mapper>
