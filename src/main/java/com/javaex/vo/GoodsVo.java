@@ -9,25 +9,17 @@ public class GoodsVo {
 	private String content;
 	private int price;
 	private String regDate;
-	private String taste;
-	private String saveName;
-	private String filePath;
-	private String keyword;
-	
-
-	//생성자
-		
+	private String saveNamef;
+	private String filePathf;
+	private String saveNameb;
+	private String filePathb;
+	private String user_no;
 	public GoodsVo() {
-		
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	public GoodsVo(String category, String keyword) {
-		this.category = category;
-		this.keyword = keyword;
-	}
-	
-	public GoodsVo(int no, String category, String name, String content, int price, String regDate, String taste,
-			String saveName, String filePath) {
+	public GoodsVo(int no, String category, String name, String content, int price, String regDate, String saveNamef,
+			String filePathf, String saveNameb, String filePathb, String user_no) {
 		super();
 		this.no = no;
 		this.category = category;
@@ -35,106 +27,84 @@ public class GoodsVo {
 		this.content = content;
 		this.price = price;
 		this.regDate = regDate;
-		this.taste = taste;
-		this.saveName = saveName;
-		this.filePath = filePath;
+		this.saveNamef = saveNamef;
+		this.filePathf = filePathf;
+		this.saveNameb = saveNameb;
+		this.filePathb = filePathb;
+		this.user_no = user_no;
 	}
-
-		
-	//메서드gs
-	
-	
-	
 	public int getNo() {
 		return no;
 	}
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
-
 	public void setNo(int no) {
 		this.no = no;
 	}
-
 	public String getCategory() {
 		return category;
 	}
-
 	public void setCategory(String category) {
 		this.category = category;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 	public int getPrice() {
 		return price;
 	}
-
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
 	public String getRegDate() {
 		return regDate;
 	}
-
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-
-	public String getTaste() {
-		return taste;
+	public String getSaveNamef() {
+		return saveNamef;
 	}
-
-	public void setTaste(String taste) {
-		this.taste = taste;
+	public void setSaveNamef(String saveNamef) {
+		this.saveNamef = saveNamef;
 	}
-
-	public String getSaveName() {
-		return saveName;
+	public String getFilePathf() {
+		return filePathf;
 	}
-
-	public void setSaveName(String saveName) {
-		this.saveName = saveName;
+	public void setFilePathf(String filePathf) {
+		this.filePathf = filePathf;
 	}
-
-	public String getFilePath() {
-		return filePath;
+	public String getSaveNameb() {
+		return saveNameb;
 	}
-
-	public void setFilePath(String filePath) {
-		this.filePath = filePath;
+	public void setSaveNameb(String saveNameb) {
+		this.saveNameb = saveNameb;
 	}
-
-	
-
-	
-	//메서드 일반
+	public String getFilePathb() {
+		return filePathb;
+	}
+	public void setFilePathb(String filePathb) {
+		this.filePathb = filePathb;
+	}
+	public String getUser_no() {
+		return user_no;
+	}
+	public void setUser_no(String user_no) {
+		this.user_no = user_no;
+	}
 	@Override
 	public String toString() {
 		return "GoodsVo [no=" + no + ", category=" + category + ", name=" + name + ", content=" + content + ", price="
-				+ price + ", regDate=" + regDate + ", taste=" + taste + ", saveName=" + saveName + ", filePath="
-				+ filePath + ", keyword=" + keyword + "]";
+				+ price + ", regDate=" + regDate + ", saveNamef=" + saveNamef + ", filePathf=" + filePathf
+				+ ", saveNameb=" + saveNameb + ", filePathb=" + filePathb + ", user_no=" + user_no + "]";
 	}
-
 	
 }
+	

@@ -23,9 +23,9 @@ public class DUserDao {
 	}
 	public UserVo selectUser(UserVo userVo) {
 		System.out.println("UserDao.selectUser()");
-		
+	
 		UserVo authUser =sqlSession.selectOne("user.selectByIdPW", userVo);
-		
+		System.out.println(authUser);
 		return authUser;
 		
 	}

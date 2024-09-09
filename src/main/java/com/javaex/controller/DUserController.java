@@ -48,7 +48,7 @@ public class DUserController {
 	@RequestMapping(value ="/user/login", method = {RequestMethod.GET,RequestMethod.POST})
 	public String login(@ModelAttribute UserVo userVo, HttpSession session) {
 		System.out.println("UserController.login()");
-		
+		System.out.println(userVo);
 		UserVo authUser=duserService.exeLogin(userVo);
 		System.out.println(authUser);
 		

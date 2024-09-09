@@ -26,7 +26,7 @@ public class DUserService {
 		
 		UserVo authUser=duserDao.selectUser(userVo);
 		System.out.println(userVo);
-		
+		System.out.println(authUser);
 
 		return authUser;
 	}

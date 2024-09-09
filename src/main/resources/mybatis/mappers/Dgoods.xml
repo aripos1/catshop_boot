@@ -14,9 +14,11 @@
         			,content
         			,price
         			,date(reg_date) as regDate
-        			,save_name as saveName
-        			,file_path as filePath 
-        			,user_no
+        			,save_namef as saveNamef
+        			,file_pathf as filepathf
+        			,save_nameb as saveNameb
+        			,file_pathf as filepathf
+        			 ,user_no
 			from goods
 			order by reg_date desc
     	]]>
