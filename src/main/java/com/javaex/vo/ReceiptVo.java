@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class ReceiptVo {
 
-	private int receiptNo;
+	private int no;
 	private int userNo;
-	private String exp;
+	private String express;
 	private String address;
 	private int totalPrice;
 	private Date paymentDate;
@@ -16,24 +16,32 @@ public class ReceiptVo {
 		super();
 	}
 
-	public ReceiptVo(int receiptNo, int userNo, String exp, String address, int totalPrice, Date paymentDate,
+	public ReceiptVo(int no, int userNo, String express, String address, int totalPrice, Date paymentDate,
 			String payment) {
 		super();
-		this.receiptNo = receiptNo;
+		this.no = no;
 		this.userNo = userNo;
-		this.exp = exp;
+		this.express = express;
 		this.address = address;
 		this.totalPrice = totalPrice;
 		this.paymentDate = paymentDate;
 		this.payment = payment;
 	}
 
-	public int getReceiptNo() {
-		return receiptNo;
+	public int getNo() {
+		return no;
 	}
 
-	public void setReceiptNo(int receiptNo) {
-		this.receiptNo = receiptNo;
+	public void setNo(int no) {
+		this.no = no;
+	}
+
+	public String getExpress() {
+		return express;
+	}
+
+	public void setExpress(String express) {
+		this.express = express;
 	}
 
 	public int getUserNo() {
@@ -42,14 +50,6 @@ public class ReceiptVo {
 
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
-	}
-
-	public String getExp() {
-		return exp;
-	}
-
-	public void setExp(String exp) {
-		this.exp = exp;
 	}
 
 	public String getAddress() {
@@ -86,7 +86,7 @@ public class ReceiptVo {
 
 	@Override
 	public String toString() {
-		return "receiptVo [receiptNo=" + receiptNo + ", userNo=" + userNo + ", exp=" + exp + ", address=" + address
+		return "ReceiptVo [no=" + no + ", userNo=" + userNo + ", express=" + express + ", address=" + address
 				+ ", totalPrice=" + totalPrice + ", paymentDate=" + paymentDate + ", payment=" + payment + "]";
 	}
 

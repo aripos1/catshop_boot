@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.javaex.dao.HOrderDao;
 import com.javaex.vo.ItemVo;
@@ -28,22 +29,24 @@ public class HOrderService {
     }
     
 
-    // 영수증 저장
-    public int saveReceipt(int userNo, String address, int totalPrice, String paymentMethod) {
+    // 영수증 저장 (receipt 테이블에 저장)
+    @Transactional
+    public int saveReceipt(int userNo, String address, int totalPrice, String paymentMethod, String express) {
         ReceiptVo receiptVo = new ReceiptVo();
         receiptVo.setUserNo(userNo);
         receiptVo.setAddress(address);
         receiptVo.setTotalPrice(totalPrice);
         receiptVo.setPayment(paymentMethod);
         receiptVo.setPaymentDate(new Date());
-        receiptVo.setExp("주문완료");  // 배송 상태 초기값 설정
-        
+        receiptVo.setExpress(express);  // 배송 상태 초기값
+        System.out.println(receiptVo);
         hOrderDao.insertReceipt(receiptVo);
-
-        return receiptVo.getReceiptNo();  // 저장된 영수증 번호 반환
+        System.out.println(receiptVo);
+        return receiptVo.getNo();  // 저장된 영수증 번호 반환
     }
 
-    // 아이템 저장
+    // 상품 저장 (item 테이블에 저장)
+    @Transactional
     public void saveItem(ShoppingVo item, int receiptNo) {
         ItemVo itemVo = new ItemVo();
         itemVo.setReceiptNo(receiptNo);
@@ -51,7 +54,7 @@ public class HOrderService {
         itemVo.setEachPrice(item.getPrice());
         itemVo.setTaste(item.getTaste());
         itemVo.setOptionsNo(item.getOptionsNo());
-
-        hOrderDao.insertItem(itemVo);  // DB에 저장
+        System.out.println(itemVo);
+        hOrderDao.insertItem(itemVo);
     }
 }

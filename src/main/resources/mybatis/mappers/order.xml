@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="order">
 
-	<insert id="insertReceipt" parameterType="ReceiptVo">
-		INSERT INTO receipt (no, user_no, express, address, total_price, payment_date, payment )
-		VALUES (null, #{userNo}, #{express}, #{address}, #{totalPrice}, #{paymentDate}, #{payment})
+	<!-- 영수증 삽입 -->
+	<insert id="insertReceipt" parameterType="com.javaex.vo.ReceiptVo" useGeneratedKeys="true" keyProperty="no">
+		INSERT INTO receipt (user_no, express, address, total_price, payment_date, payment)
+		VALUES (#{userNo}, #{express}, #{address}, #{totalPrice}, #{paymentDate}, #{payment})
 	</insert>
 
-	<insert id="insertItem" parameterType="ItemVo">
-		INSERT INTO item (no, amount, each_price, taste, options_no, receipt_no,)
-		VALUES (null, #{count}, #{eachPrice}, #{taste}, #{optionsNo}, #{receiptNo})
+	<!-- 상품 항목 삽입 -->
+	<insert id="insertItem" parameterType="com.javaex.vo.ItemVo">
+		INSERT INTO item (amount, each_price, taste, options_no, receipt_no)
+		VALUES (#{amount}, #{eachPrice}, #{taste}, #{optionsNo}, #{receiptNo})
 	</insert>
-
-
-
 
 </mapper>

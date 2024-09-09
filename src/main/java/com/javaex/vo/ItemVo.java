@@ -2,7 +2,7 @@ package com.javaex.vo;
 
 public class ItemVo {
 
-	private int itemNo;
+	private int no;
 	private int amount;
 	private int eachPrice;
 	private String taste;
@@ -13,9 +13,10 @@ public class ItemVo {
 		super();
 	}
 
-	public ItemVo(int itemNo, int amount, int eachPrice, String taste, int optionsNo, int receiptNo) {
+
+	public ItemVo(int no, int amount, int eachPrice, String taste, int optionsNo, int receiptNo) {
 		super();
-		this.itemNo = itemNo;
+		this.no = no;
 		this.amount = amount;
 		this.eachPrice = eachPrice;
 		this.taste = taste;
@@ -23,13 +24,17 @@ public class ItemVo {
 		this.receiptNo = receiptNo;
 	}
 
-	public int getItemNo() {
-		return itemNo;
+	
+
+	public int getNo() {
+		return no;
 	}
 
-	public void setItemNo(int itemNo) {
-		this.itemNo = itemNo;
+
+	public void setNo(int no) {
+		this.no = no;
 	}
+
 
 	public int getAmount() {
 		return amount;
@@ -71,10 +76,12 @@ public class ItemVo {
 		this.receiptNo = receiptNo;
 	}
 
+
 	@Override
 	public String toString() {
-		return "ItemVo [itemNo=" + itemNo + ", amount=" + amount + ", eachPrice=" + eachPrice + ", taste=" + taste
+		return "ItemVo [no=" + no + ", amount=" + amount + ", eachPrice=" + eachPrice + ", taste=" + taste
 				+ ", optionsNo=" + optionsNo + ", receiptNo=" + receiptNo + "]";
 	}
+
 
 }
