@@ -23,19 +23,19 @@
             
                 <div id="loginFormBox">
 
-                    <form>
+                    <form action="${pageContext.request.contextPath}/user/login" method="get">
                         
-                            <label for="username">아이디</label>
-                            <input type="text" id="username" placeholder="아이디를 입력하세요" required><!--입력하지 않고 로그인버튼을 누르면 입력하세요 라고 하는 기능이 존재합니다. -->
+                            <label class="form-text" for="input-id">아이디</label>
+                            <input type="text" id="input-id" name="id" value="" placeholder="아이디를 입력하세요" required><!--입력하지 않고 로그인버튼을 누르면 입력하세요 라고 하는 기능이 존재합니다. -->
 
-                            <label for="password">비밀번호</label>
-                            <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+                            <label class="form-text" for="input-password">비밀번호</label>
+                            <input type="text" id="input-password" name="password" value="" placeholder="비밀번호를 입력하세요" required>
                             <br>
                             <button type="submit">로그인</button>
                         
                     </form>
                     <p class="joinMsg">아직 회원이 아니신가요?</p>
-                       <p class="joinrequest"><a href="회원가입으로 이동">가입하세요!</a></p>
+                       <p class="joinrequest"><a href="">가입하세요!</a></p>
                     <!--footer-->
                     <c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
                         </div>

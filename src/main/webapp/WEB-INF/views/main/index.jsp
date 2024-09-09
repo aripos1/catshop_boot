@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -32,18 +33,14 @@
     <section class="product-list">
         <h2>사료</h2>
         <div class="products">
+         <c:forEach var="product" items="${dgoodsList}" varStatus="status">
+    		<c:if test="${status.index < 3}">
             <div class="product">
-                <img src="${pageContext.request.contextPath}/assets/images/adult-food/1$royalcanin.jpg" alt="사료">
-                <p>사료가정 1<br>32,000원</p>
+               <img src="${product.filePath}/${product.saveName}" alt="${product.name}">
+               <p>${product.name}</p><br><p>${product.regDate}</p><p>${product.price}원</p>
             </div>
-            <div class="product">
-                <img src="${pageContext.request.contextPath}/assets/images/adult-food/1$royalcanin.jpg" alt="사료사진2">
-                <p>사료가정 2<br>32,000원</p>
-            </div>
-            <div class="product">
-                <img src="${pageContext.request.contextPath}/assets/images/adult-food/1$royalcanin.jpg" alt="사료사진3">
-                <p>사료가정 3 <br>32,000원</p>
-            </div>
+            </c:if>
+           </c:forEach>
             
         </div>
 

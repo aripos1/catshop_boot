@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<mapper namespace="Dgoods">
+
+	<select id="selectGoods" resultType="com.javaex.vo.GoodsVo">
+		
+		<![CDATA[
+			select	 no
+        			,category
+        			,name
+        			,content
+        			,price
+        			,date(reg_date) as regDate
+        			,save_name as saveName
+        			,file_path as filePath 
+        			,user_no
+			from goods
+			order by reg_date desc
+    	]]>
+		
+	</select>
+	
+	</mapper>
