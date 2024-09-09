@@ -36,7 +36,7 @@
              
             <c:if test="${sessionScope.authUser != null}">
             <div class="menu">
-              <p>${sessionScope.authUser.no}</p><p>${sessionScope.authUser.name}집사님 어서오세요.</p>
+              <p>${sessionScope.authUser.no}</p> <p>${sessionScope.authUser.hp}</p> <p>${sessionScope.authUser.address}</p> ${sessionScope.authUser.name}집사님 어서오세요.</p>
                 <button>장바구니</button>
                 <button>마이페이지</button>
                <a href="${pageContext.request.contextPath}/user/logout" id="logoutBtn" class="button">로그아웃</a>

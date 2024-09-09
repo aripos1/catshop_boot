@@ -18,7 +18,9 @@
 	<select id="selectByIdPW" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
 		<![CDATA[
 			select 	no,
-					name
+					name,
+					hp,
+					address
 			from user
 			where id = #{id}
 			and password = #{password}

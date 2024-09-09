@@ -36,7 +36,7 @@
          <c:forEach var="product" items="${dgoodsList}" varStatus="status">
     		<c:if test="${status.index < 3}">
             <div class="product">
-               <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
+               <img src="catshop/upload/shutterstock_2205178589-1-1.png" alt="${product.name}">
                <p>${product.name}</p><br><p>${product.regDate}</p><p>${product.price}원</p>
             </div>
             </c:if>
