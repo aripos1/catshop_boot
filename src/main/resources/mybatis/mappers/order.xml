@@ -6,14 +6,31 @@
 
 	<!-- 영수증 삽입 -->
 	<insert id="insertReceipt" parameterType="com.javaex.vo.ReceiptVo" useGeneratedKeys="true" keyProperty="no">
-		INSERT INTO receipt (user_no, express, address, total_price, payment_date, payment)
+		INSERT INTO receipt (user_no, express, address,
+		total_price, payment_date, payment)
 		VALUES (#{userNo}, #{express}, #{address}, #{totalPrice}, #{paymentDate}, #{payment})
 	</insert>
 
 	<!-- 상품 항목 삽입 -->
 	<insert id="insertItem" parameterType="com.javaex.vo.ItemVo">
 		INSERT INTO item (amount, each_price, taste, options_no, receipt_no)
-		VALUES (#{amount}, #{eachPrice}, #{taste}, #{optionsNo}, #{receiptNo})
+		VALUES (#{amount}, #{eachPrice}, #{taste},
+		#{optionsNo}, #{receiptNo})
 	</insert>
+
+
+	<!-- 최신 영수증 조회 -->
+	<select id="getLatestReceipt" resultType="com.javaex.vo.ReceiptVo">
+		SELECT *
+		FROM receipt
+		WHERE no = (SELECT MAX(no) FROM receipt)
+	</select>
+
+	<!-- 해당 영수증의 상품 목록 조회 -->
+	<select id="getItemsByReceiptNo" resultType="com.javaex.vo.ItemVo">
+		SELECT *
+		FROM item
+		WHERE receipt_no = #{receiptNo}
+	</select>
 
 </mapper>

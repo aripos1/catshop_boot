@@ -9,104 +9,80 @@
 <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/imorderlist.css" rel="stylesheet" type="text/css">
 <title>주문 목록</title>
-
 </head>
 <body>
 	<div id="wrap">
 
 		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
-
 		<div id="container" class="clearfix">
-			<!-- 왼쪽 사이드바 -->
 			<div class="sidebar">
 				<h2>MYPAGE</h2>
 				<a href="#">주문 목록</a> <a href="#">회원 정보</a>
 			</div>
 
-			<!-- 메인 콘텐츠 영역 -->
 			<div class="content">
-
 				<h1>주문 목록</h1>
 
-				<!-- 검색창 -->
-				<div class="search-bar">
-					<select id="searchCriteria">
-						<option>목록</option>
-						<option value="productName">상품명으로 검색</option>
-						<option value="productContent">상품내용으로 검색</option>
-					</select> <input type="text" id="searchInput" placeholder="검색어를 입력하세요">
-					<button onclick="search()">검색</button>
-				</div>
-
-				<!-- 최근 기간 선택 버튼 -->
-				<div class="date-filter">
-					<button>최근 6개월</button>
-					<button>2024</button>
-					<button>2023</button>
-					<button>2022</button>
-				</div>
-
-				<!-- 주문 목록 테이블 -->
+				<!-- 최신 구매한 상품과 나머지 주문 개수 -->
+				<h2>최근 구매한 상품</h2>
 				<table>
 					<thead>
 						<tr>
 							<th>주문일자</th>
-							<th colspan="2">상품 정보</th>
+							<th>상품 정보</th>
 							<th>배송 상태</th>
 							<th>상세 보기</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td>2024-09-01</td>
-							<td><img src="../../assets/images/복숭아냐옹이.jfif" alt="상품 A 이미지"></td>
-							<td>상품 A<br>옵션: 부들부들푸딩
-							</td>
-							<td><a href="https://www.cjlogistics.com/ko/tool/parcel/tracking"> 배송중</a></td>
+							<td>${latestReceipt.paymentDate}</td>
 							<td>
-								<button>물품 수령</button>
-								<button>리뷰 작성</button>
+								<c:forEach items="${latestItems}" var="item">
+									${item.goodsName} (${item.taste})<br>
+								</c:forEach>
 							</td>
-						</tr>
-						<tr>
-							<td>2024-08-15</td>
-							<td><img src="../../assets/images/복숭아냐옹이.jfif" alt="상품 A 이미지"></td>
-							<td>상품 B<br>옵션: 초코맛
-							</td>
-							<td>배송 완료</td>
-							<td>
-								<button>물품 수령</button>
-								<button>리뷰 작성</button>
-							</td>
+							<td>${latestReceipt.express}</td>
+							<td><a href="orderDetail?receiptNo=${latestReceipt.no}">상세보기</a></td>
 						</tr>
 					</tbody>
 				</table>
-				<!-- 주문 목록 테이블 -->
-				<div id="paging">
-					<ul>
-						<li>◀</li>
-						<li>1</li>
-						<li>2</li>
-						<li>3</li>
-						<li>4</li>
-						<li>5</li>
-						<li>6</li>
-						<li>7</li>
-						<li>8</li>
-						<li>9</li>
-						<li>10</li>
-						<li>▶</li>
-					</ul>
-				</div>
+				
+				<p>나머지 주문 ${remainingOrderCount}개</p>
 
+				<!-- 전체 주문 내역 -->
+				<h2>주문 내역</h2>
+				<table>
+					<thead>
+						<tr>
+							<th>주문일자</th>
+							<th>상품 정보</th>
+							<th>배송 상태</th>
+							<th>상세 보기</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${receiptList}" var="receipt">
+							<tr>
+								<td>${receipt.paymentDate}</td>
+								<td>
+									<c:forEach items="${itemList}" var="item">
+										<c:if test="${item.receiptNo == receipt.no}">
+											${item.goodsName} (${item.taste})<br>
+										</c:if>
+									</c:forEach>
+								</td>
+								<td>${receipt.express}</td>
+								<td><a href="orderDetail?receiptNo=${receipt.no}">상세보기</a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
 			</div>
-			<!--content-->
 		</div>
-		<!--container-->
+
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
-		<!-- //footer -->
 	</div>
-	<!--wrap-->
 </body>
 </html>

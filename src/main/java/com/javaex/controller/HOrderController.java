@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.HOrderService;
 import com.javaex.service.ShoppingService;
+import com.javaex.vo.ItemVo;
+import com.javaex.vo.ReceiptVo;
 import com.javaex.vo.ShoppingVo;
 import com.javaex.vo.UserVo;
 
@@ -89,13 +91,26 @@ public class HOrderController {
 		model.addAttribute("selectedItems", selectedItems);
 		model.addAttribute("totalAmount", totalAmount);
 		model.addAttribute("buyer", buyer);
+		
+		
 
-		return "order/orderList"; // 결제 성공 후 리스트 페이지로 이동
+		return "/order/orderList"; // 결제 성공 후 리스트 페이지로 이동
 	}
+	
 	@RequestMapping(value = "/orderlist", method = { RequestMethod.GET, RequestMethod.POST })
-	public String orderlist() {
+	public String orderList(Model model) {
+	    // 최신 영수증 가져오기
+	    ReceiptVo latestReceipt = hOrderService.getLatestReceipt();
 
-		return "/order/orderList";
+	    if (latestReceipt != null) {
+	        // 최신 영수증에 연결된 상품 목록 가져오기
+	        List<ItemVo> latestItems = hOrderService.getItemsByReceiptNo(latestReceipt.getNo());
+
+	        model.addAttribute("latestReceipt", latestReceipt);
+	        model.addAttribute("latestItems", latestItems);
+	    }
+
+	    return "/order/orderList";
 	}
 
 	@RequestMapping(value = "/orderdetail", method = { RequestMethod.GET, RequestMethod.POST })

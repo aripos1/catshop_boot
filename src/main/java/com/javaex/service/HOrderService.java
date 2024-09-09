@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.javaex.dao.HOrderDao;
+import com.javaex.dao.ShoppingDao;
 import com.javaex.vo.ItemVo;
 import com.javaex.vo.ReceiptVo;
 import com.javaex.vo.ShoppingVo;
@@ -19,6 +20,9 @@ public class HOrderService {
 
     @Autowired
     private HOrderDao hOrderDao;
+    
+    @Autowired
+    private ShoppingDao shoppingDao;
 
     public List<ShoppingVo> getSelectedShoppingItems(Map<String, Object> params) {
         return hOrderDao.getSelectedShoppingItems(params);
@@ -57,4 +61,13 @@ public class HOrderService {
         System.out.println(itemVo);
         hOrderDao.insertItem(itemVo);
     }
+
+    public ReceiptVo getLatestReceipt() {
+        return hOrderDao.getLatestReceipt();
+    }
+
+    public List<ItemVo> getItemsByReceiptNo(int receiptNo) {
+        return hOrderDao.getItemsByReceiptNo(receiptNo);
+    }
+    
 }

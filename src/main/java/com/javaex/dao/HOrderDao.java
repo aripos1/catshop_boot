@@ -37,4 +37,13 @@ public class HOrderDao {
     public void insertItem(ItemVo itemVo) {
         sqlSession.insert("order.insertItem", itemVo);
     }
+    
+    public ReceiptVo getLatestReceipt() {
+        return sqlSession.selectOne("order.getLatestReceipt");
+    }
+
+    // 특정 영수증에 연결된 상품 목록 가져오기
+    public List<ItemVo> getItemsByReceiptNo(int receiptNo) {
+        return sqlSession.selectList("order.getItemsByReceiptNo", receiptNo);
+    }
 }
