@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+#content{width: 100%;}
+#wrap{ margin: 0px auto; width: 1000px;}
+#sub_title{width: 1000px; padding-top: 20px; border-bottom: 3px solid #e3e3e3;}
+#list-table{width: 1000px; padding-top: 20px;}
+#pagingArea{width: 1000px;}
+
+/* 상단 타이틀 부분(검색창) */
+
+#wrap #content #sub_title{
+    /* background-color: bisque; */
+}
+
+#wrap #content #sub_title #name_title h1{
+    float: left;
+    margin: 10px 0px 0px 10px;
+    /* text-decoration: underline; */
+    /* text-decoration-color: #ffe2e2; */
+    font-size: px;
+    
+}
+
+/*카테고리 선택 */
+
+#wrap #content #sub_title #form-group{
+    padding-bottom: 10px;
+}
+
+
+#wrap #content #sub_title #form-group #search_menu{
+    float: right;
+    margin-right: 10px;
+    padding: 5px 5px;
+    width: 130px;
+    border-radius: 5px;
+}
+
+#wrap #content #sub_title #form-group #serch_text{
+    float: right;
+    margin-right: 17px;
+}
+
+#wrap #content #sub_title #form-group #serch_text input{
+    width: 200px;
+    font-size: 13px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+#wrap #content #sub_title #form-group #serch_text button{
+    padding: 4px 8px;
+    width: 50px;
+    border-radius: 3px;
+}
+
+/* 테이블 1개 */
+
+#wrap #content #list-table{
+    /* background-color:darkorchid */
+    
+    
+
+}
+
+#wrap #content #list-table table{
+    padding: 10px 0;
+    margin: 0px 0px 0px 22px;
+    font-size: 15px;
+
+    border-collapse: collapse;
+
+}
+
+#wrap #content #list-table table th,td:not(:last-child){
+    padding: 3px 0px;
+    border: 1px solid #000000;
+    
+}
+
+#wrap #content #list-table table #btn-delete{
+    padding: 1px 8px;
+    margin-left: 15px;
+    border-radius: 3px;
+    background-color:rgb(246, 221, 226);
+}
+
+#wrap #content #list-table table th{
+    background-color: rgb(252, 228, 216);
+}
+
+
+/* 페이징 */
+
+
+#pagingArea #paging{
+    /* background-color: cadetblue; */
+
+}
+
+#paging ul{
+   /* background-color: chartreuse; */
+    width: 310px;
+    margin-left: 345px;
+    padding: 20px 0px;
+    padding-left: 37px;
+}
+
+#paging ul>li{
+    float: left;
+    margin: 0px 5px;
+
+    font-size: 15px;
+    font-weight: bolder;
+    
+}
+
+#pagingArea #paging .page_move{
+    font-size: 10px;
+
+}

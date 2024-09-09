@@ -12,12 +12,18 @@ public class GoodsVo {
 	private String taste;
 	private String saveName;
 	private String filePath;
+	private String keyword;
 	
 
 	//생성자
 		
 	public GoodsVo() {
-		super();
+		
+	}
+	
+	public GoodsVo(String category, String keyword) {
+		this.category = category;
+		this.keyword = keyword;
 	}
 	
 	public GoodsVo(int no, String category, String name, String content, int price, String regDate, String taste,
@@ -37,8 +43,18 @@ public class GoodsVo {
 		
 	//메서드gs
 	
+	
+	
 	public int getNo() {
 		return no;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 
 	public void setNo(int no) {
@@ -109,6 +125,7 @@ public class GoodsVo {
 		this.filePath = filePath;
 	}
 
+	
 
 	
 	//메서드 일반
@@ -116,8 +133,8 @@ public class GoodsVo {
 	public String toString() {
 		return "GoodsVo [no=" + no + ", category=" + category + ", name=" + name + ", content=" + content + ", price="
 				+ price + ", regDate=" + regDate + ", taste=" + taste + ", saveName=" + saveName + ", filePath="
-				+ filePath + "]";
-	}	
-	
+				+ filePath + ", keyword=" + keyword + "]";
+	}
+
 	
 }

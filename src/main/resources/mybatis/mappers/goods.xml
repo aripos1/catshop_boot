@@ -21,5 +21,73 @@
     	]]>
 		
 	</select>
-
+	
+	<!-- 총 글 갯수 -->
+	<select id="selectTotalCnt" resultType="int">
+		
+		<![CDATA[
+			select count(*) count
+			from goods		
+		]]>
+		
+	</select>
+	
+	<select id="selectList" parameterType="map" resultType="com.javaex.vo.GoodsVo">
+	
+		<![CDATA[
+			select	 no
+        			,category
+        			,name
+        			,content
+        			,price
+        			,reg_date
+        			,save_name
+        			,file_path
+        			,user_no
+			from goods
+			where 1=1
+		]]>
+		
+		<if test="category != null">
+		
+			<![CDATA[
+				or category like #{category}
+			]]>	
+		</if>
+		<if test="keyword != null">
+		
+			<![CDATA[
+				or name like concat('%', #{keywore}, '%')
+			]]>
+		</if>
+		<if test="keyword != null">
+		
+			<![CDATA[
+				or content like concat('%', #{keywore}, '%')
+			]]>
+		</if>
+		
+		<![CDATA[
+			limit #{startRowNo}, #{listcnt}
+		]]>
+		
+	
+	</select>
+	
+	<select id="goodsTotalCount" parameterType="com.javaex.vo.GoodsVo" resultType="int">
+		<![CDATA[
+			
+			select count(*)
+			from goods
+			where category like #{category}
+			or name like concat('%', #{keyword}, '%')
+			or content like concat('%', #{keyword}, '%')
+		
+		]]>
+	
+	</select>
+	
+	
+	
+	
 </mapper>

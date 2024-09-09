@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+	<mapper namespace="admingoodslist">
+	
+		<select id="adminselectgoodsList" parameterType="map" resultType="com.javaex.vo.GoodsVo">
+	
+			<![CDATA[
+			
+			select	 no
+        			,category
+        			,name
+        			,content
+        			,price
+        			,reg_date
+        			,save_name
+        			,file_path
+        			,user_no
+			from goods
+			where 1=1	
+				]]>
+			<if test="category != null">
+			
+				<![CDATA[
+					and category = #{jseachVo.category}
+				]]>
+			</if>
+		
+	    
+	    </select>
+	    
+	    <!-- 글 전체 갯수 -->
+	    <select id="admingoodstotalcountAll" resultType="int">
+	    
+		    	<![CDATA[
+		    		
+		    		select count(*) count
+					from goods
+					where 1=1
+		    		
+		    	]]>
+	    	<if test= "category != null">
+		
+				<![CDATA[
+					and category like #{category}
+				]]>	
+			</if>
+			<if test="keyword != null">
+		
+				<![CDATA[
+					and name like concat('%', #{keyword}, '%')
+					or content like concat('%', #{keyword}, '%')
+				]]>	
+			</if>
+				
+				
+	    
+	    </select>
+	    
+	
+	</mapper>
