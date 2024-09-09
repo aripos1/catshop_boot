@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="admin">
+
+<resultMap id="resultMapPAdminVo" type="com.javaex.vo.PAdminVo">
+		<result column="no" property="no" />
+		<result column="category" property="category" />
+		<result column="name" property="name" />
+		<result column="content" property="content" />
+		<result column="price" property="price" />
+		<result column="reg_date" property="regDate" />
+		<result column="save_namef" property="saveName1" />
+		<result column="file_pathf" property="filePath1" />
+		<result column="save_nameb" property="saveName2" />
+		<result column="file_pathb" property="filePath2" />
+	</resultMap>
+	
+	
+	<insert id="insert" parameterType="map">
+		<![CDATA[
+			insert into goods 
+values(null,#{category}, #{name}, #{content}, #{price}, now(), #{saveNamef},#{filePathf}, #{saveNameb},#{filePathb}, 1);
+		]]>
+	
+	</insert>
+
+
+
+
+</mapper>

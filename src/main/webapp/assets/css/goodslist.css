@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+/* 레이아웃 */
+#wrap{ margin: 0px auto; width: 1000px;}
+#title{ width: 1000px; border-bottom: 3px solid #ffe2e2;}
+#content{width: 100%; }
+#gallery{width: 1000px;}
+#pagingArea{width: 1000px;}
+
+
+/* 상단 페이지이름, 상품 총 갯수 #e3e3e3 */
+
+#wrap #content #title #location #page_name{
+    /* display: inline-block; */
+    text-decoration: underline;
+    text-decoration-color: #e3e3e3;
+    font-size: 25px;
+    /* background-color: aqua; */
+    margin: 10px 0 0 10px;
+    float: left;
+    
+}
+
+
+#wrap #title #totalcount{
+    /* background-color: aquamarine; */
+
+    margin: 20px 0 0 10px;
+    float: left;
+    margin-right: 120px;
+    padding-bottom: 20px;
+    
+    
+}
+
+#viewArea{
+    /* background-color: blueviolet; */
+    padding-top: 10px;
+
+}
+
+#gallery{
+    border-bottom: 3px solid #ffe2e2;
+
+}
+
+/*상단 꾸미기*/
+
+#content #title-dec ul>li{
+    float: right;
+    padding-left: 8px;
+}
+
+#content #title-dec ul{
+    margin-right: 10px;
+    padding-bottom: 10px;
+}
+
+#content #title-dec .main-titletext{
+    font-size: 15px;
+    color: rgb(135, 129, 129);
+}
+
+
+
+
+/* 이미지1개 영역 */
+#content .view{
+    /* background-color: coral; */
+    width: 280px;
+    height: 380px;
+    margin: 5px 0px 10px 40px;
+    float: left;
+    border: 2px solid #e3e3e3;
+    padding-bottom: 5px;
+}
+
+#gallery #viewArea .view .imgItem{
+    width: 250px;
+    height: 260px;
+    margin: 10px 10px 7px 15px;
+}
+
+#gallery #viewArea .view .imgName{
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#gallery #viewArea .view .imgContent{
+    text-align: center;
+}
+#gallery #viewArea .view .imgPrice{
+    text-align: center;
+}
+
+
+
+/* 페이징 */
+
+
+#pagingArea #paging{
+    /* background-color: cadetblue; */
+
+}
+
+#paging ul{
+   /* background-color: chartreuse; */
+    width: 310px;
+    margin-left: 345px;
+    padding: 20px 0px;
+    padding-left: 37px;
+}
+
+#paging ul>li{
+    float: left;
+    margin: 0px 5px;
+
+    font-size: 15px;
+    font-weight: bolder;
+    
+}
+
+#pagingArea #paging .page_move{
+    font-size: 10px;
+
+}
+
+
+

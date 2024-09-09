@@ -10,72 +10,77 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
 
-        <link href="../../assets/css/reset.css" rel="stylesheet">
-        <link href="../../assets/css/header.css" rel="stylesheet">
-        <link href="../../assets/css/footer.css" rel="stylesheet">
-        <link href="../../assets/css/Jjingoodslist.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/assets/css/header.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/assets/css/footer.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/assets/css/goodslist.css" rel="stylesheet" type="text/css">
 
 
     </head>
 
     <body>
         <div id="wrap">
-            <!--header 부분-->
-            <header id ="header">
-                <div class="header-container">
-                    <div class="logo">
-                        <img src="../../assets/images/Layer 1.png" alt="고양이 로고">
-                        <h1>야옹이 멍멍해봐</h1>
-                    </div>
-                
-                    <!-- 비회원     -->
-                    <div class="menu">
-                        <button>로그인</button>
-                        <button>회원가입</button>
-                    </div>
-                
-                    <!-- 회원 
-                    <div class="menu">
-                        <P>집사님 어서오세요.</P>
-                        <button>마이페이지</button>
-                        <button>로그아웃</button>
-                    </div>
-                     -->
-                    <!-- 관리자 
-                    <div class="menu">
-                        <P>관리자님 어서오세요.</P>
-                        <button>상품등록</button>
-                        <button>상품관리</button>
-                        <button>주문관리</button>
-                        <button>로그아웃</button>
-                    </div>
-               -->
-                    <br>
-                    <div class="search">
-                        <input type="text" placeholder="문자열을 검색하세요!">
-                        <button class="search-btn">🔍</button>
-                    </div>
-                </div>
-                
-                <div class="nav-menu">
-                    <ul>
-                        <li><h2>사료</h2></li>
-                        <li><a href="#">성인묘</a></li>
-                        <li><a href="#">아가묘</a></li>
-                        <li><h2>간식</h2></li>
-                        <li><a href="#">캔</a></li>
-                        <li><a href="#">츄르</a></li>
-                    </ul>
-                </div>
-        
-            </header>
+            
+		            <!-- 헤더 섹션 -->
+		    <header id ="header">
+		        <div class="header-container">
+		            <div class="logo">
+		                <img src="../../assets/images/Layer 1.png" alt="고양이 로고">
+		                <h1>야옹이 멍멍해봐</h1>
+		            </div>
+		        
+		            <!-- 비회원     -->
+		            <div class="menu">
+		                <button>로그인</button>
+		                <button>회원가입</button>
+		            </div>
+		        
+		            <!-- 회원 
+		            <div class="menu">
+		                <P>집사님 어서오세요.</P>
+		                <button>장바구니</button>
+		                <button>마이페이지</button>
+		                <button>로그아웃</button>
+		            </div>
+		             -->
+		            <!-- 관리자 
+		            <div class="menu">
+		                <P>관리자님 어서오세요.</P>
+		                <button>상품등록</button>
+		                <button>상품관리</button>
+		                <button>주문관리</button>
+		                <button>로그아웃</button>
+		            </div>
+		       -->
+		            <br>
+		            <form action="${pageContext.request.contextPath}/goods/list2?category=${param.category}">
+			            <div class="search">
+			                <input type="text" name="keyword" value="" placeholder="문자열을 검색하세요!">
+			                <button type="submit" class="search-btn">🔍</button>
+			            </div>
+			        </form>
+		        </div>
+		        
+		        <div class="nav-menu">
+		            <ul>
+		                <li><h2>사료</h2></li>
+		                <li><a href="#">성인묘</a></li>
+		                <li><a href="#">아가묘</a></li>
+		                <li><h2>간식</h2></li>
+		                <li><a href="#">캔</a></li>
+		                <li><a href="#">츄르</a></li>
+		            </ul>
+		        </div>
+		
+		    </header>
+            
             <!--/header 부분-->
             <div id="content">
                 <!-- 상단-->
                 <div id="title">
                     <div id="location" class="clearfix">
-                        <h1 id="page_name"><a href=""> AdultFood </a></h1>
-                        <p id="totalcount"> 상품 42개 </p>
+                        <h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> AdultFood </a></h1>
+                        <p id="totalcount"> 상품 ${requestScope.pMap.goodsTotalCnt}개 </p>
                     </div>
                     <div id="title-dec">
                         <ul class="clearfix">
@@ -91,58 +96,20 @@
                 <!--- 이미지 반복 영역 -->
                 <div id="gallery">
                     <ul id="viewArea" class="clearfix">
-                        <li>
-                            <a href="">
-                                <div class="view">
-                                    <img class="imgItem" src="../../assets/images/logo.png">
-                                    <div class="imgName">상품이름(name)</div>
-                                    <div class="imgContent">상품설명(content)</div>
-                                    <div class="imgPrice">가격(price)</div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="view">
-                                <img class="imgItem" src="../../assets/images/download.jfif">
-                                <div class="imgName">상품이름(name)</div>
-                                <div class="imgContent">상품설명(comtent)</div>
-                                <div class="imgPrice">가격(price)</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="view">
-                                <img class="imgItem" src="../../assets/images/download.jfif">
-                                <div class="imgName">상품이름(name)</div>
-                                <div class="imgContent">상품설명(comtent)</div>
-                                <div class="imgPrice">가격(price)</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="view">
-                                <img class="imgItem" src="../../assets/images/download.jfif">
-                                <div class="imgName">상품이름(name)</div>
-                                <div class="imgContent">상품설명(comtent)</div>
-                                <div class="imgPrice">가격(price)</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="view">
-                                <img class="imgItem" src="../../assets/images/download.jfif">
-                                <div class="imgName">상품이름(name)</div>
-                                <div class="imgContent">상품설명(comtent)</div>
-                                <div class="imgPrice">가격(price)</div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="view">
-                                <img class="imgItem" src="../../assets/images/download.jfif">
-                                <div class="imgName">상품이름(name)</div>
-                                <div class="imgContent">상품설명(comtent)</div>
-                                <div class="imgPrice">가격(price)</div>
-                            </div>
-                        </li>
+                        
+                       <c:forEach items="${requestScope.pMap.goodsList2}" var="goodsVo" >
+	                        <li>
+	                            <a href="">
+	                                <div class="view">
+	                                    <img class="imgItem" src="${pageContext.request.contextPath}/assets/images/">
+	                                    <div class="imgName">${goodsVo.name}</div>
+	                                    <div class="imgContent">${goodsVo.content}</div>
+	                                    <div class="imgPrice">${goodsVo.price}</div>
+	                                </div>
+	                            </a>
+	                        </li>
+                       </c:forEach>
                     </ul>
-                    
                 </div>
                 <!--- /이미지 반복 영역 끝 -->
 
@@ -150,18 +117,26 @@
                 <div id="pagingArea">    
                     <div id="paging">
                         <ul class="clearfix">
-                            <li class="page_move"><a href="">◀</a></li>
-                            <li><a href="">1</a></li>
-                            <li>2</li>
-                            <li>3</li>
-                            <li>4</li>
-                            <li>5</li>
-                            <li>6</li>
-                            <li>7</li>
-                            <li>8</li>
-                            <li>9</li>
-                            <li>10</li>
-                            <li class="page_move"><a href="">▶</a></li>
+                            <c:if test="${requestScope.pMap.prev}">
+                            	<li class="page_move"><a href="${pageContext.request.contextPath}/catshop/list2?page=${requestScope.pMap.startPageBtnNo-1}">◀</a></li>
+                            </c:if>
+                            
+                            <c:forEach begin="${requestScope.pMap.startPageBtnNo }" end="${requestScope.pMap.endPageBtnNo }" step="1" var="page">
+                            	
+                            	<c:choose>
+                            		<c:when test="${param.page == page }">	
+                            			<li class="active"><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&category=${param.category}"> ${page}</a></li>
+                            		</c:when>
+                            		<c:otherwise>
+                            			<li><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&category=${param.category}"> ${page}</a></li>
+                            		</c:otherwise>
+                            	</c:choose>
+                            </c:forEach>
+                            
+                            <c:if test="${requestScope.pMap.next}">
+                            	<li class="page_move"><a href="${pageContext.request.contextPath}/catshop/list2?page=${requestScope.pMap.endPageBtnNo-1}">▶</a></li>
+                            </c:if>
+                            
                         </ul>
                     </div>
                 </div>
