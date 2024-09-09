@@ -45,13 +45,13 @@
 				<tbody id="shoppingCartBody">
 					<c:forEach items="${shoppingList}" var="shoppingVo">
 						<tr id="row-${shoppingVo.shoppingNo}">
-							<td>
-								<input type="checkbox" name="selectedItems" value="${shoppingVo.goodsNo}">
-							</td>
+							<td><input type="checkbox" name="selectedItems" value="${shoppingVo.shoppingNo}"></td>
 							<td><img src="${pageContext.request.contextPath}/assets/images/download.jfif" alt="상품 A 이미지"></td>
-							<td>${shoppingVo.goodsName}<br> 옵션 : ${shoppingVo.taste}</td>
+							<td>${shoppingVo.goodsName}<br> 옵션 : ${shoppingVo.taste}
+							</td>
 							<td class="item-price">${shoppingVo.price}원</td>
-							<td><input type="number" value="${shoppingVo.count}" min="1" style="width: 50px;" data-shopping-no="${shoppingVo.shoppingNo}" onchange="updateQuantity(this)"></td>
+							<td><input type="number" value="${shoppingVo.count}" min="1" style="width: 50px;" data-shopping-no="${shoppingVo.shoppingNo}"
+								onchange="updateQuantity(this)"></td>
 							<td><span class="item-total">${shoppingVo.price * shoppingVo.count}원</span></td>
 							<td><button type="button" class="btn btn-remove" data-shopping-no="${shoppingVo.shoppingNo}">삭제</button></td>
 						</tr>
@@ -121,10 +121,9 @@
 				});
 			});
 
-	        // form 제출 시 체크된 항목만 서버로 전송
+			  // form 제출 시 체크된 항목만 서버로 전송
 	        document.getElementById('cartForm').addEventListener('submit', function(event) {
 	            event.preventDefault();  // 기본 제출 동작 방지
-
 	            const selectedItems = document.querySelectorAll('input[name="selectedItems"]:checked');
 
 	            if (selectedItems.length === 0) {
@@ -133,16 +132,16 @@
 	            }
 
 	            // 선택된 항목만 form에 추가
-	            const form = this;
 	            selectedItems.forEach(item => {
+	                const shoppingNo = item.value;
 	                const input = document.createElement('input');
 	                input.type = 'hidden';
 	                input.name = 'shoppingNo';  // Controller에서 받아야 할 이름
-	                input.value = item.value;
-	                form.appendChild(input);
+	                input.value = shoppingNo;
+	                this.appendChild(input);
 	            });
 
-	            form.submit();  // 폼 제출
+	            this.submit();  // 폼 제출
 	        });
 	    });
 

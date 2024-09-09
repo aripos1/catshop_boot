@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.javaex.vo.ItemVo;
+import com.javaex.vo.ReceiptVo;
 import com.javaex.vo.ShoppingVo;
 import com.javaex.vo.UserVo;
 
@@ -24,5 +26,15 @@ public class HOrderDao {
     // 유저 정보 조회
     public UserVo getUserOne(UserVo userVo) {
         return sqlSession.selectOne("user.selectOne", userVo);
+    }
+    
+    // 영수증 정보를 저장
+    public void insertReceipt(ReceiptVo receiptVo) {
+        sqlSession.insert("order.insertReceipt", receiptVo);
+    }
+
+    // 아이템 정보를 저장
+    public void insertItem(ItemVo itemVo) {
+        sqlSession.insert("order.insertItem", itemVo);
     }
 }

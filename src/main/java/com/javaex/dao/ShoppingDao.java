@@ -42,11 +42,13 @@ public class ShoppingDao {
 		return sqlSession.selectOne("shopping.getPriceByOptionsNo", optionsNo);
 	}
 
-    // 선택된 장바구니 항목 가져오기
-    public List<ShoppingVo> getSelectedShoppingItems(Map<String, Object> params) {
-        return sqlSession.selectList("shopping.selectSelectedItems", params);
+	// 선택된 상품 정보 가져오기
+    public List<ShoppingVo> getSelectedItems(List<Integer> shoppingNos, int userNo) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("shoppingNos", shoppingNos);
+        params.put("userNo", userNo);
+        return sqlSession.selectList("shopping.getSelectedItems", params);
     }
-
     public void updateItemCount(int shoppingNo, int count) {
         Map<String, Object> params = new HashMap<>();
         params.put("shoppingNo", shoppingNo);

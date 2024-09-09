@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.ShoppingService;
 import com.javaex.vo.ShoppingVo;
+import com.javaex.vo.UserVo;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -27,12 +28,12 @@ public class HShoppingController {
 
 	// 장바구니 불러오기
 	@RequestMapping(value = "/shopping/form", method = { RequestMethod.GET, RequestMethod.POST })
-	public String form(@ModelAttribute ShoppingVo shoppingVo, Model model) {
+	public String form(@ModelAttribute ShoppingVo shoppingVo, Model model, HttpSession session) {
 
-		int userNo = 1;
-//		  UserVo loginUser = (UserVo) session.getAttribute("authUser");
-//	      int userNo = loginUser.getNo();  // 로그인한 유저의 번호
-//           
+		
+		  UserVo loginUser = (UserVo) session.getAttribute("authUser");
+	      int userNo = loginUser.getNo();  // 로그인한 유저의 번호
+           
 		// ShoppingVo에 유저 번호 설정
 		shoppingVo.setUserNo(userNo);
 

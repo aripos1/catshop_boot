@@ -57,26 +57,22 @@
 		WHERE no = #{optionsNo}
 	</select>
 
-	<!-- 선택된 장바구니 항목을 가져오는 쿼리 -->
-	<select id="selectSelectedItems" parameterType="map" resultType="com.javaex.vo.ShoppingVo">
+	<select id="getSelectedItems" parameterType="map" resultType="com.javaex.vo.ShoppingVo">
 		SELECT s.no AS shoppingNo,
-		s.user_no AS userNo,
+		s.options_no AS optionsNo,
 		s.count AS count,
-		g.name AS goodsName,
 		g.price AS price,
-		o.taste AS taste
+		o.taste AS taste,
+		g.name AS goodsName
 		FROM shopping s
-		JOIN options o ON
-		s.options_no = o.no
-		JOIN goods g ON o.goods_no = g.no
-		WHERE s.user_no = #{userNo}
-		AND s.no IN
-		<foreach item="item" collection="shoppingNos" open="(" separator="," close=")">
-			#{item}
+		JOIN options o on s.options_no = o.no
+		join goods g on o.goods_no = g.no
+		WHERE s.no IN
+		<foreach item="shoppingNo" collection="shoppingNos" open="(" separator="," close=")">
+			#{shoppingNo}
 		</foreach>
+		AND s.user_no = #{userNo}
 	</select>
-
-
 
 
 </mapper>

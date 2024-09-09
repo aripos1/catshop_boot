@@ -23,6 +23,8 @@
 		</header>
 		<h1>
 			<a href=""> ◀ 상품결제 </a>
+	<form id="paymentform" action="${pageContext.request.contextPath}/order/payment" method="get">
+	
 		</h1>
 		<!-- 구매자 정보-->
 		<h3>구매자 정보</h3>
@@ -41,7 +43,7 @@
 		<table>
 			<tr>
 				<th>받는 사람</th>
-				<td>${buyer.name}</td>
+				<td>${buyer.getName()}</td>
 			</tr>
 			<tr>
 				<th>연락처</th>
@@ -49,10 +51,10 @@
 			</tr>
 			<tr>
 				<th>주소</th>
-				<td>${buyer.address}</td>
+				<td>${buyer.getAddress()}</td>
 			</tr>
 		</table>
-
+	
 		<h3>주문 상품</h3>
 		<table>
 			<thead>
@@ -66,7 +68,7 @@
 			</thead>
 			<tbody>
 			
-				<c:forEach  items="${selectedShoppingList}" var="item">
+				<c:forEach  items="${selectedItems}" var="item">
 					<tr>
 						<td>${item.goodsName}</td>
 						<td>${item.taste}</td>
@@ -105,7 +107,8 @@
 				<input type="radio" name="pay" id="" value="pay">계좌이체
 			</p>
 		</div>
-		<button onclick="submitPayment()">결제하기</button>
+		<button type="submit" id="paymentButton">결제하기</button>
+		   </form>
 	</div>
 
 	<script>

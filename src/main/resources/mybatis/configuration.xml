@@ -13,8 +13,8 @@
 		<mapper resource="mybatis/mappers/goods.xml" />
 		<mapper resource="mybatis/mappers/shopping.xml" />
 		<mapper resource="mybatis/mappers/user.xml" />
-       <mapper resource="mybatis/mappers/Dgoods.xml"/>
-         <mapper resource="mybatis/mappers/horder.xml"/>
+		<mapper resource="mybatis/mappers/Dgoods.xml" />
+	
 	</mappers>
 
 </configuration>

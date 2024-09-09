@@ -72,11 +72,10 @@ public class ShoppingService {
 		return shoppingDao.getPriceByOptionsNo(optionsNo); // DAO에서 가격을 가져오는 메서드 호출
 	}
 
-	  // 선택된 장바구니 항목을 가져오는 메서드
-    public List<ShoppingVo> getSelectedShoppingItems(Map<String, Object> params) {
-        return shoppingDao.getSelectedShoppingItems(params);
+    // 선택된 상품 정보 가져오기
+    public List<ShoppingVo> getSelectedItems(List<Integer> shoppingNos, int userNo) {
+        return shoppingDao.getSelectedItems(shoppingNos, userNo);
     }
-    
     // 수량 업데이트 메서드
     public void updateItemCount(int shoppingNo, int count) {
         shoppingDao.updateItemCount(shoppingNo, count);
