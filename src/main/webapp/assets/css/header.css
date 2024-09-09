@@ -1,10 +1,11 @@
 @charset "UTF-8";
+
 #header {
     /* background-color:  white; */
     /* padding: 20px; */
     /* border-bottom: 1px solid #e0e0e0; */
     /* height: 160px; 전체 헤더 높이를 고정 */
-    margin-bottom: 3px;
+    margin-bottom: 10px;
 }
 
 .header-container {
@@ -28,6 +29,7 @@
     font-size: 24px;
     color: #333;
     vertical-align: middle;
+    font-family: 'HakgyoansimChilpanjiugaeTTF-B';
 }
 
 .menu {
@@ -40,12 +42,14 @@
     color: #555;
     margin-right: 10px;
     display: inline-block;
+
+
 }
 
 .menu button {
     padding: 10px 20px;
     border: none;
-    background-color: #ff6347;
+    background-color: #fc6363;
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -53,7 +57,7 @@
 }
 
 .menu button:hover {
-    background-color: #ff4500;
+    background-color: #ffe2e2;
 }
 
 .search {
@@ -64,26 +68,26 @@
 
 .search input {
     width: 330px;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 8px;
+    border: 1px solid  #ffe2e2;
     border-radius: 5px;
 }
 
 .search button {
-    padding: 10px;
+    padding: 11px;
     border: none;
-    background-color: #ff6347;
+    background-color: #fff0ed;
     color: white;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .search button:hover {
-    background-color: #ff4500;
+    background-color: #fc6363;
 }
 
 .nav-menu {
-    margin-top: 30px;
+    margin: 40px 0px;
    
     text-align: center;
 }
@@ -95,20 +99,22 @@
 
 .nav-menu li {
     display: inline-block; /* 가로로 나열 */
-    margin: 0 30px;
+    margin: 0 40px;
 }
 
 .nav-menu li h2 {
-    font-size: 20px;
+    font-size: 24px;
     color: #333;
+    font-family: 'GangwonEduPowerExtraBoldA';
 }
 
 .nav-menu li a {
     text-decoration: none;
-    font-size: 18px;
-    color: #ff6347;
+    font-size: 20px;
+    color:  #ff9898;
+    font-family: 'HakgyoansimNadeuriTTF-B';
 }
 
 .nav-menu li a:hover {
-    color: #ff4500;
+    color: #fc6363;
 }

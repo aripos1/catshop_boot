@@ -1,0 +1,136 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+/* 메인 콘텐츠 영역 스타일 */
+.content {
+    width: 90%;
+   
+    margin-left: 40px;
+}
+
+.content h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* 검색창 스타일 */
+.search-bar {
+    margin-bottom: 20px;
+}
+
+.search-bar select {
+    
+    padding: 3px;
+    font-size: 1rem;
+    margin-right: 2px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-bar input {
+    padding: 1px;
+    font-size: 1.1rem;
+    margin-right: 2px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    font-size: 1em;
+    background-color: #007bff; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.search-bar button:hover {
+    background-color: #d2b48c; /* 마우스 오버 시 밝은 갈색 */
+}
+
+/* 날짜 필터 스타일 */
+.date-filter {
+    margin-bottom: 10px;
+}
+
+.date-filter button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.date-filter button:hover {
+    background-color: #d2b48c; /* 마우스 오버 시 밝은 갈색 */
+}
+
+
+/* 버튼 스타일 */
+button {
+    background-color: #007bff;; /* 기본 버튼 배경 크림색 */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d2b48c; /* 마우스 오버 시 밝은 갈색 */
+}
+
+/* 주문 목록 테이블 스타일 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color:  #007bff; 
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #ddeafd; /* 짝수 행 배경색 */
+}
+
+        /* 페이지네이션 스타일 */
+#paging {
+    text-align: center;
+    padding: 20px;
+}
+
+#paging ul {
+    list-style: none;
+    padding: 0;
+    display: inline-block;
+}
+
+#paging ul li {
+    display: inline;
+    margin: 0 1px;
+    padding: 5px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+
