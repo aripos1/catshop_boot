@@ -23,25 +23,19 @@
             </div>
         
             <!-- 비회원     -->
-            
-           <c:if test="${sessionScope.authUser == null}">
             <div class="menu">
-            <br>
-               <a href="${pageContext.request.contextPath}/user/loginform" id="logoutBtn" class="button">로그인</a>
-               <a href="${pageContext.request.contextPath}/user/joinform" id="logoutBtn" class="button">회원가입</a>
+                <button>로그인</button>
+                <button>회원가입</button>
             </div>
-        	</c:if>
-        	
-            <!-- 회원-->
-             
-            <c:if test="${sessionScope.authUser != null}">
+        
+            <!-- 회원 
             <div class="menu">
-                <P>${sessionScope.authUser.name}집사님 어서오세요.</P>
+                <P>집사님 어서오세요.</P>
                 <button>장바구니</button>
                 <button>마이페이지</button>
-               <a href="${pageContext.request.contextPath}/user/logout" id="logoutBtn" class="button">로그아웃</a>
+                <button>로그아웃</button>
             </div>
-            </c:if>
+             -->
             <!-- 관리자 
             <div class="menu">
                 <P>관리자님 어서오세요.</P>
@@ -53,7 +47,7 @@
        -->
             <br>
             <div class="search">
-                <input type="text" placeholder="상품을 검색하세요!">
+                <input type="text" placeholder="문자열을 검색하세요!">
                 <button class="search-btn">🔍</button>
             </div>
         </div>

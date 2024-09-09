@@ -1,15 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-	<mapper namespace="shopping">
-	
-		<select id="selectOne" resultType="com.javaex.vo.ShoppingVo">
+
+<mapper namespace="shopping">
+
+	<select id="selectList" resultType="com.javaex.vo.ShoppingVo">
 		
 		<![CDATA[
-			SELECT * 
-			FROM shopping 
-			WHERE userNo = ?
+				SELECT 
+					    s.no AS shoppingNo,
+					    s.user_no AS userNo,
+					    s.count AS count,
+						s.options_no AS optionsNo,
+					    s.pick_date AS pickDate,
+					    g.price AS price,
+					    o.taste AS taste,
+					    g.name as goodsName
+				FROM shopping s
+				JOIN options o on s.options_no = o.no
+				join goods g on o.goods_no = g.no
+				WHERE s.user_no = #{userNo}
     	]]>
-		
-		</select>
-	
-	</mapper>
+
+	</select>
+
+
+	<insert id="addShoppingItem" parameterType="com.javaex.vo.ShoppingVo">
+	   	<![CDATA[
+	    INSERT INTO shopping (no,user_no,options_no, count, pick_date) 
+	    VALUES (null, #{userNo}, #{optionsNo}, #{count}, #{pickDate})
+	    ]]>
+	</insert>
+
+
+	<update id="updateItemCount" parameterType="map">
+     	<![CDATA[
+		    UPDATE shopping
+		    SET count = #{count}
+		    WHERE no = #{shoppingNo}
+        ]]>
+	</update>
+
+
+	<delete id="deleteShoppingItem" parameterType="int">
+		<![CDATA[
+   		 DELETE FROM shopping WHERE no = #{shoppingNo}
+   		 ]]>
+	</delete>
+
+
+	<!-- optionsNo로 상품 가격을 가져오는 쿼리 -->
+	<select id="getPriceByOptionsNo" parameterType="int" resultType="int">
+		SELECT price
+		FROM options
+		WHERE no = #{optionsNo}
+	</select>
+
+	<!-- 선택된 장바구니 항목을 가져오는 쿼리 -->
+	<select id="selectSelectedItems" parameterType="map" resultType="com.javaex.vo.ShoppingVo">
+		SELECT s.no AS shoppingNo,
+		s.user_no AS userNo,
+		s.count AS count,
+		g.name AS goodsName,
+		g.price AS price,
+		o.taste AS taste
+		FROM shopping s
+		JOIN options o ON
+		s.options_no = o.no
+		JOIN goods g ON o.goods_no = g.no
+		WHERE s.user_no = #{userNo}
+		AND s.no IN
+		<foreach item="item" collection="shoppingNos" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+
+
+
+</mapper>
