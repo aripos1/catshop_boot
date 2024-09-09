@@ -85,7 +85,7 @@
                             </div>
 
                             <select id="search_menu" name="category">
-                                <option>카테고리</option>
+                                <option value="">카테고리</option>
                                 <option value="a">a</option>
                                 <option value="d">d</option>
                                 <option value="category">can</option>
@@ -124,9 +124,13 @@
 		                                    <td> ${GoodsVo.regDate} </td>
 		                                    <td> ${GoodsVo.content} </td>
 		                                    <td> ${GoodsVo.price} </td>
-		                                    <td><a href=""><button type="submit" id="btn-delete"> 삭제 </button></a> </td>
+		                                    <form action="${pageContext.request.contextPath}/admin/delete?no=${GoodsVo.no}" method="get">
+		                                    	<td><button type="submit" id="btn-delete"> 삭제 </button> </td>
+		                                    </form>
+		                                    <input type="text" name="no" value="${GoodsVo.no}">
 		                                </tr>
 	                                </c:forEach>
+	                                
                             	</tbody>
                            	
                     </table>

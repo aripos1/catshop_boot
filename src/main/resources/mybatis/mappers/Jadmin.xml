@@ -9,55 +9,74 @@
 	
 			<![CDATA[
 			
-			select	 no
-        			,category
-        			,name
-        			,content
-        			,price
-        			,reg_date
-        			,save_name
-        			,file_path
-        			,user_no
-			from goods
-			where 1=1	
-				]]>
-			<if test="category != null">
+				select	 no
+	        			,category
+	        			,name
+	        			,content
+	        			,price
+	        			,reg_date
+	        			,save_name
+	        			,file_path
+	        			,user_no
+				from goods
+				where 1=1
 			
-				<![CDATA[
-					and category = #{jseachVo.category}
 				]]>
-			</if>
-		
-	    
+				
+			<if test="jseachVo.category != null and jseachVo.category !=''">
+			<![CDATA[
+				and category = #{jseachVo.category}	
+			]]>	
+			</if>	
+			<if test="jseachVo.keyword != null and jseachVo.keyword != ''">
+			<![CDATA[
+				and ( content like concat('%', #{jseachVo.keyword}, '%') or name like concat('%', #{jseachVo.keyword}, '%') )
+			]]>	
+			</if>	
+			<![CDATA[
+				limit #{startRowNo}, #{listcnt}
+			]]>
+			
 	    </select>
 	    
 	    <!-- 글 전체 갯수 -->
-	    <select id="admingoodstotalcountAll" resultType="int">
+	    <select id="admingoodstotalcountAll" parameterType="com.javaex.vo.JSeachVo" resultType="int">
 	    
-		    	<![CDATA[
-		    		
-		    		select count(*) count
-					from goods
-					where 1=1
-		    		
-		    	]]>
-	    	<if test= "category != null">
-		
-				<![CDATA[
-					and category like #{category}
-				]]>	
+	    	<![CDATA[
+	    		
+	    		select count(*) count
+				from goods
+				where 1=1
+	    	]]>
+	    	
+	    	<if test="category != null and category != ''">
+			<![CDATA[
+				and category = #{category}	
+			]]>	
 			</if>
-			<if test="keyword != null">
-		
-				<![CDATA[
-					and name like concat('%', #{keyword}, '%')
-					or content like concat('%', #{keyword}, '%')
-				]]>	
+	    	
+	    	<if test="keyword != null and keyword != ''">
+			<![CDATA[
+				and ( content like concat('%', #{keyword}, '%') or name like concat('%', #{keyword}, '%') )
+			]]>	
 			</if>
+			
+			
 				
-				
-	    
 	    </select>
+	    
+	    <!-- delete one -->
+	    <delete id="admingoodsdeleteone" parameterType="int">
+	    
+	    	<![CDATA[
+	    	
+	    		delete from goods
+	    		where no = #{no}
+	    	]]>	
+	    
+	    </delete>
+	    
+	    
 	    
 	
 	</mapper>

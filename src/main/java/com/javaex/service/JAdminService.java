@@ -17,7 +17,7 @@ public class JAdminService {
 	@Autowired
 	private JAdminDao jadminDao;
 	
-	//list + serch + paging
+	//list + serch(category,keyword ) + paging
 	public Map<String,Object> exeselectgoodslist2(JSeachVo jseachVo){
 		//System.out.println("service j w!");
 		
@@ -44,6 +44,11 @@ public class JAdminService {
 		//list 가져오기
 		List<GoodsVo> admingoodsList = jadminDao.selectgoodslist2(fMap);
 		System.out.println("servvice///////"+admingoodsList);
+		admingoodsList.get(0).getNo();
+		System.out.println(admingoodsList.get(0).getNo());
+		//딜리트 해주기
+		
+		//jadminDao.admindeletegoodsOne();
 		
 		//페이징 계산하기
 		int pageBtncount = 10;	//페이지당 버튼 갯수
@@ -54,6 +59,12 @@ public class JAdminService {
 		int startPageBtnNo = (endPageBtnNo - pageBtncount)+1;
 		//System.out.println("startPageBtnNo"+startPageBtnNo);
 		boolean next = false;
+		//////////////////////////////
+		//System.out.println(">>>>>>>"+totalcnt);
+		//System.out.println(">>>>>>>"+listcnt);
+		//System.out.println(">>>>>>>"+endPageBtnNo);
+		/////////////////////////////
+		
 		if(listcnt*endPageBtnNo <totalcnt) {
 			next = true;
 		}else {
@@ -77,11 +88,18 @@ public class JAdminService {
 		
 		
 		
-		
+		System.out.println("-----------------------------------------");
+		System.out.println(jmap);
+		System.out.println(admingoodsList.size());
+		System.out.println(jseachVo);
+		System.out.println(totalcnt);
+		System.out.println("-----------------------------------------");
 		
 		
 		
 		return jmap;
 	}
+	
+
 
 }

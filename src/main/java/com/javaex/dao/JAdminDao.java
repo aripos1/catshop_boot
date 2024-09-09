@@ -37,6 +37,14 @@ public class JAdminDao {
 		return admingoodstotalcount;
 	}
 	
+	public int admindeletegoodsOne(int no) {
+		System.out.println("admin dao delete goods j w!~~");
+		System.out.println(no);
+		int count = sqlSession.delete("admingoodslist.admingoodsdeleteone",no);
+		System.out.println(count);
+		return count;
+	}
+	
 	
 
 }
