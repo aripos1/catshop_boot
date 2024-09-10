@@ -35,11 +35,11 @@
 				</div>
 				<!--------->
 
-				<!-- 가격 -->
+
+				<!-- 상품 가격 -->
 				<div class="product-price">
-					<span class="original-price" name="price">${pMap.pVo.price}</span>
+					<span class="original-price" id="price" name="price">${pMap.pVo.price}</span> 원
 				</div>
-				<!--------->
 
 				<!-- 변경x -->
 				<div class="discount-section">
@@ -49,117 +49,149 @@
 				<div class="delivery-info">
 					<strong>배송비</strong> (3,000원)<br> 오후 5시 이전 주문 시 오늘출발
 				</div>
-				<!---------->
 
 
-				<!-- 옵션 -->
-				<div class="quantity-section">
-					<label for="quantity">수량:</label> <input type="number" id="quantity" value="1" min="1">
-					<div class="options">
-						<select>
-							<c:forEach items="${requestScope.pMap.oList}" var="productVo">
-								<option value="${productVo.taste}">${productVo.taste}</option>
-							</c:forEach>
-						</select>
+				<form id="addToCartForm" action="${pageContext.request.contextPath}/shopping/add" method="post">
+					<!-- 상품 번호 -->
+					<input type="hidden" name="goodsNo" value="${pMap.pVo.no}">
+
+					<!-- 상품 이름 -->
+					<input type="hidden" name="goodsName" value="${pMap.pVo.name}">
+
+					<!-- 상품 가격 -->
+					<input type="hidden" name="price" value="${pMap.pVo.price}">
+
+					<!-- 수량 선택 -->
+					<label for="quantity">수량:</label> <input type="number" id="quantity" name="count" value="1" min="1" onchange="calculateTotalPrice()">
+
+					<!-- 옵션 선택 -->
+					<label for="optionsNo">옵션 선택:</label> <select id="optionsNo" name="optionsNo">
+						<c:forEach items="${pMap.oList}" var="option">
+							<option value="${option.optionsNo}">${option.taste}</option>
+						</c:forEach>
+					</select>
+
+					<!-- 총 가격 -->
+					<div class="order-total">
+						총 가격: <span id="totalprice">${pMap.pVo.price}</span> 원 <input type="hidden" id="hiddenTotalPrice" name="totalprice" value="${pMap.pVo.price}">
 					</div>
-				</div>
-				<!---------->
 
-				<!-- 총가격 -->
-				<div class="order-total">
-					<span id="totalprice" name="totalprice" value="">${pVo.price*count}</span>
-				</div>
-				<!--------->
-				<!-- 장바구니 버튼 (장바구니 페이지 링크 추가)-->
-				<button class="add-to-cart-button" href="order/shopping">장바구니에 추가</button>
+					<!-- 장바구니에 추가 버튼 -->
+					<button type="submit" class="add-to-cart-button">장바구니에 추가</button>
+				</form>
 				<button class="add-to-cart-button">구매</button>
-				<!--------->
-
 			</div>
 		</div>
 
+	</div>
 
-		<div class="details-toggle">
-			<button id="toggle-details">제품 상세 이미지 보기</button>
-			<button id="toggle-reviews">구매 후기 보기</button>
-		</div>
 
-		<!-- 상세 이미지 -->
-		<div class="details-content" id="details-content">
-			<img src="${pageContext.request.contextPath}/upload/${requestScope.pMap.pVo.saveNameb}" alt="제품 상세 이미지">
-		</div>
-		<!--------->
 
-		<div class="review-container">
+	<div class="details-toggle">
+		<button id="toggle-details">제품 상세 이미지 보기</button>
+		<button id="toggle-reviews">구매 후기 보기</button>
+	</div>
 
-			<!-- 리뷰 -->
-			<div class="review-box" id="reviews-content">
-				<form action="${pageContext.request.contextPath}/product/reviewform" method="get">
-					<table id="guestAdd">
-						<colgroup>
-							<col style="width: 70px;">
-							<col>
-							<col style="width: 70px;">
-							<col>
-						</colgroup>
-						<tbody>
-							<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
-								<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
-								<form action="reviewadd" method="post">
+	<!-- 상세 이미지 -->
+	<div class="details-content" id="details-content">
+		<img src="${pageContext.request.contextPath}/upload/${requestScope.pMap.pVo.saveNameb}" alt="제품 상세 이미지">
+	</div>
+	<!--------->
+
+	<div class="review-container">
+
+		<!-- 리뷰 -->
+		<div class="review-box" id="reviews-content">
+			<form action="${pageContext.request.contextPath}/product/reviewform" method="get">
+				<table id="guestAdd">
+					<colgroup>
+						<col style="width: 70px;">
+						<col>
+						<col style="width: 70px;">
+						<col>
+					</colgroup>
+					<tbody>
+						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
+							<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
+							<form action="reviewadd" method="post">
 								<tr>
 									<td colspan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
 								</tr>
 								<tr class="button-area">
 									<td colspan="4" class="text-center"><button type="submit">등록</button></td>
 								</tr>
-								</form>
-							</c:if>
-						</tbody>
+							</form>
+						</c:if>
+					</tbody>
 
-					</table>
-					<!-- //guestWrite -->
+				</table>
+				<!-- //guestWrite -->
 
-				</form>
+			</form>
 
-				<!-- Review Body -->
-				<c:forEach items="${requestScope.pMap.rList}" var="productVo">
-					<form class="review-content">
-						<div class="review-body" id="list">
+			<!-- Review Body -->
+			<c:forEach items="${requestScope.pMap.rList}" var="productVo">
+				<form class="review-content">
+					<div class="review-body" id="list">
 
+						<br>
+
+						<div class="review-text">
+							<br> <span class="name" name="name">${productVo.r_name}</span> <span class="stars" name="변경x">★★★★☆</span> <span class="verified" name="변경x">구매인증됨</span>
+							<span class="date" name="review_date">${productVo.review_date}</span><br> <br> <span class="content" name="r_content">${productVo.r_content}</span><br>
 							<br>
-
-							<div class="review-text">
-								<br> <span class="name" name="name">${productVo.r_name}</span> <span class="stars" name="변경x">★★★★☆</span> <span class="verified" name="변경x">구매인증됨</span>
-								<span class="date" name="review_date">${productVo.review_date}</span><br>
-								<br> <span class="content" name="r_content">${productVo.r_content}</span><br>
-								<br>
-								<button class="delete-btn">삭제</button>
-							</div>
-
+							<button class="delete-btn">삭제</button>
 						</div>
-					</form>
-				</c:forEach>
-			</div>
-			<script>
-				// Toggle between product details and reviews
-				document
-						.getElementById('toggle-details')
-						.addEventListener(
-								'click',
-								function() {
-									document.getElementById('details-content').style.display = 'block';
-									document.getElementById('reviews-content').style.display = 'none';
-								});
 
-				document
-						.getElementById('toggle-reviews')
-						.addEventListener(
-								'click',
-								function() {
-									document.getElementById('details-content').style.display = 'none';
-									document.getElementById('reviews-content').style.display = 'block';
-								});
-			</script>
+					</div>
+				</form>
+			</c:forEach>
 		</div>
+		<script>
+			// Toggle between product details and reviews
+			document
+					.getElementById('toggle-details')
+					.addEventListener(
+							'click',
+							function() {
+								document.getElementById('details-content').style.display = 'block';
+								document.getElementById('reviews-content').style.display = 'none';
+							});
+
+			document
+					.getElementById('toggle-reviews')
+					.addEventListener(
+							'click',
+							function() {
+								document.getElementById('details-content').style.display = 'none';
+								document.getElementById('reviews-content').style.display = 'block';
+							});
+
+			// 수량이 변경될 때 총 가격을 자동으로 계산하는 함수
+			function calculateTotalPrice() {
+				const quantity = document.getElementById('quantity').value; // 사용자가 선택한 수량
+				const price = document.getElementById('price').innerText; // 기본 상품 가격
+				const totalPrice = quantity * price; // 수량 * 가격 계산
+				document.getElementById('totalprice').innerText = totalPrice
+						.toLocaleString(); // 계산된 총 가격 표시
+				document.getElementById('hiddenTotalPrice').value = totalPrice; // 총 가격을 hidden 필드에 저장
+			}
+
+			// 수량 입력 필드에 이벤트 리스너 추가 (수량 변경 시 총 가격 계산)
+			document.getElementById('quantity').addEventListener('input',
+					calculateTotalPrice);
+
+			// 옵션 선택 시 optionsNo와 taste 업데이트
+			function updateTasteAndOptions(select) {
+				const value = select.value.split("-");
+				document.getElementById("optionsNo").value = value[0];
+				document.getElementById("taste").value = value[1];
+			}
+
+			// 장바구니에 추가
+			function addToCart() {
+				document.getElementById("addToCartForm").submit();
+			}
+		</script>
 </body>
 </html>
