@@ -19,18 +19,52 @@
 	</insert>
 
 
-	<!-- 최신 영수증 조회 -->
-	<select id="getLatestReceipt" resultType="com.javaex.vo.ReceiptVo">
-		SELECT *
-		FROM receipt
-		WHERE no = (SELECT MAX(no) FROM receipt)
+	<!-- 유저의 전체 영수증 목록 가져오기 -->
+	<select id="getOrderItemsByUserNo" parameterType="int" resultType="map">
+		SELECT
+		r.express as express,
+		r.payment_date as paymentDate,
+		g.name as goodsName,
+		o.taste as taste,
+		r.user_no as userNo,
+		r.no as receiptNo
+
+		FROM item i
+		JOIN receipt r ON i.receipt_no = r.no
+		JOIN options o ON i.options_no = o.no
+		JOIN goods g ON o.goods_no = g.no
+		WHERE r.user_no = #{userNo}
+		ORDER BY r.no DESC
 	</select>
 
-	<!-- 해당 영수증의 상품 목록 조회 -->
-	<select id="getItemsByReceiptNo" resultType="com.javaex.vo.ItemVo">
-		SELECT *
-		FROM item
-		WHERE receipt_no = #{receiptNo}
+	<!-- 특정 영수증 번호에 대한 상품 목록 가져오기 -->
+	<select id="getItemsByReceiptNo" parameterType="int" resultType="com.javaex.vo.ItemVo">
+		SELECT i.*, 
+		g.name as goodsName, 
+		o.taste,
+		i.each_price as eachPrice
+		FROM item i
+		JOIN options o ON i.options_no = o.no
+		JOIN goods g ON o.goods_no = g.no
+		WHERE i.receipt_no = #{receiptNo}
 	</select>
+
+	<!-- 특정 영수증 번호로 영수증 정보 가져오기 -->
+	<select id="getReceiptByNo" parameterType="int" resultType="com.javaex.vo.ReceiptVo">
+		SELECT r.no as receiptNo,
+		r.user_no as userNo,
+		r.address as address,
+		r.total_price as totalPrice,
+		r.payment_date as paymentDate,
+		r.payment as payment,
+		u.name as userName,
+		u.hp as userHp
+		FROM receipt r
+		join user u on r.user_no = u.no
+		WHERE r.no = 15
+	</select>
+
+
+
 
 </mapper>

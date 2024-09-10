@@ -11,13 +11,15 @@ public class ReceiptVo {
 	private int totalPrice;
 	private Date paymentDate;
 	private String payment;
+	private String userName;
+	private String userHp;
 
 	public ReceiptVo() {
 		super();
 	}
 
 	public ReceiptVo(int no, int userNo, String express, String address, int totalPrice, Date paymentDate,
-			String payment) {
+			String payment, String userName, String userHp) {
 		super();
 		this.no = no;
 		this.userNo = userNo;
@@ -26,6 +28,24 @@ public class ReceiptVo {
 		this.totalPrice = totalPrice;
 		this.paymentDate = paymentDate;
 		this.payment = payment;
+		this.userName = userName;
+		this.userHp = userHp;
+	}
+
+	public String getUserHp() {
+		return userHp;
+	}
+
+	public void setUserHp(String userHp) {
+		this.userHp = userHp;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public int getNo() {

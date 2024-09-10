@@ -1,6 +1,7 @@
 package com.javaex.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,7 +45,7 @@ public class HOrderController {
 		String address = buyer.getAddress();
 		String paymentMethod = "신용카드"; // 결제 방식
 		String express = "주문완료"; // 배송 상태 초기값
-	
+
 		// 선택한 장바구니 항목 가져오기
 		List<ShoppingVo> selectedItems = shoppingService.getSelectedItems(shoppingNos, userNo);
 
@@ -67,7 +68,7 @@ public class HOrderController {
 		// 세션에서 사용자 정보 가져오기
 		UserVo buyer = (UserVo) session.getAttribute("authUser");
 		if (buyer == null) {
-			return "redirect:/user/login";  // 세션에 유저가 없으면 로그인으로 리디렉트
+			return "redirect:/user/login"; // 세션에 유저가 없으면 로그인으로 리디렉트
 		}
 
 		int userNo = buyer.getNo();
@@ -91,31 +92,48 @@ public class HOrderController {
 		model.addAttribute("selectedItems", selectedItems);
 		model.addAttribute("totalAmount", totalAmount);
 		model.addAttribute("buyer", buyer);
-		
-		
 
-		return "/order/orderList"; // 결제 성공 후 리스트 페이지로 이동
+		return "redirect:/order/orderlist"; // 결제 성공 후 리스트 페이지로 이동
 	}
+
 	
 	@RequestMapping(value = "/orderlist", method = { RequestMethod.GET, RequestMethod.POST })
-	public String orderList(Model model) {
-	    // 최신 영수증 가져오기
-	    ReceiptVo latestReceipt = hOrderService.getLatestReceipt();
+	public String orderList(HttpSession session, Model model) {
 
-	    if (latestReceipt != null) {
-	        // 최신 영수증에 연결된 상품 목록 가져오기
-	        List<ItemVo> latestItems = hOrderService.getItemsByReceiptNo(latestReceipt.getNo());
-
-	        model.addAttribute("latestReceipt", latestReceipt);
-	        model.addAttribute("latestItems", latestItems);
+	    UserVo authUser = (UserVo) session.getAttribute("authUser");
+	    if (authUser == null) {
+	        return "redirect:/user/login"; // 로그인하지 않았으면 로그인 페이지로 리디렉트
 	    }
 
-	    return "/order/orderList";
+	    int userNo = authUser.getNo(); // 로그인한 사용자의 userNo 가져오기
+	    System.out.println(userNo);
+	    // 해당 유저의 영수증 목록 가져오기
+        
+	    List<Map<String, Object>> orderItemList = hOrderService.getOrderItemsByUserNo(userNo);
+
+        System.out.println("orderItemList"+orderItemList);
+        
+        model.addAttribute("orderItemList", orderItemList); // 주문 내역을 JSP로 전달
+
+        
+		return "/order/orderList";
 	}
 
 	@RequestMapping(value = "/orderdetail", method = { RequestMethod.GET, RequestMethod.POST })
-	public String orderdetail() {
+	public String orderdetail(@RequestParam("receiptNo") int receiptNo, Model model) {
 
+			    
+		    List<ItemVo> orderItemList = hOrderService.getItemsByReceiptNo(receiptNo);
+		    ReceiptVo receiptVo = hOrderService.getReceiptByNo(receiptNo);
+		    
+		    System.out.println("orderItemList"+orderItemList);
+	        System.out.println("receiptVo"+receiptVo);
+	        
+	        model.addAttribute("orderItemList", orderItemList); // 주문 내역을 JSP로 전달
+	        model.addAttribute("receiptVo", receiptVo);
+		
+		
+		
 		return "/order/orderDetail";
 	}
 
