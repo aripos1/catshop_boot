@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.javaex.vo.PProductVo" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,12 +20,13 @@
     <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
     <div class="container">
+    
         <div class="product-image-section">
-            <img src="../../assets/images/상품이미지test.jpg" alt="제품 상세 이미지">
+            <img src="${pageContext.request.contextPath}/upload/${pMap.pVo.saveNamef}" alt="제품 상세 이미지">
         </div>
 
         <div class="product-details-section">
-            <div class="product-title" name="상품명">하림펫푸드 밤이보약 캣 걱정없는 헤어볼 3.4kg</div>
+            <div class="product-title" name="name">${pMap.pVo.name}</div>
 
             <!-- 변경x -->
             <div class="rating-and-reviews">
@@ -35,7 +37,7 @@
 
             <!-- 가격 -->
             <div class="product-price">
-                <span class="original-price" name="가격">29,900원</span>
+                <span class="original-price" name="price">${pMap.pVo.price}</span>
             </div>
             <!--------->
 
@@ -57,21 +59,21 @@
                 <input type="number" id="quantity" value="1" min="1">
                 <div class="options">
                     <select>
-                        <option value="option1">무슨무슨맛</option>
-                        <option value="option2">머선머선맛</option>
-                        <option value="option3">모손모손맛</option> 
+                    <c:forEach items="${requestScope.pMap.oList}" var="productVo">
+                        <option value="${productVo.optionName}">${productVo.optionName}</option>
+                    </c:forEach>
                     </select>
                 </div>
             </div>
             <!---------->
 
             <!-- 총가격 -->
-            <div class="order-total" name="총가격">
-                총 주문 금액: 29,900원
+            <div class="order-total">
+                <span id="totalprice"  name="totalprice" value="">${pVo.price*count}</span>
             </div>
             <!--------->
             <!-- 장바구니 버튼 (장바구니 페이지 링크 추가)-->
-            <button class="add-to-cart-button">장바구니에 추가</button>
+            <button class="add-to-cart-button" href="order/shopping" >장바구니에 추가</button>
             <button class="add-to-cart-button">구매</button>
             <!--------->
         
@@ -86,31 +88,57 @@
 
     <!-- 상세 이미지 -->
     <div class="details-content" id="details-content">
-        <img src="../../assets/images/상세p.jpg" alt="제품 상세 이미지">
+        <img src="${pageContext.request.contextPath}/upload/${requestScope.pMap.pVo.saveNameb}" alt="제품 상세 이미지">
     </div>
     <!--------->
 
     <div class="review-container">
         
-        <button class="delete-btn">삭제</button>
         <!-- 리뷰 -->
+        <div class="review-box" id="reviews-content">
+        <form action="${pageContext.request.contextPath}/product/reviewadd" method="get">
+        <table id="guestAdd">
+            <colgroup>
+                <col style="width: 70px;">
+                <col>
+                <col style="width: 70px;">
+                <col>
+            </colgroup>
+            <tbody>
+                <tr>
+                    <td colspan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
+                </tr>
+                <tr class="button-area">
+                    <td colspan="4" class="text-center"><button type="submit">등록</button></td>
+                </tr>
+            </tbody>
+            
+        </table>
+        <!-- //guestWrite -->
         
-        <!--------->
+    </form>	
+        
         <!-- Review Body -->
-        <form class="review-content">
-        <div class="review-body">
-            <img src="https://via.placeholder.com/100" alt="product-image">
-            <div class="review-text">
-                <br>
-                <span class="name">이*현</span>
-                <span class="stars" name="변경x">★★★★☆</span>
-                <span class="verified" name="변경x">구매인증됨</span>
-                <span class="date" name="등록일">2024.09.05</span><br><br><br>
-                <span class="content">잘먹어요, 헤어볼에 도움이 되기를 바래요.</span>
-            </div>
+ <c:forEach items="${requestScope.pMap.rList}" var="productVo">
+    <form class="review-content">
+        <div class="review-body" id="list">
+            
+            <br>
+            
+            	<div class="review-text">
+            	<br>
+	                <span class="name" name="name">${productVo.r_name}</span>
+	                <span class="stars" name="변경x">★★★★☆</span>
+	                <span class="verified" name="변경x">구매인증됨</span>
+	                <span class="date" name="review_date">${productVo.review_date}</span><br><br>
+	                <span class="content" name="r_content">${productVo.r_content}</span><br><br>
+	                <button class="delete-btn">삭제</button>
+            	</div>
+           
         </div>
     </form>
-
+ </c:forEach>
+ </div>
     <script>
         // Toggle between product details and reviews
         document.getElementById('toggle-details').addEventListener('click', function() {
