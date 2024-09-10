@@ -22,7 +22,7 @@
 	<insert id="insert" parameterType="map">
 		<![CDATA[
 			insert into goods 
-values(null,#{category}, #{name}, #{content}, #{price}, now(), #{saveNamef},#{filePathf}, #{saveNameb},#{filePathb}, 1);
+            values(null,#{category}, #{name}, #{content}, #{price}, now(), #{saveNamef},#{filePathf}, #{saveNameb},#{filePathb}, null);
 		]]>
 	
 	</insert>

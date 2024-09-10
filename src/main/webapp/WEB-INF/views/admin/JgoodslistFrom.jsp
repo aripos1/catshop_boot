@@ -83,11 +83,11 @@
                             </div>
 
                             <select id="search_menu" name="category">
-                                <option value="">카테고리</option>
-                                <option value="a">a</option>
-                                <option value="d">d</option>
-                                <option value="category">can</option>
-                                <option value="category">churr</option>
+								<option value="">카테고리선택</option>
+                                <option value="ADULT">ADULT</option>
+                                <option value="KITTEN">KITTEN</option>
+                                <option value="CAN">CAN</option>
+                                <option value="CHURR">CHURR</option>
                             </select>
                         </div>
                     </form>
