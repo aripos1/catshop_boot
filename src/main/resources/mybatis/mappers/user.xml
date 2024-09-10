@@ -40,7 +40,7 @@
 	</select>
 	
 	
-	
+	<!-- 수정 -->
 	
 	<update id="updateUser" parameterType="com.javaex.vo.UserVo">
 	<![CDATA[
@@ -58,5 +58,15 @@
 		]]>
 	</update>
 	
+	<!-- 중복체크 -->
+	<select id="selectById" parameterType="string"  resultType="int">
+      <![CDATA[
+         select count(*)
+         from user
+         where id = #{id}
+      ]]>
+   </select>
+   
+   
 	
 	</mapper>

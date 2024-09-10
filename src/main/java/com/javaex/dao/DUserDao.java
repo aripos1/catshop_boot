@@ -41,4 +41,10 @@ public class DUserDao {
 		
 		return count;
 	}
+	public int selecUserById(String id) {
+        System.out.println("UserDao.selecUserById()");
+        
+        int count = sqlSession.selectOne("user.selectById", id );
+        return count;
+     }
 }

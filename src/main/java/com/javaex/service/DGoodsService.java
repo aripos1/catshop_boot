@@ -16,9 +16,9 @@ public class DGoodsService {
 	
 	public List<GoodsVo> exemainList() {
 		System.out.println("DGoodsService.exemainList");
-		List<GoodsVo> dgoodsList =dgoodsDao.getmainList();
-		System.out.println(dgoodsList);
+		List<GoodsVo> petfoodList =dgoodsDao.getmainList();
+		System.out.println(petfoodList);
 		
-		return dgoodsList;
+		return petfoodList;
 	}
 }

@@ -46,7 +46,8 @@
 
 }
 
-.menu button {
+.menu a.button {
+    
     padding: 10px 20px;
     border: none;
     background-color: #fc6363;
@@ -60,7 +61,7 @@
     background-color: #ffe2e2;
 }
 
-#logoutBtn{
+.button{
 	padding: 10px 20px;
     border: none;
     background-color: #fc6363;

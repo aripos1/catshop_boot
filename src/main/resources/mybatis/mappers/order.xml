@@ -1,17 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="order">
 
-	<insert id="insertReceipt" parameterType="ReceiptVo">
-		INSERT INTO receipt (no, user_no, express, address, total_price, payment_date, payment )
-		VALUES (null, #{userNo}, #{express}, #{address}, #{totalPrice}, #{paymentDate}, #{payment})
+	<!-- 영수증 삽입 -->
+	<insert id="insertReceipt" parameterType="com.javaex.vo.ReceiptVo" useGeneratedKeys="true" keyProperty="no">
+		INSERT INTO receipt (user_no, express, address,
+		total_price, payment_date, payment)
+		VALUES (#{userNo}, #{express}, #{address}, #{totalPrice}, #{paymentDate}, #{payment})
 	</insert>
 
-	<insert id="insertItem" parameterType="ItemVo">
-		INSERT INTO item (no, amount, each_price, taste, options_no, receipt_no,)
-		VALUES (null, #{count}, #{eachPrice}, #{taste}, #{optionsNo}, #{receiptNo})
+	<!-- 상품 항목 삽입 -->
+	<insert id="insertItem" parameterType="com.javaex.vo.ItemVo">
+		INSERT INTO item (amount, each_price, taste, options_no, receipt_no)
+		VALUES (#{amount}, #{eachPrice}, #{taste},
+		#{optionsNo}, #{receiptNo})
 	</insert>
+
+
+	<!-- 유저의 전체 영수증 목록 가져오기 -->
+	<select id="getOrderItemsByUserNo" parameterType="int" resultType="map">
+		SELECT
+		r.express as express,
+		r.payment_date as paymentDate,
+		g.name as goodsName,
+		o.taste as taste,
+		r.user_no as userNo,
+		r.no as receiptNo
+
+		FROM item i
+		JOIN receipt r ON i.receipt_no = r.no
+		JOIN options o ON i.options_no = o.no
+		JOIN goods g ON o.goods_no = g.no
+		WHERE r.user_no = #{userNo}
+		ORDER BY r.no DESC
+	</select>
+
+	<!-- 특정 영수증 번호에 대한 상품 목록 가져오기 -->
+	<select id="getItemsByReceiptNo" parameterType="int" resultType="com.javaex.vo.ItemVo">
+		SELECT i.*, 
+		g.name as goodsName, 
+		o.taste,
+		i.each_price as eachPrice
+		FROM item i
+		JOIN options o ON i.options_no = o.no
+		JOIN goods g ON o.goods_no = g.no
+		WHERE i.receipt_no = #{receiptNo}
+	</select>
+
+	<!-- 특정 영수증 번호로 영수증 정보 가져오기 -->
+	<select id="getReceiptByNo" parameterType="int" resultType="com.javaex.vo.ReceiptVo">
+		SELECT r.no as receiptNo,
+		r.user_no as userNo,
+		r.address as address,
+		r.total_price as totalPrice,
+		r.payment_date as paymentDate,
+		r.payment as payment,
+		u.name as userName,
+		u.hp as userHp
+		FROM receipt r
+		join user u on r.user_no = u.no
+		WHERE r.no = 15
+	</select>
 
 
 

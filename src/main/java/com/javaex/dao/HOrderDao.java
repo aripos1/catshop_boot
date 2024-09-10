@@ -28,13 +28,28 @@ public class HOrderDao {
         return sqlSession.selectOne("user.selectOne", userVo);
     }
     
-    // 영수증 정보를 저장
+    // 영수증 정보 저장
     public void insertReceipt(ReceiptVo receiptVo) {
         sqlSession.insert("order.insertReceipt", receiptVo);
     }
 
-    // 아이템 정보를 저장
+    // 상품 정보 저장
     public void insertItem(ItemVo itemVo) {
         sqlSession.insert("order.insertItem", itemVo);
     }
+    
+    public List<Map<String, Object>> getOrderItemsByUserNo(int userNo) {
+        return sqlSession.selectList("order.getOrderItemsByUserNo", userNo);
+    }
+    // 영수증 번호에 해당하는 상품 목록 가져오기
+    public List<ItemVo> getItemsByReceiptNo(int receiptNo) {
+        return sqlSession.selectList("order.getItemsByReceiptNo", receiptNo);
+    }
+
+    // 영수증 정보 가져오기
+    public ReceiptVo getReceiptByNo(int receiptNo) {
+        return sqlSession.selectOne("order.getReceiptByNo", receiptNo);
+    }
+    
+
 }

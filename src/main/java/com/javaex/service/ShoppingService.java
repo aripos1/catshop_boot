@@ -80,4 +80,6 @@ public class ShoppingService {
     public void updateItemCount(int shoppingNo, int count) {
         shoppingDao.updateItemCount(shoppingNo, count);
     }
+    
+   
 }

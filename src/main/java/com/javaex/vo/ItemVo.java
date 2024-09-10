@@ -2,33 +2,58 @@ package com.javaex.vo;
 
 public class ItemVo {
 
-	private int itemNo;
+	private int no;
 	private int amount;
 	private int eachPrice;
 	private String taste;
 	private int optionsNo;
 	private int receiptNo;
+	private String goodsName;
+	private int goodsNo;
 
 	public ItemVo() {
 		super();
 	}
 
-	public ItemVo(int itemNo, int amount, int eachPrice, String taste, int optionsNo, int receiptNo) {
+
+	public ItemVo(int no, int amount, int eachPrice, String taste, int optionsNo, int receiptNo, String goodsName,
+			int goodsNo) {
 		super();
-		this.itemNo = itemNo;
+		this.no = no;
 		this.amount = amount;
 		this.eachPrice = eachPrice;
 		this.taste = taste;
 		this.optionsNo = optionsNo;
 		this.receiptNo = receiptNo;
+		this.goodsName = goodsName;
+		this.goodsNo = goodsNo;
 	}
 
-	public int getItemNo() {
-		return itemNo;
+
+	public int getGoodsNo() {
+		return goodsNo;
 	}
 
-	public void setItemNo(int itemNo) {
-		this.itemNo = itemNo;
+
+	public void setGoodsNo(int goodsNo) {
+		this.goodsNo = goodsNo;
+	}
+
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public int getNo() {
+		return no;
+	}
+
+	public void setNo(int no) {
+		this.no = no;
 	}
 
 	public int getAmount() {
@@ -73,7 +98,7 @@ public class ItemVo {
 
 	@Override
 	public String toString() {
-		return "ItemVo [itemNo=" + itemNo + ", amount=" + amount + ", eachPrice=" + eachPrice + ", taste=" + taste
+		return "ItemVo [no=" + no + ", amount=" + amount + ", eachPrice=" + eachPrice + ", taste=" + taste
 				+ ", optionsNo=" + optionsNo + ", receiptNo=" + receiptNo + "]";
 	}
 

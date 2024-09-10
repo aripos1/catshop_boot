@@ -15,13 +15,17 @@
     <body>
         <div id="wrap">
             <div id="logo">
+            	<a href ="${pageContext.request.contextPath}/main">
                 <img id="img" src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고">
+            	</a>
             </div>
                 <h2>로그인</h2>
             
             <div class="content">
             
                 <div id="loginFormBox">
+                <!-- 로그인 실패 시 오류 메시지 표시 -->
+                   
 
                     <form action="${pageContext.request.contextPath}/user/login" method="get">
                         
@@ -29,13 +33,19 @@
                             <input type="text" id="input-id" name="id" value="" placeholder="아이디를 입력하세요" required><!--입력하지 않고 로그인버튼을 누르면 입력하세요 라고 하는 기능이 존재합니다. -->
 
                             <label class="form-text" for="input-password">비밀번호</label>
-                            <input type="text" id="input-password" name="password" value="" placeholder="비밀번호를 입력하세요" required>
+                            <input type="password" id="input-password" name="password" value="" placeholder="비밀번호를 입력하세요" required>
                             <br>
                             <button type="submit">로그인</button>
                         
+                         <c:if test="${not empty loginError}">
+                        <div class="error-msg" style="color:red;">
+                            ${loginError}
+                        </div>
+                        </c:if>
+                    <br>
                     </form>
                     <p class="joinMsg">아직 회원이 아니신가요?</p>
-                       <p class="joinrequest"><a href="">가입하세요!</a></p>
+                       <p class="joinrequest"><a href="${pageContext.request.contextPath}/user/joinform">가입하세요!</a></p>
                     <!--footer-->
                     <c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
                         </div>
