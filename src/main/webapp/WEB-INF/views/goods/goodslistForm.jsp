@@ -29,13 +29,13 @@
                 <div id="title">
                     <div id="location" class="clearfix">
                         <h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> AdultFood </a></h1>
-                        <p id="totalcount"> 상품 ${requestScope.pMap.goodsTotalCnt}개 </p>
+                        <p id="totalcount"> 총상품 ${requestScope.pMap.goodsTotalCnt}개 </p>
                     </div>
                     <div id="title-dec">
                         <ul class="clearfix">
-                            <li>fooder-Adult(category)</li>
+                            <li>fooder-Adult</li>
                             <li class="main-titletext">|</li>
-                            <li class="main-titletext"><a href="">HOME</a></li>
+                            <li class="main-titletext"><a href="${pageContext.request.contextPath}/main">HOME</a></li>
                         </ul>
 
                     </div>
