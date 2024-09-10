@@ -166,7 +166,7 @@
                         <ul class="clearfix">
                             
                             <c:if test="${requestScope.jmap.prev}">
-                            	<li class="page_move"><a href="${pageContext.request.contextPath}/catshop/admin/list2?page=${requestScope.jmap.startPageBtnNo-1}">◀</a></li>
+                            	<li class="page_move"><a href="${pageContext.request.contextPath}/admin/list2?page=${requestScope.jmap.startPageBtnNo-1}">◀</a></li>
                             </c:if>
                             <c:forEach begin="${requestScope.jmap.startPageBtnNo }" end="${requestScope.jmap.endPageBtnNo }" step="1" var="page">
                             	<c:choose>
@@ -180,7 +180,7 @@
                             	</c:choose>
                           	</c:forEach>
                             <c:if test="${requestScope.jmap.next}">
-                            	<li class="page_move"><a href="${pageContext.request.contextPath}/catshop/admin/list2?page=${requestScope.jmap.endPageBtnNo+1}">▶</a></li>
+                            	<li class="page_move"><a href="${pageContext.request.contextPath}/admin/list2?page=${requestScope.jmap.endPageBtnNo+1}">▶</a></li>
                             </c:if>
                             
                         </ul>

@@ -67,7 +67,7 @@
                     <div id="paging">
                         <ul class="clearfix">
                             <c:if test="${requestScope.pMap.prev}">
-                            	<li class="page_move"><a href="${pageContext.request.contextPath}/catshop/list2?page=${requestScope.pMap.startPageBtnNo-1}">◀</a></li>
+                            	<li class="page_move"><a href="${pageContext.request.contextPath}/goods/list2?page=${requestScope.pMap.startPageBtnNo-1}">◀</a></li>
                             </c:if>
                             
                             <c:forEach begin="${requestScope.pMap.startPageBtnNo }" end="${requestScope.pMap.endPageBtnNo }" step="1" var="page">
@@ -83,7 +83,7 @@
                             </c:forEach>
                             
                             <c:if test="${requestScope.pMap.next}">
-                            	<li class="page_move"><a href="${pageContext.request.contextPath}/catshop/list2?page=${requestScope.pMap.endPageBtnNo-1}">▶</a></li>
+                            	<li class="page_move"><a href="${pageContext.request.contextPath}/goods/list2?page=${requestScope.pMap.endPageBtnNo+1}">▶</a></li>
                             </c:if>
                             
                         </ul>
