@@ -51,7 +51,7 @@
 		]]>
 		<if test="jseachVo.category != null and jseachVo.category !=''">
 			<![CDATA[
-				and category = #{jseachVo.category}	
+				and category like concat('%', #{jseachVo.category}, '%')
 			]]>	
 		</if>
 		<if test="jseachVo.keyword != null and jseachVo.keyword != ''">
@@ -77,7 +77,7 @@
 		
 		<if test="category != null and category !=''">
 			<![CDATA[
-				and category = #{jseachVo.category}	
+				and category = #{category}	
 			]]>	
 		</if>
 		<if test="keyword != null and keyword != ''">
