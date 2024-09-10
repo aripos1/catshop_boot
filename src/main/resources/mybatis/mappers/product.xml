@@ -3,7 +3,7 @@
 
 
 <mapper namespace="product">
-	
+
 	<!-- 데이터1개 가져오기 -->
 	<select id="selectOne" parameterType="int" resultType="com.javaex.vo.PProductVo">
 		<![CDATA[
@@ -16,17 +16,17 @@
             WHERE no = #{no}
 		]]>
 	</select>
-	
+
 	<!-- 옵션 리스트 가져오기 -->
 	<select id="optionList" parameterType="int" resultType="com.javaex.vo.PProductVo">
 		<![CDATA[
-			select  taste as optionName
-			FROM goods g
-            JOIN options o on g.no = o.goods_no
-            WHERE no = #{no}
+			select o.taste			
+			FROM options o
+            JOIN goods g on o.goods_no = g.no
+            WHERE g.no = #{no}
 		]]>
-	</select> 
-	 
+	</select>
+
 	<!-- 리뷰 리스트 가져오기 -->
 	<select id="reviewListr" parameterType="int" resultType="com.javaex.vo.PProductVo">
 		<![CDATA[
@@ -39,17 +39,17 @@
 			order by no desc
 		]]>
 	</select>
-	
-	
-	
-	
-	
+
+
+
+
+
 	<!-- 리뷰등록 -->
 	<insert id="insert" parameterType="com.javaex.vo.PProductVo">
 		<![CDATA[ 
 			insert into review
 			value(null, #{content}, now())
-		]]> 
+		]]>
 	</insert>
 
 </mapper>
