@@ -61,21 +61,43 @@ public class HOrderService {
 		hOrderDao.insertItem(itemVo);
 	}
 
-	   public List<Map<String, Object>> getOrderItemsByUserNo(int userNo) {
-	        // 쿼리 결과를 가져옴 (Map으로 반환)
-		   
-	        List<Map<String, Object>> orderItemList = hOrderDao.getOrderItemsByUserNo(userNo);
-	        
-	        return orderItemList;
-	   }
-	    // 영수증 번호에 해당하는 상품 목록 가져오기
-	    public List<ItemVo> getItemsByReceiptNo(int receiptNo) {
-	        return hOrderDao.getItemsByReceiptNo(receiptNo);
-	    }
+	public List<Map<String, Object>> getOrderItemsByUserNo(int userNo) {
+		// 쿼리 결과를 가져옴 (Map으로 반환)
 
-	    // 영수증 정보 가져오기
-	    public ReceiptVo getReceiptByNo(int receiptNo) {
-	        return hOrderDao.getReceiptByNo(receiptNo);
-	    }
+		List<Map<String, Object>> orderItemList = hOrderDao.getOrderItemsByUserNo(userNo);
+
+		return orderItemList;
+	}
+
+	// 영수증 번호에 해당하는 상품 목록 가져오기
+	public List<ItemVo> getItemsByReceiptNo(int receiptNo) {
+		return hOrderDao.getItemsByReceiptNo(receiptNo);
+	}
+
+	// 영수증 정보 가져오기
+	public ReceiptVo getReceiptByNo(int receiptNo) {
+		return hOrderDao.getReceiptByNo(receiptNo);
+	}
+
+	// 영수증 전체 내역 불러오기
+	public List<ReceiptVo> getAllReceipts() {
+		return hOrderDao.getAllReceipts();
+	}
+
+	// 배송 상태 업데이트
+	public void updateExpressStatus(int receiptNo, String status) {
+		hOrderDao.updateExpressStatus(receiptNo, status);
+	}
+
+	// 현재 배송 상태 가져오기
+	public String getExpressStatus(int receiptNo) {
+		return hOrderDao.getExpressStatus(receiptNo);
+	}
+	  // 결제 완료 후 장바구니 전체 삭제 로직 추가
+    @Transactional
+    public void clearCartByUserNo(int userNo) {
+        // 해당 사용자의 장바구니 전체 삭제
+        shoppingDao.clearCartByUserNo(userNo);
+    }	
 
 }

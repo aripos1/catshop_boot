@@ -1,5 +1,6 @@
 package com.javaex.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,6 +50,25 @@ public class HOrderDao {
     // 영수증 정보 가져오기
     public ReceiptVo getReceiptByNo(int receiptNo) {
         return sqlSession.selectOne("order.getReceiptByNo", receiptNo);
+    }
+    
+    // 영수증 전체 내역 불러오기
+    public List<ReceiptVo> getAllReceipts() {
+        return sqlSession.selectList("order.getAllReceipts");
+    }
+
+    // 배송 상태 업데이트
+    public void updateExpressStatus(int receiptNo, String status) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("receiptNo", receiptNo);
+        params.put("status", status);
+
+		sqlSession.update("order.updateExpressStatus", params);
+    }
+
+    // 현재 배송 상태 가져오기
+    public String getExpressStatus(int receiptNo) {
+        return sqlSession.selectOne("order.getExpressStatus", receiptNo);
     }
     
 

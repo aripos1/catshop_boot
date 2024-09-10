@@ -51,20 +51,50 @@
 
 	<!-- 특정 영수증 번호로 영수증 정보 가져오기 -->
 	<select id="getReceiptByNo" parameterType="int" resultType="com.javaex.vo.ReceiptVo">
-		SELECT r.no as receiptNo,
+		SELECT 
+		r.no,
 		r.user_no as userNo,
 		r.address as address,
 		r.total_price as totalPrice,
 		r.payment_date as paymentDate,
 		r.payment as payment,
 		u.name as userName,
-		u.hp as userHp
+		u.hp as userHp,
+		r.express
 		FROM receipt r
 		join user u on r.user_no = u.no
-		WHERE r.no = 15
+		WHERE r.no = #{no}
 	</select>
+    <!-- 영수증 전체 내역 불러오기 -->
+    <select id="getAllReceipts" resultType="com.javaex.vo.ReceiptVo">
+        SELECT 
+		r.no ,
+		r.user_no as userNo,
+		r.address as address,
+		r.total_price as totalPrice,
+		r.payment_date as paymentDate,
+		r.payment as payment,
+		u.name as userName,
+		u.hp as userHp,
+		r.express
+		FROM receipt r
+		join user u on r.user_no = u.no
+        ORDER BY payment_date DESC
+    </select>
+    
+    <!-- 배송 상태 업데이트 쿼리 -->
+    <update id="updateExpressStatus">
+        UPDATE receipt
+        SET express = #{status}
+        WHERE no = #{receiptNo}
+    </update>
 
-
+    <!-- 현재 배송 상태 가져오기 -->
+    <select id="getExpressStatus" parameterType="int" resultType="String">
+        SELECT express
+        FROM receipt
+        WHERE no = #{receiptNo}
+    </select>
 
 
 </mapper>

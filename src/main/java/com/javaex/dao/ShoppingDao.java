@@ -56,5 +56,9 @@ public class ShoppingDao {
         sqlSession.update("shopping.updateItemCount", params);
     }
     
-    
+    // 특정 사용자의 모든 장바구니 항목 삭제
+    public void clearCartByUserNo(int userNo) {
+        sqlSession.delete("shopping.clearCartByUserNo", userNo);
+    }
+  
 }

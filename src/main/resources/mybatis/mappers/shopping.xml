@@ -65,7 +65,8 @@
 		o.taste AS taste,
 		g.name AS goodsName
 		FROM shopping s
-		JOIN options o on s.options_no = o.no
+		JOIN options o on
+		s.options_no = o.no
 		join goods g on o.goods_no = g.no
 		WHERE s.no IN
 		<foreach item="shoppingNo" collection="shoppingNos" open="(" separator="," close=")">
@@ -74,5 +75,8 @@
 		AND s.user_no = #{userNo}
 	</select>
 
+	<delete id="clearCartByUserNo" parameterType="int">
+		DELETE FROM shopping WHERE user_no = #{userNo}
+	</delete>
 
 </mapper>

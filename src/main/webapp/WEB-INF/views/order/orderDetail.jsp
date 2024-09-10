@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/imorderdetail.css" rel="stylesheet" type="text/css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <title>주문 상세</title>
 </head>
 <body>
@@ -28,14 +29,16 @@
 				<div class="orderGoods">
 					<h3>${receiptVo.paymentDate}주문</h3>
 					<table>
+						<c:set var="totalOrderPrice" value="0" />
 						<c:forEach items="${orderItemList}" var="orderItem">
 							<tr>
 								<td><img src="" alt="상품 이미지"></td>
 								<td>${orderItem.goodsName}<br> 옵션: ${orderItem.taste}
 								</td>
-								<td> 수량: ${orderItem.amount}</td>
+								<td>수량: ${orderItem.amount}</td>
 								<td>${orderItem.eachPrice * orderItem.amount}원</td>
 							</tr>
+							<c:set var="totalOrderPrice" value="${totalOrderPrice + (orderItem.eachPrice * orderItem.amount)}" />
 						</c:forEach>
 					</table>
 				</div>
@@ -87,22 +90,63 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td>${receiptVo.totalPrice}원</td>
+							<td>${totalOrderPrice}원</td>
 							<td>0원</td>
 							<td>3,000원</td>
-							<td>${receiptVo.totalPrice + 3000}원</td>
+							<td>${totalOrderPrice + 3000}원</td>
 						</tr>
 					</tbody>
 				</table>
 
 				<div class="parent-container">
 					<button class="btn" onclick="history.back()">뒤로가기</button>
-					<button class="btn" type="submit">물품 전체 수령</button>
+				<!-- 배송 상태 표시 -->
+					<input type="hidden" id="deliveryStatus" value="${receiptVo.express}" />
+					<button class="btn" onclick="confirmreceipt(${receiptVo.no}, '${receiptVo.express}')">물품 수령</button>
+	${receiptVo.no}
+	
 				</div>
 			</div>
 		</div>
 
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 	</div>
+
+
+
+	<script>
+	function confirmreceipt(receiptNo, deliveryStatus) {
+	    console.log('confirmReceipt 호출됨'); // 함수가 호출되는지 확인
+	    console.log('receiptNo:', receiptNo, 'deliveryStatus:', deliveryStatus); // 변수 값 출력
+
+	    // 배송 상태가 '배송중'이 아닐 경우 경고 메시지 표시
+	    if (deliveryStatus !== '배송중') {
+	        alert('배송중이 아닙니다. 관리자에게 문의하세요.');
+	        return;
+	    }
+
+	    // 배송중 상태일 경우만 서버에 요청 전송
+	    $.ajax({
+	        type: "POST",
+	        url: "${pageContext.request.contextPath}/order/confirmreceipt",
+	        data: {
+	            receiptNo: receiptNo
+	        },
+	        success: function(response) {
+	            console.log('AJAX 성공 응답:', response); // 성공 응답 확인
+	            if (response.status === "success") {
+	                alert('물품 수령이 완료되었습니다.');
+	                window.location.href = "${pageContext.request.contextPath}/order/orderlist";
+	            } else {
+	                alert(response.message);  // 오류 메시지 출력
+	            }
+	        },
+	        error: function(xhr, status, error) {
+	            console.log('AJAX 오류:', error); // 오류 확인
+	            alert('서버 오류가 발생했습니다. 다시 시도해 주세요.');
+	        }
+	    });
+	}
+	</script>
 </body>
 </html>
