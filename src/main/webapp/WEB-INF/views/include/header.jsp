@@ -36,13 +36,14 @@
              
             <c:if test="${sessionScope.authUser != null}">
             <div class="menu">
-              <p>${sessionScope.authUser.no}</p> <p>${sessionScope.authUser.hp}</p> <p>${sessionScope.authUser.address}</p> ${sessionScope.authUser.name}집사님 어서오세요.</p>
+              <p> ${sessionScope.authUser.name}집사님 어서오세요.</p>
                 <button>장바구니</button>
                 <button>마이페이지</button>
-               <a href="${pageContext.request.contextPath}/user/logout" id="logoutBtn" class="button">로그아웃</a>
+               <a href="${pageContext.request.contextPath}/user/logout" class="functionBtn" class="button">로그아웃</a>
             </div>
+            
             </c:if>
-            <!-- 관리자 
+            <c:if test="{sessionScope.authUser.roll == 1}"> 
             <div class="menu">
                 <P>관리자님 어서오세요.</P>
                 <button>상품등록</button>
@@ -50,7 +51,7 @@
                 <button>주문관리</button>
                 <button>로그아웃</button>
             </div>
-       -->
+       		</c:if>
             <br>
             <div class="search">
                 <input type="text" placeholder="상품을 검색하세요!">

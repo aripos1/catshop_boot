@@ -32,17 +32,34 @@
     <!-- 상품 목록 -->
     <section class="product-list">
         <h2>사료</h2>
-        <div class="products">
-         <c:forEach var="product" items="${dgoodsList}" varStatus="status">
-    		<c:if test="${status.index < 3}">
+       <div class="products">
+    <c:forEach var="product" items="${goodsList}" varStatus="status">
+        <c:if test="${status.index < 3 && product.category == '성인묘'}">
             <div class="product">
-               <img src="catshop/upload/shutterstock_2205178589-1-1.png" alt="${product.name}">
-               <p>${product.name}</p><br><p>${product.regDate}</p><p>${product.price}원</p>
+                <a href="${pageContext.request.contextPath}/product/detail/${product.no}"> <!-- 링크 추가 -->
+                    <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
+                    <p>${product.name}</p><br>
+                    <p>${product.regDate}</p>
+                    <p>${product.price}원</p>
+                </a>
             </div>
-            </c:if>
-           </c:forEach>
-            
-        </div>
+        </c:if>
+    </c:forEach>
+    
+    <c:forEach var="product" items="${goodsList}" varStatus="status">
+        <c:if test="${status.index < 1 && product.category == '아가묘'}">
+            <div class="product">
+                <a href="${pageContext.request.contextPath}/product/detail/${product.no}"> <!-- 링크 추가 -->
+                    <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
+                    <p>${product.name}</p><br>
+                    <p>${product.regDate}</p>
+                    <p>${product.price}원</p>
+                </a>
+            </div>
+        </c:if>
+    </c:forEach>
+</div>
+
 
         <h2>간식</h2>
         <div class="products">
@@ -62,7 +79,7 @@
         </div>
     </section>
   </div><!-- wrap -->
-	<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+   <c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
     <script src="script.js"></script>
 </body>
 </html>

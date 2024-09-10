@@ -60,7 +60,7 @@
     background-color: #ffe2e2;
 }
 
-#logoutBtn{
+.functionBtn{
 	padding: 10px 20px;
     border: none;
     background-color: #fc6363;

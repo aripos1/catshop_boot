@@ -44,6 +44,21 @@ public class DUserService {
 		return count;
 		
 	}
-}	
 	
+	 public boolean exeDuplicate(String id) {
+	      System.out.println("UserService.exeDuplicate()");
+	      
+	      int count = duserDao.selecUserById(id);
+	      
+	      if(count >= 1) {
+	         return false;
+	         
+	      }else {
+	         return true;
+	         
+	      }
+	      
+	      
+	 }
 
+}
