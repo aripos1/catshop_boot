@@ -34,23 +34,23 @@
         <h2>사료</h2>
         <div class="products">
             <c:forEach var="product" items="${petfoodList}" varStatus="status">
-                <c:if test="${product.category == '성인묘'}">
+                <c:if test="${product.category == 'ADULT'}">
                     <div class="product">
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>${product.category}</p>
+                            <p>성인묘</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>
                     </div>
                 </c:if>
-                <c:if test="${product.category == '아가묘'}">
+                <c:if test="${product.category == 'KITTEN'}">
                     <div class="product">
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>${product.category}</p>
+                            <p>아가묘</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>
@@ -62,23 +62,23 @@
         <h2>간식</h2>
         <div class="products">
             <c:forEach var="product" items="${petfoodList}" varStatus="status">
-                <c:if test="${product.category == '캔'}">
+                <c:if test="${product.category == 'CAN'}">
                     <div class="product">
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>${product.category}</p>
+                            <p>캔</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>
                     </div>
                 </c:if>
-                <c:if test="${product.category == '츄르'}">
+                <c:if test="${product.category == 'CHURR'}">
                     <div class="product">
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>${product.category}</p>
+                            <p>츄르</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>

@@ -94,7 +94,7 @@
     <select id="getExpressStatus" parameterType="int" resultType="String">
         SELECT express
         FROM receipt
-        WHERE no = #{receiptNo} and itemNo = ?
+        WHERE no = #{receiptNo}
     </select>
 
 
