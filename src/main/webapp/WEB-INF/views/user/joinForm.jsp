@@ -16,10 +16,11 @@
 
 <body>
     <div id="wrap">
-
-       <div id="logo">
-            <img id="img" src="../assets/images/logo.png" alt="고양이 로고">
-       </div> 
+ <div id="logo">
+           <a href ="${pageContext.request.contextPath}/main">
+             <img id="img" src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고">
+            </a>
+            </div>
         <h2>회원가입</h2>
 
     <div class="content">
@@ -37,7 +38,7 @@
             </div>
             <div class="form-group">
                 <label class="form-text" for="input-password">비밀번호</label>
-                <input type="text" id="input-password" name="password" placeholder="비밀번호를 입력하세요" required>
+                <input type="password" id="input-password" name="password" placeholder="비밀번호를 입력하세요" required>
             </div>
 
             <div class="form-group">

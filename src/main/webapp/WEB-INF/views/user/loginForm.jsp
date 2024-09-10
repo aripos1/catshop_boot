@@ -15,7 +15,9 @@
     <body>
         <div id="wrap">
             <div id="logo">
+            	<a href ="${pageContext.request.contextPath}/main">
                 <img id="img" src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고">
+            	</a>
             </div>
                 <h2>로그인</h2>
             
@@ -31,7 +33,7 @@
                             <input type="text" id="input-id" name="id" value="" placeholder="아이디를 입력하세요" required><!--입력하지 않고 로그인버튼을 누르면 입력하세요 라고 하는 기능이 존재합니다. -->
 
                             <label class="form-text" for="input-password">비밀번호</label>
-                            <input type="text" id="input-password" name="password" value="" placeholder="비밀번호를 입력하세요" required>
+                            <input type="password" id="input-password" name="password" value="" placeholder="비밀번호를 입력하세요" required>
                             <br>
                             <button type="submit">로그인</button>
                         
