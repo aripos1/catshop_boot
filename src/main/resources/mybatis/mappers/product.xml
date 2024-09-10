@@ -40,7 +40,11 @@
 		]]>
 	</select>
 	
-	<!-- 리뷰저장 -->
+	
+	
+	
+	
+	<!-- 리뷰등록 -->
 	<insert id="insert" parameterType="com.javaex.vo.PProductVo">
 		<![CDATA[ 
 			insert into review

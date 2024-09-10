@@ -99,8 +99,8 @@
                         
                        <c:forEach items="${requestScope.pMap.goodsList2}" var="goodsVo" >
 	                        <li>
-	                            <a href="">
-	                                <div class="view">
+	                            <a href="${pageContext.request.contextPath}/productinfo?goodsno=${goodsVo.no}">
+	                                <div class="view" >
 	                                    <img class="imgItem" src="${pageContext.request.contextPath}/assets/images/">
 	                                    <div class="imgName">${goodsVo.name}</div>
 	                                    <div class="imgContent">${goodsVo.content}</div>
