@@ -20,7 +20,8 @@
 			select 	no,
 					name,
 					hp,
-					address
+					address,
+					roll
 			from user
 			where id = #{id}
 			and password = #{password}

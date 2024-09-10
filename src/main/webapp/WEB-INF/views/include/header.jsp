@@ -37,7 +37,7 @@
         	
             <!-- 회원-->
              
-            <c:if test="${sessionScope.authUser != null}">
+            <c:if test="${sessionScope.authUser != null && sessionScope.authUser.roll == 0}">
             <div class="menu">
             <br>
               <p> ${sessionScope.authUser.name}집사님 어서오세요.</p>
@@ -47,11 +47,11 @@
             </div>
             
             </c:if>
-            <c:if test="{sessionScope.authUser.roll == 1}"> 
+            <c:if test="${sessionScope.authUser.roll == 1}"> 
             <div class="menu">
-                <P>관리자님 어서오세요.</P>
+              
               <br>
-              <a href="${pageContext.request.contextPath}/user/!!!" id="proregBtn" class="button">상품등록</a>
+              <a href="${pageContext.request.contextPath}/admin/insertform" id="proregBtn" class="button">상품등록</a>
                <a href="${pageContext.request.contextPath}/user/!!!" id="promanageBtn" class="button">상품관리</a>
                <a href="${pageContext.request.contextPath}/user/!!!" id="ordermanageBtn" class="button">주문관리</a>
                <a href="${pageContext.request.contextPath}/user/logout" id="logoutBtn" class="button">로그아웃</a>
