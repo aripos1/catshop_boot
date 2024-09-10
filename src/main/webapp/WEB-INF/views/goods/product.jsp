@@ -58,7 +58,7 @@
 					<div class="options">
 						<select>
 							<c:forEach items="${requestScope.pMap.oList}" var="productVo">
-								<option value="${productVo.optionName}">${productVo.optionName}</option>
+								<option value="${productVo.taste}">${productVo.taste}</option>
 							</c:forEach>
 						</select>
 					</div>
