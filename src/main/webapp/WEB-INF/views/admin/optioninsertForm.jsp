@@ -104,12 +104,12 @@
                         </colgroup> 
                             <thead>
                                 <tr>
-                                    <th> 번호 </th>
+                                    <th> 상품번호 </th>
                                     <th> 카테고리 </th>
                                     <th> 상품이름 </th>
-                                    <th> 등록날짜 </th>
-                                    <th> 글제목 </th>
+                                    <th> 옵션 </th>
                                     <th> 상품가격 </th>
+                                    <th> 등록일자 </th>
                                 </tr>
                             </thead>
                             <tbody>

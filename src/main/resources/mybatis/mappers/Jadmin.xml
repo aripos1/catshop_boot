@@ -75,6 +75,7 @@
 	    
 	    </delete>
 	    
+	   <!-- ---------------- 옵션부분 ---------------------- -->
 	    
 	    <!-- 옵션 축가  -->
 	    
@@ -89,6 +90,25 @@
 	    
 	    
 	    </insert>
+	    
+	    <!-- option page list -->
+	    
+	    <select id="optionnumlist" parameterType="int" resultType="com.javaex.vo.JOptionVo">
+	    
+	    	<![CDATA[
+	    		select   goods_no 
+						,category
+						,name
+        				,taste
+        				,price
+        				,reg_date
+				from goods g 
+				join options as o on
+				g.no = o.goods_no
+				where g.no = #{no}
+	    	]]>
+	    
+	    </select>
 	    
 	    
 	

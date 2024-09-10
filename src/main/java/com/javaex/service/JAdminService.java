@@ -122,6 +122,16 @@ public class JAdminService {
 		return 0;
 	}
 	
+	//option page list
+	
+	public List<JOptionVo> exeoptionselectlist(int no){
+		System.out.println("service j w");
+		
+		jadminDao.optionselectlist(no);
+		
+		return null;
+	}
+	
 
 
 }

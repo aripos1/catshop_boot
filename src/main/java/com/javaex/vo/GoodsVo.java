@@ -14,6 +14,7 @@ public class GoodsVo {
 	private String saveNameb;
 	private String filePathb;
 	private String user_no;
+	
 	public GoodsVo() {
 		super();
 		// TODO Auto-generated constructor stub

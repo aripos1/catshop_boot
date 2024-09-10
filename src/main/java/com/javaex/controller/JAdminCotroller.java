@@ -76,6 +76,18 @@ public class JAdminCotroller {
 		return "/admin/optioninsertForm";
 	}
 	
+	//option page list
+	@RequestMapping(value="/admin/optionlist", method= {RequestMethod.GET, RequestMethod.POST})
+	public String adminoptionnumlist(@RequestParam(value="goods_no") int no) {
+		System.out.println("controller j w");
+		
+		jadminService.exeoptionselectlist(no);
+		
+		
+		
+		return "";
+	}
+	
 	
 	
 	

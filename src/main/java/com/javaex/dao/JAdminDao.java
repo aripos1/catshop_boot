@@ -59,6 +59,17 @@ public class JAdminDao {
 	}
 	
 	
+	//option page list
+	
+	public List<JOptionVo> optionselectlist(int no){
+		System.out.println("optionlist dao j w");
+		
+		sqlSession.selectList("admingoodslist.optionnumlist",no);
+		
+		return null;
+	}
+	
+	
 	
 	
 
