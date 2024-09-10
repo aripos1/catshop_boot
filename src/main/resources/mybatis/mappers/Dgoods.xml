@@ -8,21 +8,95 @@
 	<select id="selectGoods" resultType="com.javaex.vo.GoodsVo">
 		
 		<![CDATA[
-			select	 no
-        			,category
-        			,name
-        			,content
-        			,price
-        			,date(reg_date) as regDate
-        			,save_namef as saveNamef
-        			,file_pathf as filepathf
-        			,save_nameb as saveNameb
-        			,file_pathf as filepathf
-        			,user_no
-			from goods
-			where category ='성인묘'
-			or category='아가묘'
-			order by reg_date desc
+		SELECT * FROM (
+ 
+    SELECT 
+        no,
+        category,
+        name,
+        content,
+        price,
+        DATE(reg_date) AS regDate,
+        save_namef AS saveNamef,
+        file_pathf AS filepathf,
+        save_nameb AS saveNameb,
+        user_no AS userNo
+    FROM (
+        SELECT * FROM goods 
+        WHERE category = '성인묘'
+        ORDER BY reg_date DESC
+        LIMIT 2
+    ) AS adult_goods
+
+    UNION ALL 
+
+    
+    SELECT 
+        no,
+        category,
+        name,
+        content,
+        price,
+        DATE(reg_date) AS regDate,
+        save_namef AS saveNamef,
+        file_pathf AS filepathf,
+        save_nameb AS saveNameb,
+        user_no AS userNo
+    FROM (
+        SELECT * FROM goods 
+        WHERE category = '아가묘'
+        ORDER BY reg_date DESC
+        LIMIT 1
+    ) AS baby_goods
+
+    UNION ALL 
+
+ 
+    SELECT 
+        no,
+        category,
+        name,
+        content,
+        price,
+        DATE(reg_date) AS regDate,
+        save_namef AS saveNamef,
+        file_pathf AS filepathf,
+        save_nameb AS saveNameb,
+        user_no AS userNo
+    FROM (
+        SELECT * FROM goods 
+        WHERE category = '캔'
+        ORDER BY reg_date DESC
+        LIMIT 2
+    ) AS can_goods
+
+    UNION ALL 
+
+    
+    SELECT 
+        no,
+        category,
+        name,
+        content,
+        price,
+        DATE(reg_date) AS regDate,
+        save_namef AS saveNamef,
+        file_pathf AS filepathf,
+        save_nameb AS saveNameb,
+        user_no As userNo
+    FROM (
+        SELECT * FROM goods 
+        WHERE category = '츄르'
+        ORDER BY reg_date DESC
+        LIMIT 1
+    ) AS chur_goods
+
+) AS combined_results
+
+ORDER BY regDate DESC;
+
+
+
     	]]>
 		 
 	</select>

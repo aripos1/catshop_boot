@@ -41,7 +41,7 @@
     <h2>사료</h2>
     <div class="products">
         <c:forEach var="product" items="${petfoodList}" varStatus="status">
-            <c:if test="${product.category == '성인묘' && status.index < 2}">
+            <c:if test="${product.category == '성인묘'}">
                 <div class="product">
                     <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                         <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
@@ -52,7 +52,7 @@
                     </a>
                 </div>
             </c:if>
-            <c:if test="${product.category == '아가묘' && status.index < 1}">
+            <c:if test="${product.category == '아가묘'}">
                 <div class="product">
                     <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                         <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
@@ -65,7 +65,7 @@
             </c:if>
         </c:forEach>
     </div>
-</section>
+
 
 		<h2>간식</h2>
 		<div class="products">

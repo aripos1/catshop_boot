@@ -13,13 +13,13 @@ public class GoodsVo {
 	private String filePathf;
 	private String saveNameb;
 	private String filePathb;
-	private String user_no;
+	private int userNo;
 	public GoodsVo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public GoodsVo(int no, String category, String name, String content, int price, String regDate, String saveNamef,
-			String filePathf, String saveNameb, String filePathb, String user_no) {
+			String filePathf, String saveNameb, String filePathb, int userNo) {
 		super();
 		this.no = no;
 		this.category = category;
@@ -31,7 +31,7 @@ public class GoodsVo {
 		this.filePathf = filePathf;
 		this.saveNameb = saveNameb;
 		this.filePathb = filePathb;
-		this.user_no = user_no;
+		this.userNo = userNo;
 	}
 	public int getNo() {
 		return no;
@@ -93,18 +93,17 @@ public class GoodsVo {
 	public void setFilePathb(String filePathb) {
 		this.filePathb = filePathb;
 	}
-	public String getUser_no() {
-		return user_no;
+	public int getUserNo() {
+		return userNo;
 	}
-	public void setUser_no(String user_no) {
-		this.user_no = user_no;
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
 	@Override
 	public String toString() {
 		return "GoodsVo [no=" + no + ", category=" + category + ", name=" + name + ", content=" + content + ", price="
 				+ price + ", regDate=" + regDate + ", saveNamef=" + saveNamef + ", filePathf=" + filePathf
-				+ ", saveNameb=" + saveNameb + ", filePathb=" + filePathb + ", user_no=" + user_no + "]";
+				+ ", saveNameb=" + saveNameb + ", filePathb=" + filePathb + ", userNo=" + userNo + "]";
 	}
-	
+
 }
-	
