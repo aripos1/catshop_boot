@@ -39,7 +39,7 @@
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>"성인묘"</p>
+                            <p>성인묘</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>
@@ -50,7 +50,7 @@
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>${product.category}</p>
+                            <p>아가묘</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>
@@ -67,7 +67,7 @@
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>${product.category}</p>
+                            <p>캔</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>
@@ -78,7 +78,7 @@
                         <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
                             <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
                             <p>${product.name}</p>
-                            <p>${product.category}</p>
+                            <p>츄르</p>
                             <p>${product.regDate}</p>
                             <p>${product.price}원</p>
                         </a>
