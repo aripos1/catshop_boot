@@ -42,7 +42,7 @@
             <br>
               <p> ${sessionScope.authUser.name}집사님 어서오세요.</p>
                 <a href="${pageContext.request.contextPath}/shopping/form" id="martboxBtn" class="button">장바구니</a>
-                <a href="${pageContext.request.contextPath}/user/!!!!" id="mypageBtn" class="button">마이페이지</a>
+                <a href="${pageContext.request.contextPath}/orderlist" id="mypageBtn" class="button">마이페이지</a>
                <a href="${pageContext.request.contextPath}/user/logout" id="logoutBtn" class="button">로그아웃</a>
             </div>
             
