@@ -13,10 +13,6 @@ public class GoodsVo {
 	private String filePathf;
 	private String saveNameb;
 	private String filePathb;
-
-
-	
-
 	private int userNo;
 
 	public GoodsVo() {
