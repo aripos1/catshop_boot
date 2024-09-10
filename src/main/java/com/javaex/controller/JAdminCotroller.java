@@ -61,7 +61,7 @@ public class JAdminCotroller {
 	public String optioninsertForm() {
 		System.out.println("insert option form");
 		
-		return "/admin/optioninsertForm";
+		return "/admin/optioninsertForm";  
 	}
 	
 	
