@@ -22,9 +22,7 @@
     <!-- Image Preview Section -->
     		<form action="${pageContext.request.contextPath}/admin/upload" method="post" enctype="multipart/form-data">
     			<div class="img-container">
-    				<div class="form-group-img">
-        				<img src="${pageContext.request.contextPath}/upload/${requestScope.saveName}" alt="이미지 미리보기">
-    				</div>
+    				
 
     <!-- Product Image Upload --> <!-- 첨부파일에는 꼭 붙여줘야 한다.  보안용 -->
      				<div class="images">
@@ -65,10 +63,10 @@
     			<div class="form-group category-section">
         			<label for="category">카테고리</label>
         			<select id="category" type="text" name="category" value="">
-           			 	<option value="성인사료">으른사료</option>
-           			 	<option value="아기사료">아기사료</option>
-           			 	<option value="성인사료">캔</option>
-           			 	<option value="아기사료">츄르</option>
+           			 	<option value="ADULT">ADULT</option>
+           			 	<option value="KITTEN">KITTEN</option>
+           			 	<option value="CAN">CAN</option>
+           			 	<option value="CHURR">CHURR</option>
         			</select>
     			</div>
     <!-- Button Group -->

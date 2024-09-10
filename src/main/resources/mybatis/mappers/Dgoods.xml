@@ -23,7 +23,7 @@
         user_no AS userNo
     FROM (
         SELECT * FROM goods 
-        WHERE category = '성인묘'
+        WHERE category = 'ADULT'
         ORDER BY reg_date DESC
         LIMIT 2
     ) AS adult_goods
@@ -44,7 +44,7 @@
         user_no AS userNo
     FROM (
         SELECT * FROM goods 
-        WHERE category = '아가묘'
+        WHERE category = 'KITTEN'
         ORDER BY reg_date DESC
         LIMIT 1
     ) AS baby_goods
@@ -65,7 +65,7 @@
         user_no AS userNo
     FROM (
         SELECT * FROM goods 
-        WHERE category = '캔'
+        WHERE category = 'CAN'
         ORDER BY reg_date DESC
         LIMIT 2
     ) AS can_goods
@@ -86,7 +86,7 @@
         user_no As userNo
     FROM (
         SELECT * FROM goods 
-        WHERE category = '츄르'
+        WHERE category = 'CHURR'
         ORDER BY reg_date DESC
         LIMIT 1
     ) AS chur_goods

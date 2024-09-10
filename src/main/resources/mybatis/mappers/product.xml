@@ -20,7 +20,7 @@
 	<!-- 옵션 리스트 가져오기 -->
 	<select id="optionList" parameterType="int" resultType="com.javaex.vo.PProductVo">
 		<![CDATA[
-			select  option_name as optionName
+			select  taste as optionName
 			FROM goods g
             JOIN options o on g.no = o.goods_no
             WHERE no = #{no}

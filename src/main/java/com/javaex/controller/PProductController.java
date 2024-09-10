@@ -28,7 +28,7 @@ public class PProductController {
 
 	// 상품상세 폼 상품 정보 가져오기
 	@RequestMapping(value = "/productinfo", method = { RequestMethod.GET, RequestMethod.POST })
-	public String prodinfo(@RequestParam(value = "goodsno") int no, Model model, HttpSession session) {
+	public String prodinfo(@RequestParam(value = "goodsNo") int no, Model model, HttpSession session) {
 		System.out.println("ProductpageController.prodinfo");
 
 		UserVo buyer = (UserVo) session.getAttribute("authUser");
