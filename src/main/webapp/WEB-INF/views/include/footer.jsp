@@ -23,11 +23,11 @@
                 </div>
                 <div class="footer-info">
                     <p>
-                        (주)냐옹아 멍멍해봐 | 대표이사: 김덕배<br>
-                        서울시 강남대로 40번지 통영빌딩 32층<br>
+                        (주)야옹이 멍멍해봐 | 대표이사: 임현성<br>
+                        서울시 강남대로 40번지 고양이왕국<br>
                         사업자 등록번호: 887-87-00578<br>
                         통신판매업 신고: 2017-서울특별시-00808호<br>
-                        ©catmung Inc. All Rights Reserved.
+                        ©Catworld Inc. All Rights Reserved.
                     </p>
                 </div>
                 <div class="footer-contact">

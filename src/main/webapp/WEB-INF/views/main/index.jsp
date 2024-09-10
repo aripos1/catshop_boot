@@ -69,32 +69,30 @@
 
 		<h2>간식</h2>
 		<div class="products">
+		 <c:forEach var="product" items="${petfoodList}" varStatus="status">
+		  <c:if test="${product.category == '캔'}">
 			<div class="product">
-				<img
-					src="${pageContext.request.contextPath}/assets/images/adult-food/1$royalcanin.jpg"
-					alt="간식가정 1">
-				<p>
-					간식 가정 1<br> 10000원
-				</p>
+				<a href="${pageContext.request.contextPath}/product/detail/${product.no}">
+                        <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
+                        <p>${product.name}</p>
+                        <p>${product.category}</p>
+                        <p>${product.regDate}</p>
+                        <p>${product.price}원</p>
+                    </a>
 			</div>
+			</c:if>
+			 <c:if test="${product.category == '츄르'}">
 			<div class="product">
-				<img
-					src="${pageContext.request.contextPath}/assets/images/adult-food/1$royalcanin.jpg"
-					alt="간식가정2">
-				<p>
-					간식 가정 2<br> 20000원
-				</p>
-			</div>
-			<div class="product">
-				<img
-					src="${pageContext.request.contextPath}/assets/images/adult-food/1$royalcanin.jpg"
-					alt="간식가정 3">
-				<p>
-					간식 가정 3<br> 30000원
-				</p>
-			</div>
-
-		</div>
+				 <a href="${pageContext.request.contextPath}/product/detail/${product.no}">
+                        <img src="${product.filePathf}/${product.saveNamef}" alt="${product.name}">
+                        <p>${product.name}</p>
+                        <p>${product.category}</p>
+                        <p>${product.regDate}</p>
+                        <p>${product.price}원</p>
+                    </a>
+                </div>
+               </c:if>
+              </c:forEach>  
 	</section>
 </div>
 <!-- wrap -->
