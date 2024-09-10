@@ -14,7 +14,7 @@
         			,name
         			,content
         			,price
-        			,reg_date
+        			,reg_date as regDate
         			,save_namef
         			,file_pathf
         			,save_nameb
