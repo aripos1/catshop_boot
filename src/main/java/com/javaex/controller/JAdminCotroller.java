@@ -52,7 +52,7 @@ public class JAdminCotroller {
 		
 		jadminService.exedeletegoodsone(no);
 		
-		
+		  
 		return "redirect:/admin/JgoodslistFrom";
 	}
 	
