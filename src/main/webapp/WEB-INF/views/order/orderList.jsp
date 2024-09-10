@@ -15,7 +15,7 @@
 
 		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
-	<div id="container" class="clearfix">
+		<div id="container" class="clearfix">
 			<div class="sidebar">
 				<h2>MYPAGE</h2>
 				<a href="#">주문 목록</a> <a href="#">회원 정보</a>
@@ -40,7 +40,8 @@
 								<td>${orderItem.paymentDate}</td>
 
 								<!-- 상품 정보 -->
-								<td>${orderItem.goodsName}<br> ${orderItem.taste}</td>
+								<td>${orderItem.goodsName}<br> ${orderItem.taste}
+								</td>
 
 								<!-- 배송 상태 -->
 								<td>${orderItem.express}</td>

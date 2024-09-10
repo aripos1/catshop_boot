@@ -20,14 +20,14 @@
 		<header id="header">
 			<div class="header-container">
 				<div class="logo">
-					<a href=""><img src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고"></a>
+					<a href="${pageContext.request.contextPath}/main"><img src="${pageContext.request.contextPath}/assets/images/Layer 1.png" alt="고양이 로고"></a>
 					<h1>야옹이 멍멍해봐</h1>
 				</div>
 			</div>
 		</header>
 
 		<h1>
-			<a href=""> ◀ 장바구니 </a>
+			<a href="${pageContext.request.contextPath}/goods/list2"> ◀ 장바구니 </a>
 		</h1>
 		<form id="cartForm" action="${pageContext.request.contextPath}/order/payform" method="get">
 			<table>
@@ -47,7 +47,7 @@
 						<tr id="row-${shoppingVo.shoppingNo}">
 							<td><input type="checkbox" name="selectedItems" value="${shoppingVo.shoppingNo}"></td>
 							<td><img src="${pageContext.request.contextPath}/assets/images/download.jfif" alt="상품 A 이미지"></td>
-							<td>${shoppingVo.goodsName}<br> 옵션 : ${shoppingVo.taste}
+							<td>${shoppingVo.goodsName}<br> 옵션 : ${shoppingVo.taste}<br> 담은 날짜 : ${shoppingVo.pickDate}<br> 
 							</td>
 							<td class="item-price">${shoppingVo.price}원</td>
 							<td><input type="number" value="${shoppingVo.count}" min="1" style="width: 50px;" data-shopping-no="${shoppingVo.shoppingNo}"
@@ -87,7 +87,7 @@
 			<br>
 			<div class="parent-container">
 				<button class="btn" onclick="history.back()">뒤로가기</button>
-				<button type="submit">결제하기</button>
+				<button class="btn" type="submit">결제하기</button>
 			</div>
 		</form>
 	</div>
@@ -217,8 +217,7 @@
 				data: { shoppingNo: shoppingNo },
 				success: function() {
 					// 삭제 성공 시 해당 행을 삭제
-					document.getElementById(`row-${shoppingNo}`).remove();
-					updateFinalAmount();  // 삭제 후 금액 업데이트
+					location.reload();
 				},
 				error: function(xhr, status, error) {
 					console.error("삭제 실패:", error);
@@ -226,6 +225,8 @@
 				}
 			});
 		}
+		
+		
 	</script>
 </body>
 </html>

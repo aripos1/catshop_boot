@@ -52,7 +52,7 @@ public class HShoppingController {
 	public String addShoppingItem(@ModelAttribute ShoppingVo shoppingVo, HttpSession session) {
 		System.out.println("add");
 		ShoppingVo shoppingVo1 = new ShoppingVo();
-		shoppingVo1.setUserNo(1);
+		shoppingVo1.setUserNo(2);
 		shoppingVo1.setGoodsNo(3); // 임시 상품 번호
 		shoppingVo1.setCount(1); // 임시 수량
 		shoppingVo1.setOptionsNo(4);

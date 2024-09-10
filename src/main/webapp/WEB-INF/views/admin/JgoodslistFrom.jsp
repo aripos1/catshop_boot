@@ -140,7 +140,7 @@
                     </form>
                 </div>
                 <div id="list-table">
-                    <table>
+                    <table id="one">
                         <colgroup>
                             <col style="width: 80px" >
                             <col style="width: 100px">
@@ -171,7 +171,7 @@
 		                                    <td> ${GoodsVo.price} </td>
 		                                    
 		                                   
-			                                <td><a href="${pageContext.request.contextPath}/admin/optioninsertform?goods_no=${GoodsVo.no}"><button type="submit" class="btn-delete"> 옵션 </button></a> </td>
+			                                <td><a href="${pageContext.request.contextPath}/admin/optionlist?goods_no=${GoodsVo.no}"><button type="submit" class="btn-delete"> 옵션 </button></a> </td>
 			                                    	
 		                                   
 		                                   

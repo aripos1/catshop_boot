@@ -58,7 +58,7 @@ table {
 }
 
 table thead th {
-    background-color: #007bff;
+    background-color:rgb(250, 197, 197);
     color: white;
     padding: 10px;
     border: 1px solid #ddd;
@@ -90,21 +90,23 @@ input[type="number"] {
 
 /* 버튼 스타일 */
 .btn {
-    background-color: #007bff;
+    background-color: rgb(255, 128, 192);
     color: white;
     border: none;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #FFB2F5;
 }
 
 .btn-remove {
-    background-color: #dc3545;
+    background-color: darkgray;
 }
 
 .btn-remove:hover {
@@ -113,7 +115,7 @@ input[type="number"] {
 
 /* 주문 요약 테이블 스타일 */
 table:last-of-type thead th {
-    background-color: #6c757d;
+    background-color: #FFB2F5;
     color: white;
 }
 
@@ -132,4 +134,5 @@ table + br, table:last-of-type + br {
     margin: 20px auto;
     padding: 10px 20px;
     cursor: pointer;
+    font-family: 'HakgyoansimNadeuriTTF-B';
 }

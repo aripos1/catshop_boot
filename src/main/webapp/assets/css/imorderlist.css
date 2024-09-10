@@ -10,13 +10,14 @@ body {
 .sidebar {
     float: left;
     width: 180px;
-    background-color: #f5f5dc; /* 사이드바 배경색 크림색 */
+    background-color: rgb(250, 197, 197);
     padding: 15px;
     height: 100%;
+    border-radius: 20px; 
+    margin-top: 10px;
 }
 
 .sidebar h2 {
-    font-size: 1.2em;
     margin-bottom: 15px;
 }
 
@@ -25,10 +26,12 @@ body {
     margin-bottom: 10px;
     text-decoration: none;
     color: #333;
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    font-size : 16px;
 }
 
 .sidebar a:hover {
-    color: #d2b48c; /* 마우스 오버 시 밝은 갈색 */
+    color: white; /* 마우스 오버 시 밝은 갈색 */
 }
 
 /* 메인 콘텐츠 영역 스타일 */
@@ -104,6 +107,7 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
     background-color: white;
+    border-radius: 20px ; 
 }
 
 table th, table td {

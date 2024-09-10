@@ -93,7 +93,7 @@
                     </form>
                 </div>
                 <div id="list-table">
-                    <table>
+                    <table id="two">
                         <colgroup>
                             <col style="width: 80px" >
                             <col style="width: 100px">
@@ -113,42 +113,21 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> 츄르 </td>
-                                    <td> 하림츄르 </td>
-                                    <td> 2024-09-06 </td>
-                                    <td> 맛있는 츄류류륩 </td>
-                                    <td> 3,000 +"원" </td>
-                                    <td><a href=""><button type="submit" id="btn-delete"> 삭제 </button></a> </td>
-                                </tr>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> 츄르 </td>
-                                    <td> 하림츄르 </td>
-                                    <td> 2024-09-06 </td>
-                                    <td> 맛있는 츄류류륩 </td>
-                                    <td> 3,000 </td>
-                                    <td><a><button type="submit" id="btn-delete"> 삭제 </button></a> </td>
-                                </tr>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> 츄르 </td>
-                                    <td> 하림츄르 </td>
-                                    <td> 2024-09-06 </td>
-                                    <td> 맛있는 츄류류륩 </td>
-                                    <td> 3,000 </td>
-                                    <td><a><button type="submit" id="btn-delete"> 삭제 </button></a> </td>
-                                </tr>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> 츄르 </td>
-                                    <td> 하림츄르 </td>
-                                    <td> 2024-09-06 </td>
-                                    <td> 맛있는 츄류류륩 </td>
-                                    <td> 3,000 </td>
-                                    <td><a><button type="submit" id="btn-delete"> 삭제 </button></a> </td>
-                                </tr>
+                            	<c:forEach items="${requestScope.optionList}" var="JOptionVo">
+	                                <tr>
+	                                    <td> ${JOptionVo.goods_no} </td>
+	                                    <td> ${JOptionVo.category } </td>
+	                                    <td> ${JOptionVo.name} </td>
+	                                    <td> ${JOptionVo.taste} </td>
+	                                    <td> ${JOptionVo.price} </td>
+	                                    <td> ${JOptionVo.regDate} </td>
+	                                    <td><input type="hidden"></td>
+	                                   <!-- <form action="${pageContext.request.contextPath}/admin/delete" method="get">
+	                                    	<td><button type="submit" id="btn-delete"> 삭제 </button></td>
+	                                    	<input type="text" name="goods_no" value="${JOptionVo.no }">
+	                                	</form>-->
+	                                </tr>
+                               </c:forEach>
                             </tbody>
                     </table>
                 </div>
@@ -158,7 +137,7 @@
                 <div id="option-area">    
                     <div id="paging">
                         <ul class="clearfix">
-                            <a href=""><button type="button">뒤로가기</button></a>
+                            <a href="${pageContext.request.contextPath}/admin/list2"><button type="button">뒤로가기</button></a>
                            
                             
                             <li class="page_move"><a href="">▶</a></li>
