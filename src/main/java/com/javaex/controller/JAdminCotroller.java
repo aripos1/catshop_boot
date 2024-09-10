@@ -52,7 +52,7 @@ public class JAdminCotroller {
 		
 		jadminService.exedeletegoodsone(no);
 		
-		
+		  
 		return "redirect:/admin/JgoodslistFrom";
 	}
 	
@@ -61,7 +61,7 @@ public class JAdminCotroller {
 	public String optioninsertForm() {
 		System.out.println("insert option form");
 		
-		return "/admin/optioninsertForm";
+		return "/admin/optioninsertForm";  
 	}
 	
 	
