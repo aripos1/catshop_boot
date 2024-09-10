@@ -101,11 +101,11 @@ public class JAdminService {
 		return jmap;
 	}
 	//delete
-	public void exedeletegoodsone(int no) {
+	public void exedeletegoodsone(int option_no) {
 		System.out.println("service j w");
-		System.out.println(no);
+		System.out.println(option_no);
 		
-		jadminDao.deletegoodsone(no);
+		jadminDao.deletegoodsone(option_no);
 	}
 	
 	//insert
@@ -127,9 +127,9 @@ public class JAdminService {
 	public List<JOptionVo> exeoptionselectlist(int no){
 		System.out.println("service j w");
 		
-		jadminDao.optionselectlist(no);
+		List<JOptionVo> optionList = jadminDao.optionselectlist(no);
 		
-		return null;
+		return optionList;
 	}
 	
 

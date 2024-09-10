@@ -39,12 +39,14 @@ public class JAdminDao {
 	}
 	
 	//delete
-	public void deletegoodsone(int no) {
+	public int deletegoodsone(int option_no) {
 		System.out.println("dao delete j w");
-		System.out.println(no);
+		System.out.println(option_no);
 		
-		sqlSession.delete("admingoodslist.admingoodsdeleteone",no);
+		int count = sqlSession.delete("admingoodslist.admingoodsdeleteone",option_no);
 		
+		System.out.println("???????????????????????"+count);
+		return count;
 	}
 	
 	//insert
@@ -64,9 +66,10 @@ public class JAdminDao {
 	public List<JOptionVo> optionselectlist(int no){
 		System.out.println("optionlist dao j w");
 		
-		sqlSession.selectList("admingoodslist.optionnumlist",no);
+		List<JOptionVo> optionList = sqlSession.selectList("admingoodslist.optionnumlist",no);
+		System.out.println(optionList);
 		
-		return null;
+		return optionList;
 	}
 	
 	
