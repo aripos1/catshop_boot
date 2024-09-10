@@ -14,12 +14,12 @@
         			,name
         			,content
         			,price
-        			,reg_date
-        			,save_namef
-        			,file_pathf
-        			,save_nameb
-        			,file_pathb
-        			,user_no
+        			,reg_date as regDate
+        			,save_namef as saveNamef
+        			,file_pathf as filePathf
+        			,save_nameb as saveNameb
+        			,file_pathb as filePathb
+        			,user_no as userNo
 				from goods
 				where 1=1
 			
