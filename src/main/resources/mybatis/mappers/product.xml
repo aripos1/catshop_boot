@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="product">
+	
+	<!-- 데이터1개 가져오기 -->
+	<select id="selectOne" parameterType="int" resultType="com.javaex.vo.PProductVo">
+		<![CDATA[
+			select  save_namef as saveNamef,
+			        name,
+			        content,
+			        price,
+			        save_nameb as saveNameb
+			FROM goods
+            WHERE no = #{no}
+		]]>
+	</select>
+	
+	<!-- 옵션 리스트 가져오기 -->
+	<select id="optionList" parameterType="int" resultType="com.javaex.vo.PProductVo">
+		<![CDATA[
+			select  option_name as optionName
+			FROM goods g
+            JOIN options o on g.no = o.goods_no
+            WHERE no = #{no}
+		]]>
+	</select> 
+	 
+	<!-- 리뷰 리스트 가져오기 -->
+	<select id="reviewListr" parameterType="int" resultType="com.javaex.vo.PProductVo">
+		<![CDATA[
+			select  
+					name as r_name,
+					review_date,
+					content as r_content
+			from review				 
+			WHERE goods_no = #{no}
+			order by no desc
+		]]>
+	</select>
+	
+	<!-- 리뷰저장 -->
+	<insert id="insert" parameterType="com.javaex.vo.PProductVo">
+		<![CDATA[ 
+			insert into review
+			value(null, #{content}, now())
+		]]> 
+	</insert>
+
+</mapper>
