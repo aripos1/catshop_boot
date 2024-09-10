@@ -53,9 +53,9 @@
 		            </div>
 		       -->
 		            <br>
-		            <form action="${pageContext.request.contextPath}/goods/list2?category=${param.category}">
+		            <form action="${pageContext.request.contextPath}/goods/list2?category=${param.keyword}">
 			            <div class="search">
-			                <input type="text" name="keyword" value="" placeholder="문자열을 검색하세요!">
+			                <input type="text" name="keyword" value="" placeholder="제목+상품설명검색!">
 			                <button type="submit" class="search-btn">🔍</button>
 			            </div>
 			        </form>
@@ -64,7 +64,7 @@
 		        <div class="nav-menu">
 		            <ul>
 		                <li><h2>사료</h2></li>
-		                <li><a href="#">성인묘</a></li>
+		                <li><a href="${pageContext.request.contextPath}/goods/list2?category=성인">성인묘</a></li>
 		                <li><a href="#">아가묘</a></li>
 		                <li><h2>간식</h2></li>
 		                <li><a href="#">캔</a></li>
@@ -125,10 +125,10 @@
                             	
                             	<c:choose>
                             		<c:when test="${param.page == page }">	
-                            			<li class="active"><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&category=${param.category}"> ${page}</a></li>
+                            			<li class="active"><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&keyword=${param.keyword}"> ${page}</a></li>
                             		</c:when>
                             		<c:otherwise>
-                            			<li><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&category=${param.category}"> ${page}</a></li>
+                            			<li><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&keyword=${param.keyword}"> ${page}</a></li>
                             		</c:otherwise>
                             	</c:choose>
                             </c:forEach>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.javaex.service.JAdminService;
+import com.javaex.vo.JOptionVo;
 import com.javaex.vo.JSeachVo;
 import com.javaex.vo.UserVo;
 
@@ -42,6 +43,36 @@ public class JAdminCotroller {
 		model.addAttribute("jmap",jmap);
 		
 		return "/admin/JgoodslistFrom";
+	}
+	
+	//delete
+	@RequestMapping(value="/admin/delete",method= {RequestMethod.POST,RequestMethod.GET})
+	public String deletegoods(@RequestParam("no") int no) {
+		System.out.println("delete j w");
+		
+		jadminService.exedeletegoodsone(no);
+		
+		return "redirect:/admin/JgoodslistFrom";
+	}
+	
+	//option form
+	@RequestMapping(value="/admin/optioninsertform",method= {RequestMethod.GET,RequestMethod.POST})
+	public String optioninsertForm() {
+		System.out.println("insert option form");
+		
+		return "/admin/optioninsertForm";
+	}
+	
+	
+	//option insert
+	@RequestMapping(value="/admin/insert",method= {RequestMethod.GET, RequestMethod.POST} )
+	public String admininsertoption(@ModelAttribute JOptionVo optionVo){
+		System.out.println("controller j w");
+		
+		System.out.println(optionVo);
+		jadminService.exeinsertoption(optionVo);
+		
+		return "/admin/optioninsertForm";
 	}
 	
 	

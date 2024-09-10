@@ -40,50 +40,51 @@
         			,name
         			,content
         			,price
-        			,reg_date
-        			,save_name
-        			,file_path
+        			,reg_date as regDate
+        			,save_namef as saveNamef
+        			,file_pathf as filePathf
+        			,save_nameb as saveNameb
+        			,file_pathb as filePathb
         			,user_no
 			from goods
 			where 1=1
 		]]>
-		
-		<if test="category != null">
-		
+		<if test="jseachVo.category != null and jseachVo.category !=''">
 			<![CDATA[
-				or category like #{category}
+				and category = #{jseachVo.category}	
 			]]>	
 		</if>
-		<if test="keyword != null">
-		
+		<if test="jseachVo.keyword != null and jseachVo.keyword != ''">
 			<![CDATA[
-				or name like concat('%', #{keywore}, '%')
-			]]>
-		</if>
-		<if test="keyword != null">
-		
+				and ( content like concat('%', #{jseachVo.keyword}, '%') or name like concat('%', #{jseachVo.keyword}, '%') )
+			]]>	
+		</if>	
+			
 			<![CDATA[
-				or content like concat('%', #{keywore}, '%')
+				limit #{startRowNo}, #{listcnt}
 			]]>
-		</if>
-		
-		<![CDATA[
-			limit #{startRowNo}, #{listcnt}
-		]]>
 		
 	
 	</select>
 	
-	<select id="goodsTotalCount" parameterType="com.javaex.vo.GoodsVo" resultType="int">
+	<select id="goodsTotalCount" parameterType="com.javaex.vo.JSeachVo" resultType="int">
 		<![CDATA[
 			
-			select count(*)
+			select count(*) count
 			from goods
-			where category like #{category}
-			or name like concat('%', #{keyword}, '%')
-			or content like concat('%', #{keyword}, '%')
-		
+			where 1=1
 		]]>
+		
+		<if test="category != null and category !=''">
+			<![CDATA[
+				and category = #{jseachVo.category}	
+			]]>	
+		</if>
+		<if test="keyword != null and keyword != ''">
+			<![CDATA[
+				and ( content like concat('%', #{keyword}, '%') or name like concat('%', #{keyword}, '%') )
+			]]>	
+		</if>
 	
 	</select>
 	

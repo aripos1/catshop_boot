@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javaex.vo.GoodsVo;
+import com.javaex.vo.JSeachVo;
 
 @Repository
 public class JGoodsDao {
@@ -47,12 +48,12 @@ public class JGoodsDao {
 	
 	//카테고리별 총갯수
 	
-	public int selectTotalGoods(String category, String keyword) {
+	public int selectTotalGoods(JSeachVo jseachVo) {
 		
-		GoodsVo textVo = new GoodsVo(category, keyword);
-		System.out.println("////////////////////goodsVo"+textVo);
 		
-		int goodsTotalCnt = sqlSession.selectOne("goods.goodsTotalCount",textVo);
+		System.out.println("////////////////////goodsVo"+jseachVo);
+		
+		int goodsTotalCnt = sqlSession.selectOne("goods.goodsTotalCount",jseachVo);
 		System.out.println("상품별 총 개수 안나올꺼냐????????"+goodsTotalCnt);
 		
 		return goodsTotalCnt;
