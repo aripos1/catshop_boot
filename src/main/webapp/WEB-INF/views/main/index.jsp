@@ -18,7 +18,7 @@
 
  <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
    
-
+<body>
  <div id=wrap>
     <!-- 배너 섹션 -->
     <section class="banner">
