@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.javaex.vo.GoodsVo;
+import com.javaex.vo.JOptionVo;
 import com.javaex.vo.JSeachVo;
 
 @Repository
@@ -37,13 +38,27 @@ public class JAdminDao {
 		return admingoodstotalcount;
 	}
 	
-	public int admindeletegoodsOne(int no) {
-		System.out.println("admin dao delete goods j w!~~");
+	//delete
+	public void deletegoodsone(int no) {
+		System.out.println("dao delete j w");
 		System.out.println(no);
-		int count = sqlSession.delete("admingoodslist.admingoodsdeleteone",no);
-		System.out.println(count);
-		return count;
+		
+		sqlSession.delete("admingoodslist.admingoodsdeleteone",no);
+		
 	}
+	
+	//insert
+	
+	public int insertoption(JOptionVo optionVo) {
+		System.out.println("dao insert option");
+		
+		System.out.println(optionVo);
+		sqlSession.insert("admingoodslist.insertoption", optionVo);
+		
+		return 0;
+	}
+	
+	
 	
 	
 

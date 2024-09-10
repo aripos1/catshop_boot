@@ -10,14 +10,16 @@
 			<![CDATA[
 			
 				select	 no
-	        			,category
-	        			,name
-	        			,content
-	        			,price
-	        			,reg_date
-	        			,save_name
-	        			,file_path
-	        			,user_no
+        			,category
+        			,name
+        			,content
+        			,price
+        			,reg_date
+        			,save_namef
+        			,file_pathf
+        			,save_nameb
+        			,file_pathb
+        			,user_no
 				from goods
 				where 1=1
 			
@@ -42,26 +44,23 @@
 	    <!-- 글 전체 갯수 -->
 	    <select id="admingoodstotalcountAll" parameterType="com.javaex.vo.JSeachVo" resultType="int">
 	    
-	    	<![CDATA[
-	    		
-	    		select count(*) count
-				from goods
-				where 1=1
-	    	]]>
-	    	
-	    	<if test="category != null and category != ''">
-			<![CDATA[
-				and category = #{category}	
-			]]>	
+		    	<![CDATA[
+		    		
+		    		select count(*) count
+					from goods
+					where 1=1
+		    	]]>
+	    	<if test="category != null and category !=''">
+				<![CDATA[
+					and category = #{category}	
+				]]>	
 			</if>
 	    	
 	    	<if test="keyword != null and keyword != ''">
-			<![CDATA[
-				and ( content like concat('%', #{keyword}, '%') or name like concat('%', #{keyword}, '%') )
-			]]>	
+				<![CDATA[
+					and ( content like concat('%', #{keyword}, '%') or name like concat('%', #{keyword}, '%') )
+				]]>	
 			</if>
-			
-			
 				
 	    </select>
 	    
@@ -76,6 +75,20 @@
 	    
 	    </delete>
 	    
+	    
+	    <!-- 옵션 축가  -->
+	    
+	    <insert id="insertoption" parameterType="com.javaex.vo.JOptionVo">
+	    
+	    	<![CDATA[
+	    		
+	    		insert into options
+				values(null, #{taste}, #{goods_no})
+	    		
+	    	]]>	
+	    
+	    
+	    </insert>
 	    
 	    
 	

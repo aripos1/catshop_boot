@@ -11,11 +11,12 @@
 	<mappers>
 		<mapper resource="mybatis/mappers/Jadmin.xml" />
 		<mapper resource="mybatis/mappers/goods.xml" />
+		<mapper resource="mybatis/mappers/shopping.xml" />
 		<mapper resource="mybatis/mappers/Dgoods.xml" />
 		<mapper resource="mybatis/mappers/user.xml" />
 		<mapper resource="mybatis/mappers/shopping.xml" />
 		<mapper resource="mybatis/mappers/order.xml" />
-		
+
 	</mappers>
 
 </configuration>

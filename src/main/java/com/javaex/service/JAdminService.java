@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.JAdminDao;
 import com.javaex.vo.GoodsVo;
+import com.javaex.vo.JOptionVo;
 import com.javaex.vo.JSeachVo;
 
 @Service
@@ -98,6 +99,27 @@ public class JAdminService {
 		
 		
 		return jmap;
+	}
+	//delete
+	public void exedeletegoodsone(int no) {
+		System.out.println("service j w");
+		System.out.println(no);
+		
+		jadminDao.deletegoodsone(no);
+	}
+	
+	//insert
+	
+	public int exeinsertoption(JOptionVo optionVo) {
+		System.out.println("service j w");
+		
+		
+		
+		System.out.println("////////////"+optionVo);
+		
+		jadminDao.insertoption(optionVo);
+		
+		return 0;
 	}
 	
 

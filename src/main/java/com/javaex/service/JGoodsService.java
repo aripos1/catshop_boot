@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.javaex.dao.JGoodsDao;
 import com.javaex.vo.GoodsVo;
+import com.javaex.vo.JSeachVo;
 
 @Service
 public class JGoodsService {
@@ -28,8 +29,9 @@ public class JGoodsService {
 	
 	//################ list + paging + category + serch #######################
 	
-	public Map<String, Object> exepagingList(int page, String category, String keyword) {
+	public Map<String, Object> exepagingList(JSeachVo jseachVo) {
 		System.out.println("service paging j w!!");
+		int page = jseachVo.getPage();
 		System.out.println(page);
 		
 		//한페이지 출력 갯수
@@ -38,10 +40,10 @@ public class JGoodsService {
 		System.out.println("totalCnt: " + totalcnt);
 		
 		//상품별 총갯수
-		int goodsTotalCnt = jgoodsDao.selectTotalGoods(category,keyword);	
+		int goodsTotalCnt = jgoodsDao.selectTotalGoods(jseachVo);	
 		
 		// 음수값 들어왔을때 1페이지로 ㄱ
-		if(page < 0) {
+		if(page <= 0) {
 			page = 1;
 		}
 		
@@ -53,8 +55,8 @@ public class JGoodsService {
 		
 		limitMap.put("listcnt", listcnt);
 		limitMap.put("startRowNo", startRowNo);
-		limitMap.put("category", category);
-		limitMap.put("keyword", keyword);
+		limitMap.put("jseachVo", jseachVo);
+		
 		//카테고리 추가
 		
 //		limitMap.put("goodsTotalCnt", goodsTotalCnt);
