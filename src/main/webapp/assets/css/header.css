@@ -50,7 +50,7 @@
     
     padding: 10px 20px;
     border: none;
-    background-color: #fc6363;
+    background-color: rgb(250, 197, 197);
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -69,6 +69,8 @@
     cursor: pointer;
     border-radius: 5px;
     margin-left: 10px;
+    font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+    font-size : 16px;
 }
 
 #logoutBtn:hover{

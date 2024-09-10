@@ -119,37 +119,44 @@
 	</div>
 
 	<script>
-    // 결제 처리 로직
-    document.getElementById('paymentButton').addEventListener('click', function(event) {
-        const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
-        
-        if (!selectedPayment) {
-            alert("결제수단을 선택해주세요.");
-            event.preventDefault();  // 결제 수단 미선택 시 폼 제출 방지
-        } else {
-            // 결제 완료 후 장바구니 삭제 및 주문 목록 페이지로 이동
-            clearCartAfterPayment();
-        }
-  
+		// 결제 처리 로직
+		document
+				.getElementById('paymentButton')
+				.addEventListener(
+						'click',
+						function(event) {
+							const selectedPayment = document
+									.querySelector('input[name="paymentMethod"]:checked');
 
-    // 장바구니 삭제 및 주문 목록 페이지 이동 로직 (알림 없이 처리)
-   function clearCartAfterPayment() {
-    $.ajax({
-        type: "POST",
-        url: "${pageContext.request.contextPath}/order/clearCartAfterPayment}",
-        success: function(response) {
-            if (response.status === "success") {
-                // 주문 목록 페이지로 이동
-                
-            }
-        },
-        error: function(xhr, status, error) {
-            console.log("AJAX 요청에 실패했습니다.");
-            console.log("상태:", status);
-            console.log("에러:", error);
-        }
-    });
-}
+							if (!selectedPayment) {
+								alert("결제수단을 선택해주세요.");
+								event.preventDefault(); // 결제 수단 미선택 시 폼 제출 방지
+							} else {
+								// 결제 완료 후 장바구니 삭제 및 주문 목록 페이지로 이동
+								clearCartAfterPayment();
+							}
+						});
+
+		// 장바구니 삭제 및 주문 목록 페이지 이동 로직 (알림 없이 처리)
+		function clearCartAfterPayment() {
+			$
+					.ajax({
+						type : "POST",
+						url : "${pageContext.request.contextPath}/order/clearCartAfterPayment", // URL 경로 수정
+						success : function(response) {
+							if (response === "success") {
+								// 주문 목록 페이지로 이동
+								window.location.href = "${pageContext.request.contextPath}/order/orderlist";
+							}
+						},
+						error : function(xhr, status, error) {
+							console.log("AJAX 요청에 실패했습니다.");
+							console.log("상태:", status);
+							console.log("에러:", error);
+						}
+					});
+		}
 	</script>
+
 </body>
 </html>

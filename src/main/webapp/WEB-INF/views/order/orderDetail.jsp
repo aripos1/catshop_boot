@@ -103,7 +103,7 @@
 				<!-- 배송 상태 표시 -->
 					<input type="hidden" id="deliveryStatus" value="${receiptVo.express}" />
 					<button class="btn" onclick="confirmreceipt(${receiptVo.no}, '${receiptVo.express}')">물품 수령</button>
-	${receiptVo.no}
+
 	
 				</div>
 			</div>
@@ -142,7 +142,7 @@
 	            }
 	        },
 	        error: function(xhr, status, error) {
-	            console.log('AJAX 오류:', error); // 오류 확인
+	            console.log('AJAX 오류:', error); // 오류 확인	
 	            alert('서버 오류가 발생했습니다. 다시 시도해 주세요.');
 	        }
 	    });

@@ -76,16 +76,18 @@ body {
 
 
 /* 버튼 스타일 */
-button {
+tbody button {
     background-color: #007bff;; /* 기본 버튼 배경 크림색 */
     color: white;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    font-family: 'HakgyoansimNadeuriTTF-B';
+    font-size :20px;
 }
 
-button:hover {
+tbody button:hover {
     background-color: #d2b48c; /* 마우스 오버 시 밝은 갈색 */
 }
 
