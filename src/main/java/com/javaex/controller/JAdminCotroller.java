@@ -1,5 +1,6 @@
 package com.javaex.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,16 +48,16 @@ public class JAdminCotroller {
 	
 	//delete
 	@RequestMapping(value="/admin/delete",method= {RequestMethod.POST,RequestMethod.GET})
-	public String deletegoods(@RequestParam("no") int no) {
+	public String deletegoods(@RequestParam("user_no") int option_no) {
 		System.out.println("delete j w");
-		
-		jadminService.exedeletegoodsone(no);
+		System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+option_no);
+		jadminService.exedeletegoodsone(option_no);
 		
 		  
-		return "redirect:/admin/JgoodslistFrom";
+		return "redirect:/admin/JgooslistForm";
 	}
 	
-	//option form
+	//option form 사용x
 	@RequestMapping(value="/admin/optioninsertform",method= {RequestMethod.GET,RequestMethod.POST})
 	public String optioninsertForm() {
 		System.out.println("insert option form");
@@ -68,24 +69,25 @@ public class JAdminCotroller {
 	//option insert
 	@RequestMapping(value="/admin/insert",method= {RequestMethod.GET, RequestMethod.POST} )
 	public String admininsertoption(@ModelAttribute JOptionVo optionVo){
-		System.out.println("controller j w");
+		System.out.println("********************controller j w");
 		
 		System.out.println(optionVo);
 		jadminService.exeinsertoption(optionVo);
 		
-		return "/admin/optioninsertForm";
+		return "redirect:/admin/list2";
 	}
 	
 	//option page list
 	@RequestMapping(value="/admin/optionlist", method= {RequestMethod.GET, RequestMethod.POST})
-	public String adminoptionnumlist(@RequestParam(value="goods_no") int no) {
+	public String adminoptionnumlist(@RequestParam(value="goods_no") int no, Model model) {
 		System.out.println("controller j w");
+		System.out.println(no);
 		
-		jadminService.exeoptionselectlist(no);
+		List<JOptionVo> optionList = jadminService.exeoptionselectlist(no);
 		
-		
-		
-		return "";
+		model.addAttribute("optionList",optionList);
+		System.out.println(optionList);
+		return "/admin/optioninsertForm";
 	}
 	
 	

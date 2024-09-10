@@ -15,7 +15,7 @@
 <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
 <body>
-<div id=wrap>
+<div id="wrap">
  <div id="container" class="clearfix">
      <!-- 왼쪽 사이드바 -->
         <div class="sidebar">
@@ -27,32 +27,30 @@
  <div class="content">
       <h1>회원정보수정</h1>
 
+        <form action="${pageContext.request.contextPath}/user/update" method="post">
+            <div id="joinFormBox">
+                <label for="username">아이디</label>
+                <input type="text" id="username" name="id" value="${UpdateUser.id}" readonly>
 
-         <form action="${pageContext.request.contextPath}/user/update" method="post">
-         
-         <div id="joinFormBox">
-            <label for="username">아이디</label>
-            <input type="text" id="username" name="id" placeholder="어이디를 입력하세요" required>
-             
-            <label for="password"> 비밀번호</label>
-            <input type="password" id="password" name="password" placeholder="바뀔 비밀번호를 입력하세요" required>
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="바뀔 비밀번호를 입력하세요" required>
 
-            <label for="name">성함</label>
-            <input type="text" id="name" name="name" placeholder="성함을 입력하세요" required>
+                <label for="name">성함</label>
+                <input type="text" id="name" name="name" value="${UpdateUser.name}" readonly>
 
-            <label for="">전화번호</label>
-            <input type="text" id="hp" name="hp" placeholder="바뀔 전화번호를 입력하세요" required>
+                <label for="hp">전화번호</label>
+                <input type="text" id="hp" name="hp" placeholder="바뀔 전화번호를 입력하세요" required>
 
-            <label for="address">주소</label>
-            <input type="text" id="address" name="address" placeholder="바뀔 주소를 입력하세요" required>
+                <label for="address">주소</label>
+                <input type="text" id="address" name="address" placeholder="바뀔 주소를 입력하세요" required>
 
-            <br><!--입력버튼 아래로 하려고-->
-            <button type="submit">입력 완료</button>
-        </div>
+                <br><!--입력버튼 아래로 하려고-->
+                <button type="submit">입력 완료</button>
+            </div>
         </form>
-   	 	</div>
-     </div>
     </div>
-     <c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
+</div>
+</div>
+<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 </body>
 </html>

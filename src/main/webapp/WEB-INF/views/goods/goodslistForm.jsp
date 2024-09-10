@@ -21,60 +21,9 @@
     <body>
         <div id="wrap">
             
-		            <!-- 헤더 섹션 -->
-		    <header id ="header">
-		        <div class="header-container">
-		            <div class="logo">
-		                <img src="../../assets/images/Layer 1.png" alt="고양이 로고">
-		                <h1>야옹이 멍멍해봐</h1>
-		            </div>
-		        
-		            <!-- 비회원     -->
-		            <div class="menu">
-		                <button>로그인</button>
-		                <button>회원가입</button>
-		            </div>
-		        
-		            <!-- 회원 
-		            <div class="menu">
-		                <P>집사님 어서오세요.</P>
-		                <button>장바구니</button>
-		                <button>마이페이지</button>
-		                <button>로그아웃</button>
-		            </div>
-		             -->
-		            <!-- 관리자 
-		            <div class="menu">
-		                <P>관리자님 어서오세요.</P>
-		                <button>상품등록</button>
-		                <button>상품관리</button>
-		                <button>주문관리</button>
-		                <button>로그아웃</button>
-		            </div>
-		       -->
-		            <br>
-		            <form action="${pageContext.request.contextPath}/goods/list2?category=${param.keyword}">
-			            <div class="search">
-			                <input type="text" name="keyword" value="" placeholder="제목+상품설명검색!">
-			                <button type="submit" class="search-btn">🔍</button>
-			            </div>
-			        </form>
-		        </div>
-		        
-		        <div class="nav-menu">
-		            <ul>
-		                <li><h2>사료</h2></li>
-		                <li><a href="${pageContext.request.contextPath}/goods/list2?category=성인">성인묘</a></li>
-		                <li><a href="#">아가묘</a></li>
-		                <li><h2>간식</h2></li>
-		                <li><a href="#">캔</a></li>
-		                <li><a href="#">츄르</a></li>
-		            </ul>
-		        </div>
-		
-		    </header>
-            
-            <!--/header 부분-->
+		     <!-- import header -->
+    <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
+    
             <div id="content">
                 <!-- 상단-->
                 <div id="title">

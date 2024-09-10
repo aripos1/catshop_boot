@@ -69,8 +69,8 @@
 	    
 	    	<![CDATA[
 	    	
-	    		delete from goods
-	    		where no = #{no}
+	    		delete from options
+				where no  = #{no}
 	    	]]>	
 	    
 	    </delete>
@@ -96,16 +96,17 @@
 	    <select id="optionnumlist" parameterType="int" resultType="com.javaex.vo.JOptionVo">
 	    
 	    	<![CDATA[
-	    		select   goods_no 
-						,category
-						,name
-        				,taste
-        				,price
-        				,reg_date
-				from goods g 
-				join options as o on
-				g.no = o.goods_no
-				where g.no = #{no}
+	    		select   o.no
+						,o.goods_no 
+						,g.category
+						,g.name
+						,o.taste
+						,g.price
+						,g.reg_date as regDate
+				from options o
+				join goods as g on
+				o.goods_no = g.no
+				where o.goods_no = #{no}
 	    	]]>
 	    
 	    </select>

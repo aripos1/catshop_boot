@@ -71,6 +71,7 @@ table {
     border-collapse: collapse;
     margin-bottom: 20px;
     background-color: white;
+    margin-top :10px;
 }
 
 table td {
