@@ -21,7 +21,9 @@
 					name,
 					hp,
 					address,
-					roll
+					roll,
+					id,
+					password
 			from user
 			where id = #{id}
 			and password = #{password}
@@ -46,15 +48,14 @@
 	<update id="updateUser" parameterType="com.javaex.vo.UserVo">
 	<![CDATA[
 		
-    UPDATE user
-    <set>
-        <if test="id != null">id = #{id},</if>
-        <if test="password != null">password = #{password},</if>
-        <if test="address != null">address = #{address},</if>
-        <if test="hp != null">hp = #{hp},</if>
+   UPDATE user
+	 SET
+	 	
+		password = #{password},
+		address = #{address},
+		hp = #{hp}
+WHERE no = #{no};
 
-    </set>
-    WHERE no = #{no}
 
 		]]>
 	</update>

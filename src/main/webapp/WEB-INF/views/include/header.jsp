@@ -52,8 +52,8 @@
               
               <br>
               <a href="${pageContext.request.contextPath}/admin/insertform" id="proregBtn" class="button">상품등록</a>
-               <a href="${pageContext.request.contextPath}/user/!!!" id="promanageBtn" class="button">상품관리</a>
-               <a href="${pageContext.request.contextPath}/user/!!!" id="ordermanageBtn" class="button">주문관리</a>
+               <a href="${pageContext.request.contextPath}/admin/list2" id="promanageBtn" class="button">상품관리</a>
+               <a href="${pageContext.request.contextPath}/adminorderlist" id="ordermanageBtn" class="button">주문관리</a>
                <a href="${pageContext.request.contextPath}/user/logout" id="logoutBtn" class="button">로그아웃</a>
             </div>
        		</c:if>
