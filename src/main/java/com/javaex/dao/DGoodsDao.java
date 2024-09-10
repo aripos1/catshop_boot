@@ -16,10 +16,10 @@ public class DGoodsDao {
 	
 	public List<GoodsVo> getmainList(){
 		
-		List<GoodsVo> dgoodsList = sqlSession.selectList("Dgoods.selectGoods");
+		List<GoodsVo> petfoodList = sqlSession.selectList("Dgoods.selectGoods");
 
 		
-		return dgoodsList;
+		return petfoodList;
 	}
 	
 

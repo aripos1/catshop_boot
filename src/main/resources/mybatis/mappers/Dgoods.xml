@@ -18,8 +18,10 @@
         			,file_pathf as filepathf
         			,save_nameb as saveNameb
         			,file_pathf as filepathf
-        			 ,user_no
+        			,user_no
 			from goods
+			where category ='성인묘'
+			or category='아가묘'
 			order by reg_date desc
     	]]>
 		 

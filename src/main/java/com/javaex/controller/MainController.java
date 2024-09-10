@@ -11,20 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.javaex.service.DGoodsService;
 import com.javaex.vo.GoodsVo;
 
-
-
 @Controller
 public class MainController {
 
 	@Autowired
 	private DGoodsService dgoodsService;
-	
+
 	@RequestMapping(value = "/main", method = { RequestMethod.GET, RequestMethod.POST })
 	public String main(Model model) {
 		System.out.println("MainController.main()");
-	List<GoodsVo> goodsList = dgoodsService.exemainList();
-	model.addAttribute("goodsList", goodsList);
-	System.out.println(goodsList);
+		List<GoodsVo> petfoodList = dgoodsService.exemainList();
+		model.addAttribute("petfoodList", petfoodList);
+		System.out.println(petfoodList);
 		return "main/index";
 	}
 }
