@@ -24,7 +24,7 @@
             <div class="content">
             
                 <div id="loginFormBox">
-                <!-- 로그인 실패 시 오류 메시지 표시 -->
+              
                    
 
                     <form action="${pageContext.request.contextPath}/user/login" method="get">

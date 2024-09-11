@@ -110,7 +110,7 @@
        joinForm.addEventListener('submit', function(event) {
            if (!isIdValid) {
                event.preventDefault(); // 폼 제출 방지
-               alert("아이디가 이미 있다 냥~ 다시써라 냥~ 풉키풉키 바보"); // 사용자에게 알림
+               alert("중복된 아이디는 사용할 수 없습니다."); // 사용자에게 알림
            }
        });
    });

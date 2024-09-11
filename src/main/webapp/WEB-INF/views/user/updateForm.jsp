@@ -44,7 +44,7 @@
                 <label for="address">주소</label>
                 <input type="text" id="address" name="address" placeholder="바뀔 주소를 입력하세요" required>
 
-                <br><!--입력버튼 아래로 하려고-->
+                <br>
                 <button type="submit">입력 완료</button>
             </div>
         </form>
