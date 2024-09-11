@@ -29,7 +29,7 @@
 		as taste,
 		r.user_no as userNo,
 		r.no as receiptNo,
-		g.save_namef as saveNamef
+	
 		FROM item i
 		JOIN receipt r ON i.receipt_no = r.no
 		JOIN options o ON i.options_no = o.no
@@ -44,7 +44,8 @@
 		SELECT i.*,
 		g.name as goodsName,
 		o.taste,
-		i.each_price as eachPrice
+		i.each_price as eachPrice,
+		g.save_namef as saveNamef
 		FROM item i
 		JOIN options
 		o ON i.options_no = o.no
