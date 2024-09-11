@@ -20,7 +20,7 @@ public class DUserDao {
 		return count;
 
 	}
-
+	/*로그인*/
 	public UserVo selectUser(UserVo userVo) {
 
 		UserVo authUser = sqlSession.selectOne("user.selectByIdPW", userVo);

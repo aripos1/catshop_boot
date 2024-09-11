@@ -14,6 +14,8 @@ public class DGoodsDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
+	
+	//메인 화면에 출력될 리스트 출력
 	public List<GoodsVo> getmainList(){
 		
 		List<GoodsVo> petfoodList = sqlSession.selectList("Dgoods.selectGoods");

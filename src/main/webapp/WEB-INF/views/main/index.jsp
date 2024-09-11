@@ -41,7 +41,7 @@
                             <p>${product.name}</p>
                             <p>성인묘</p>
                             <p>${product.regDate}</p>
-                            <p>${product.price}원</p>
+                            <p><fmt:formatNumber value="${product.price}" pattern="#,###"/>원</p>
                         </a>
                     </div>
                 </c:if>
@@ -52,7 +52,7 @@
                             <p>${product.name}</p>
                             <p>아가묘</p>
                             <p>${product.regDate}</p>
-                            <p>${product.price}원</p>
+                            <p><fmt:formatNumber value="${product.price}" pattern="#,###"/>원</p>
                         </a>
                     </div>
                 </c:if>
@@ -69,7 +69,7 @@
                             <p>${product.name}</p>
                             <p>캔</p>
                             <p>${product.regDate}</p>
-                            <p>${product.price}원</p>
+                             <p><fmt:formatNumber value="${product.price}" pattern="#,###"/>원</p>
                         </a>
                     </div>
                 </c:if>
@@ -80,7 +80,7 @@
                             <p>${product.name}</p>
                             <p>츄르</p>
                             <p>${product.regDate}</p>
-                            <p>${product.price}원</p>
+                             <p><fmt:formatNumber value="${product.price}" pattern="#,###"/>원</p>
                         </a>
                     </div>
                 </c:if>

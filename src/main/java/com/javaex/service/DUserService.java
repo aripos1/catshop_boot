@@ -46,6 +46,7 @@ public class DUserService {
 
 	}
 
+	/*아이디 중복체크*/
 	public boolean exeDuplicate(String id) {
 
 		int count = duserDao.selecUserById(id);
