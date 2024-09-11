@@ -11,7 +11,7 @@ public class UserVo {
 	private String hp;
 	private int roll;
 	
-	
+	//생성자
 	public UserVo() {
 		super();
 	}
@@ -28,7 +28,7 @@ public class UserVo {
 		this.roll = roll;
 	}
 
-
+	//메소드 gs
 	public int getNo() {
 		return no;
 	}
@@ -98,7 +98,7 @@ public class UserVo {
 		this.roll = roll;
 	}
 
-
+	//메소드 일반
 	@Override
 	public String toString() {
 		return "UserVo [no=" + no + ", name=" + name + ", id=" + id + ", password=" + password + ", address=" + address

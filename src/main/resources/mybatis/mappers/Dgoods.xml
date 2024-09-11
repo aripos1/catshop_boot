@@ -8,92 +8,94 @@
 	<select id="selectGoods" resultType="com.javaex.vo.GoodsVo">
 		
 		<![CDATA[
-		SELECT * FROM (
+		
+		select * from (
  
-    SELECT 
-        no,
-        category,
-        name,
-        content,
-        price,
-        DATE(reg_date) AS regDate,
-        save_namef AS saveNamef,
-        file_pathf AS filepathf,
-        save_nameb AS saveNameb,
-        user_no AS userNo
-    FROM (
-        SELECT * FROM goods 
-        WHERE category = 'ADULT'
-        ORDER BY reg_date DESC
-        LIMIT 2
-    ) AS adult_goods
+    select 
+        	no,
+        	category,
+        	name,
+        	content,
+        	price,
+        	DATE(reg_date) as regDate,
+        	save_namef as saveNamef,
+        	file_pathf as filepathf,
+        	save_nameb as saveNameb,
+        	user_no as userNo
+    from (
+        select * from goods 
+        where category = 'ADULT'
+        order by reg_date desc
+        limit 2
+    ) as adult_goods
 
-    UNION ALL 
+    union all 
 
     
-    SELECT 
-        no,
-        category,
-        name,
-        content,
-        price,
-        DATE(reg_date) AS regDate,
-        save_namef AS saveNamef,
-        file_pathf AS filepathf,
-        save_nameb AS saveNameb,
-        user_no AS userNo
-    FROM (
-        SELECT * FROM goods 
+    select 
+        	no,
+        	category,
+        	name,
+        	content,
+        	price,
+        DATE(reg_date) as regDate,
+        save_namef as saveNamef,
+        file_pathf as filepathf,
+        save_nameb as saveNameb,
+        user_no as userNo
+        
+    from (
+        select * from goods 
         WHERE category = 'KITTEN'
-        ORDER BY reg_date DESC
-        LIMIT 1
-    ) AS baby_goods
+        order by reg_date desc
+        limit 1
+    	) as baby_goods
 
-    UNION ALL 
+    union all 
 
  
-    SELECT 
-        no,
-        category,
-        name,
-        content,
-        price,
-        DATE(reg_date) AS regDate,
-        save_namef AS saveNamef,
-        file_pathf AS filepathf,
-        save_nameb AS saveNameb,
-        user_no AS userNo
-    FROM (
-        SELECT * FROM goods 
-        WHERE category = 'CAN'
-        ORDER BY reg_date DESC
-        LIMIT 2
-    ) AS can_goods
+    select 
+        	no,
+        	category,
+        	name,
+        	content,
+        	price,
+        	DATE(reg_date) AS regDate,
+        	save_namef AS saveNamef,
+        	file_pathf AS filepathf,
+        	save_nameb AS saveNameb,
+        	user_no AS userNo
+    from (
+       		select * from goods 
+       		where category = 'CAN'
+            order by reg_date desc
+            limit 2
+       		) as can_goods
 
-    UNION ALL 
+    union all 
 
     
-    SELECT 
-        no,
-        category,
-        name,
-        content,
-        price,
-        DATE(reg_date) AS regDate,
-        save_namef AS saveNamef,
-        file_pathf AS filepathf,
-        save_nameb AS saveNameb,
-        user_no As userNo
-    FROM (
-        SELECT * FROM goods 
-        WHERE category = 'CHURR'
-        ORDER BY reg_date DESC
-        LIMIT 1
-    ) AS chur_goods
+    select 
+        	no,
+        	category,
+        	name,
+        	content,
+        	price,
+        	DATE(reg_date) AS regDate,
+        	save_namef AS saveNamef,
+        	file_pathf AS filepathf,
+        	save_nameb AS saveNameb,
+        	user_no As userNo
+    from (
+        	select * from goods 
+         	where category = 'CHURR'
+        	order by reg_date desc
+        	limit 1
+    	    ) as churr_goods
 
-) AS combined_results
+	) as combined_results
 
-ORDER BY regDate DESC;
+	order by regDate desc;
 
 
 

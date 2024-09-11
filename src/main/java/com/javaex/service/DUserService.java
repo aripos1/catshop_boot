@@ -11,54 +11,55 @@ public class DUserService {
 
 	@Autowired
 	private DUserDao duserDao;
-	
-/*회원가입*/
-	
+
+	/* 회원가입 */
+
 	public int exeJoin(UserVo userVo) {
-		System.out.println("UserService.exeJoin()");
-		int count=duserDao.insertUser(userVo);
-		
+
+		int count = duserDao.insertUser(userVo);
+
 		return count;
 	}
-	/*로그인*/
+
+	/* 로그인 */
 	public UserVo exeLogin(UserVo userVo) {
-		System.out.println("UserService.exeLogin()");
-		
-		UserVo authUser=duserDao.selectUser(userVo);
-		System.out.println(userVo);
-		System.out.println(authUser);
+
+		UserVo authUser = duserDao.selectUser(userVo);
 
 		return authUser;
 	}
-	/*수정 폼*/
+
+	/* 수정 폼 */
 	public UserVo exeupdateForm(int no) {
-		System.out.println("Service.exeupdateForm");
+
 		UserVo updateUserForm = duserDao.updateUserForm(no);
-	
+
 		return updateUserForm;
 	}
-	/*수정*/
+
+	/* 수정 */
 	public int exeUpdate(UserVo userVo) {
+
 		int count = duserDao.updateUser(userVo);
-		
+
 		return count;
-		
+
 	}
-	
-	 public boolean exeDuplicate(String id) {
-	      System.out.println("UserService.exeDuplicate()");
-	      
-	      int count = duserDao.selecUserById(id);
-	      
-	      if(count >= 1) {
-	         return false;
-	         
-	      }else {
-	         return true;
-	         
-	      }
-	      
-	      
-	 }
+
+	public boolean exeDuplicate(String id) {
+
+		int count = duserDao.selecUserById(id);
+
+		if (count >= 1) {
+
+			return false;
+
+		} else {
+
+			return true;
+
+		}
+
+	}
 
 }

@@ -8,6 +8,7 @@
 	<!-- 회원가입 -->
 	
 		<insert id="insert" parameterType="com.javaex.vo.UserVo" >
+		
 		<![CDATA[
 			insert into user(no,name, id, password, address, hp) 
 			value (null,#{name}, #{id}, #{password}, #{address}, #{hp})
@@ -15,8 +16,11 @@
 	</insert>
 	
 	<!-- 로그인 -->
+	
 	<select id="selectByIdPW" parameterType="com.javaex.vo.UserVo" resultType="com.javaex.vo.UserVo">
+		
 		<![CDATA[
+			
 			select 	no,
 					name,
 					hp,
@@ -27,12 +31,15 @@
 			from user
 			where id = #{id}
 			and password = #{password}
+		
 		]]>
 	</select>
 	
 	
 	<select id="selectUpdate" parameterType="int" resultType="com.javaex.vo.UserVo">
+		
 		<![CDATA[
+			
 			select no
 				  ,id
 				  ,password
@@ -46,26 +53,28 @@
 	<!-- 수정 -->
 	
 	<update id="updateUser" parameterType="com.javaex.vo.UserVo">
-	<![CDATA[
+	<![CDATA[		
+		   update user
+			
+			set	
+			 	 password = #{password},
+				 address = #{address},
+				 hp = #{hp}
 		
-   UPDATE user
-	 SET
-	 	
-		password = #{password},
-		address = #{address},
-		hp = #{hp}
-WHERE no = #{no};
-
+			WHERE no = #{no};
 
 		]]>
 	</update>
 	
 	<!-- 중복체크 -->
 	<select id="selectById" parameterType="string"  resultType="int">
+      
       <![CDATA[
+         
          select count(*)
          from user
          where id = #{id}
+      
       ]]>
    </select>
    

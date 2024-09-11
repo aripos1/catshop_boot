@@ -19,12 +19,12 @@ public class MainController {
 
 	@RequestMapping(value = "/main", method = { RequestMethod.GET, RequestMethod.POST })
 	public String main(Model model) {
-		System.out.println("MainController.main()");
+
 		List<GoodsVo> petfoodList = dgoodsService.exemainList();
+
 		model.addAttribute("petfoodList", petfoodList);
-		System.out.println(petfoodList);
+
 		return "main/index";
 	}
-	
-	
+
 }

@@ -12,39 +12,41 @@ public class DUserDao {
 	@Autowired
 	private SqlSession sqlSession;
 
-	/*회원가입*/
+	/* 회원가입 */
 	public int insertUser(UserVo userVo) {
-		System.out.println("UserDao.insertUser()");
-		
-		int count =sqlSession.insert("user.insert", userVo);
-		
+
+		int count = sqlSession.insert("user.insert", userVo);
+
 		return count;
-		
+
 	}
+
 	public UserVo selectUser(UserVo userVo) {
-		System.out.println("UserDao.selectUser()");
-	
-		UserVo authUser =sqlSession.selectOne("user.selectByIdPW", userVo);
-		System.out.println(authUser);
+
+		UserVo authUser = sqlSession.selectOne("user.selectByIdPW", userVo);
+
 		return authUser;
-		
+
 	}
-	
+
 	public UserVo updateUserForm(int no) {
-		UserVo updateUserForm=sqlSession.selectOne("user.selectUpdate", no);
-	
-		return updateUserForm;	
+
+		UserVo updateUserForm = sqlSession.selectOne("user.selectUpdate", no);
+
+		return updateUserForm;
 	}
-	
+
 	public int updateUser(UserVo userVo) {
-		int count=sqlSession.update("user.updateUser", userVo);
-		
+
+		int count = sqlSession.update("user.updateUser", userVo);
+
 		return count;
 	}
+
 	public int selecUserById(String id) {
-        System.out.println("UserDao.selecUserById()");
-        
-        int count = sqlSession.selectOne("user.selectById", id );
-        return count;
-     }
+
+		int count = sqlSession.selectOne("user.selectById", id);
+
+		return count;
+	}
 }

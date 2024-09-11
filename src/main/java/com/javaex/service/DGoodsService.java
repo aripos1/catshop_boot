@@ -13,12 +13,11 @@ public class DGoodsService {
 
 	@Autowired
 	private DGoodsDao dgoodsDao;
-	
+
 	public List<GoodsVo> exemainList() {
-		System.out.println("DGoodsService.exemainList");
-		List<GoodsVo> petfoodList =dgoodsDao.getmainList();
-		System.out.println(petfoodList);
-		
+
+		List<GoodsVo> petfoodList = dgoodsDao.getmainList();
+
 		return petfoodList;
 	}
 }
