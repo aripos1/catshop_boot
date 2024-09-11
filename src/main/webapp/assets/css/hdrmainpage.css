@@ -7,24 +7,26 @@
 
 
 /* 배너 슬라이더 */
-.banner {
+
+ .banner {
     position: relative;
-    overflow: hidden;
-    width:100%;
-    height: 100%;
-}
+    width: 1000px; /* 슬라이드 너비 */
+    height: 300px; /* 슬라이드 높이 */
+    overflow: hidden; /* 넘치는 이미지를 숨김 */
+    margin: 0 auto; /* 가운데 정렬 */
+  }
 
-.banner-slides {
-    display: flex;
-    width: 300%;
-    transition: transform 0.5s ease;
-}
+  .banner-slides {
+    display: flex; /* 이미지를 가로로 나열 */
+    width: calc(1000px * 4); /* 이미지 개수에 맞춰 슬라이드 영역의 전체 너비 설정 (4개의 이미지) */
+    transition: transform 0.5s ease-in-out; /* 이동 시 부드럽게 애니메이션 적용 */
+  }
 
-.banner-slides img {
-    width: 100%;
-    height: 300px;
-}
-
+  .banner-slides img {
+    width: 1000px; /* 각 이미지의 가로 너비 */
+    height: 300px; /* 각 이미지의 높이 */
+    object-fit: cover; /* 이미지 비율 유지하며 영역 채우기 */
+  }
 /* 상품 목록 섹션 */
 .product-list {
     padding: 20px;
