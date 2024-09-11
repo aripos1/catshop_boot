@@ -49,16 +49,15 @@
                         		<h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> 검색상품 </a></h1>
                         	</c:otherwise>
                        </c:choose> 
-                        <p id="totalcount"> 총상품: ${requestScope.pMap.goodsTotalCnt}개 </p>
+                        <p id="totalcount"> 총상품: ${requestScope.pMap.goodsTotalCnt}개 </p> 
                     </div>
                     <div id="title-dec">
                         <ul class="clearfix">
-                            <li>fooder-Adult</li>
+							<li class="main-titletext"><a href="${pageContext.request.contextPath}/main">HOME</a></li>
                             <li class="main-titletext">|</li>
-                            <li class="main-titletext"><a href="${pageContext.request.contextPath}/main">HOME</a></li>
                         </ul>
 
-                    </div>
+                    </div> 
                 </div>
                 
                 <!--- 이미지 반복 영역 -->
@@ -66,7 +65,7 @@
                     <ul id="viewArea" class="clearfix">
                         
                        <c:forEach items="${requestScope.pMap.goodsList2}" var="goodsVo" >
-	                        <li>
+	                        <li >
 	                            <a href="${pageContext.request.contextPath}/productinfo?goodsNo=${goodsVo.no}">
 	                                <div class="view">
 	                                    <img class="imgItem" src="${pageContext.request.contextPath}/upload/${goodsVo.saveNamef}">
