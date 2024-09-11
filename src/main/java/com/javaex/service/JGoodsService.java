@@ -68,7 +68,7 @@ public class JGoodsService {
 		System.out.println("service goodsList2:"+goodsList2);
 		
 		//페이징 계산하기
-		int pageBtncount = 10;	//페이지당 버튼 갯수
+		int pageBtncount = 5;	//페이지당 버튼 갯수
 		int endPageBtnNo = (int)Math.ceil((page / (double)pageBtncount))*pageBtncount;	//마지막 버튼번호
 		System.out.println("endPageBtnNo: "+endPageBtnNo);
 		

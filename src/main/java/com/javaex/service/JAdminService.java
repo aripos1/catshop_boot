@@ -52,7 +52,7 @@ public class JAdminService {
 		//jadminDao.admindeletegoodsOne();
 		
 		//페이징 계산하기
-		int pageBtncount = 10;	//페이지당 버튼 갯수
+		int pageBtncount = 5;	//페이지당 버튼 갯수
 		
 		//마지막 페이지 계산 + 시작버튼 계산 + 화살표유무
 		int endPageBtnNo = (int)Math.ceil((page/(double)pageBtncount))*pageBtncount;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -54,7 +55,6 @@
 
                     </div>
                 </div>
-
                 
                 <!--- 이미지 반복 영역 -->
                 <div id="gallery">
@@ -65,9 +65,12 @@
 	                            <a href="${pageContext.request.contextPath}/productinfo?goodsNo=${goodsVo.no}">
 	                                <div class="view">
 	                                    <img class="imgItem" src="${pageContext.request.contextPath}/upload/${goodsVo.saveNamef}">
-	                                    <div class="imgName">${goodsVo.name}</div>
-	                                    <div class="imgContent">${goodsVo.content}</div>
-	                                    <div class="imgPrice">${goodsVo.price}</div>
+	                                    <div class="imgName">${goodsVo.name}</div><br>
+	                                    <div class="imgContent">${goodsVo.content}</div><br>
+	                                    <div class="imgPrice">
+	                                    <fmt:formatNumber value="${goodsVo.price}" type="number" groupingUsed="true"/>원
+	                                    </div>
+	                                
 	                                </div>
 	                            </a>
 	                        </li>
@@ -88,10 +91,10 @@
                             	
                             	<c:choose>
                             		<c:when test="${param.page == page }">	
-                            			<li class="active"><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&keyword=${param.keyword}"> ${page}</a></li>
+                            			<li class="active"><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&keyword=${param.keyword}&category=${param.category}"> ${page}</a></li>
                             		</c:when>
                             		<c:otherwise>
-                            			<li><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&keyword=${param.keyword}"> ${page}</a></li>
+                            			<li><a href="${pageContext.request.contextPath}/goods/list2?page=${page}&keyword=${param.keyword}&category=${param.category}"> ${page}</a></li>
                             		</c:otherwise>
                             	</c:choose>
                             </c:forEach>
@@ -113,7 +116,7 @@
             <!-- /푸터-->
 
         </div>
-        <!-- /wrap -->
+        <!-- /wrap -->-
         
 
     </body>

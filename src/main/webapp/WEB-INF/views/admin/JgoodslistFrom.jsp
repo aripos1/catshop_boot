@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -121,7 +122,9 @@
 		                                    <td> ${GoodsVo.name} </td>
 		                                    <td> ${GoodsVo.regDate} </td>
 		                                    <td> ${GoodsVo.content} </td>
-		                                    <td> ${GoodsVo.price} </td>
+		                                    <td>
+		                                    	<fmt:formatNumber value="${GoodsVo.price}" type="number" groupingUsed="true"/>원
+		                                     </td>
 		                                    
 		                                   
 			                                <td><a href="${pageContext.request.contextPath}/admin/optionlist?goods_no=${GoodsVo.no}"><button type="submit" class="btn-delete"> 옵션 </button></a> </td>

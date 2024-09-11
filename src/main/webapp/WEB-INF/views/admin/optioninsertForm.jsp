@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 <!DOCTYPE html>
@@ -41,7 +42,7 @@
                         </div>
                          <div id="btninsert-area">
                             <button type="submit" id="btn-insertoption"> 등록하기 </button>
-                            <input type="text" name="goods_no" value="${param.goods_no}">
+                            <input type="hidden" name="goods_no" value="${param.goods_no}">
                           
                          </div>
                     </form>
@@ -73,7 +74,9 @@
 	                                    <td> ${JOptionVo.category } </td>
 	                                    <td> ${JOptionVo.name} </td>
 	                                    <td> ${JOptionVo.taste} </td>
-	                                    <td> ${JOptionVo.price} </td>
+	                                    <td>
+	                                    	<fmt:formatNumber value="${JOptionVo.price}" type="number" groupingUsed="true"/>원 
+                                    	</td>
 	                                    <td> ${JOptionVo.regDate} </td>
 	                                    <td><input type="hidden"></td>
 	                                   <!-- <form action="${pageContext.request.contextPath}/admin/delete" method="get">
