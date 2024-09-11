@@ -34,8 +34,8 @@
     float: right;
     margin-right: 10px;
     padding: 5px 5px;
-    width: 130px;
-    border-radius: 5px;
+    width: 125px;
+    border-radius: 3px;
 }
 
 #wrap #content #sub_title #form-group #serch_text{
@@ -47,13 +47,15 @@
     width: 200px;
     font-size: 13px;
     padding: 0px 10px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 #wrap #content #sub_title #form-group #serch_text button{
     padding: 4px 8px;
     width: 50px;
-    border-radius: 3px;
+    border-radius: 2px;
+    background-color: #ddd;
+    font-size: 13px;
 }
 
 /* 테이블 1개 */
@@ -86,7 +88,12 @@
     padding: 1px 8px;
     margin-left: 15px;
     border-radius: 3px;
-    background-color:rgb(246, 221, 226);
+    background-color: rgb(252, 228, 216); 
+    width: 80px
+}
+
+.list{
+	high: 100px;
 }
 
 #wrap #content #list-table table th{
