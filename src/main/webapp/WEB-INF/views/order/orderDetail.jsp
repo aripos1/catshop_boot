@@ -32,7 +32,7 @@
 						<c:set var="totalOrderPrice" value="0" />
 						<c:forEach items="${orderItemList}" var="orderItem">
 							<tr>
-								<td><img src="" alt="상품 이미지"></td>
+								<td><img src="${pageContext.request.contextPath}/upload/${orderItem.saveNamef}" alt="제품 상세 이미지"></td>
 								<td>${orderItem.goodsName}<br> 옵션: ${orderItem.taste}
 								</td>
 								<td>수량: ${orderItem.amount}</td>

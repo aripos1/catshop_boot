@@ -13,7 +13,7 @@
         <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" >
         <link href="${pageContext.request.contextPath}/assets/css/header.css" rel="stylesheet" >
         <link href="${pageContext.request.contextPath}/assets/css/footer.css" rel="stylesheet" >
-        <link href="${pageContext.request.contextPath}/assets/css/Jjinadmingoodslist.css" rel="stylesheet" type="text/css">
+        <link href="${pageContext.request.contextPath}/assets/css/option.css" rel="stylesheet" type="text/css">
 
     </head>
 
@@ -29,18 +29,15 @@
                     <div id="name_title" class="clearfix">
                         <h1 id="goodslist"> 옵션등록 </h1>
                     </div>
-                    <div>
+                    <div id="product-info">
                         <span>상품 no값</span>
                         <span> 상품 name </span>
 
                     </div>
 
-                    <form action="${pageContext.request.contextPath}/admin/insert" method="get">
+                    <form class="option-box" action="${pageContext.request.contextPath}/admin/insert" method="get">
                         <div class="form-box">
-                           <label for="option-salmon"> 맛선택 </label>
-                           <input type="text" id="option-salmon" name="taste" value="">
-                        </div>
-                         <div id="btninsert-area">
+                           <input type="text" id="option-salmon" name="taste" value="" placeholder=" 옵션이름">
                             <button type="submit" id="btn-insertoption"> 등록하기 </button>
                             <input type="hidden" name="goods_no" value="${param.goods_no}">
                           
