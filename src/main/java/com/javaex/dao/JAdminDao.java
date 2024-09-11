@@ -65,7 +65,6 @@ public class JAdminDao {
 	
 	public List<JOptionVo> optionselectlist(int no){
 		System.out.println("optionlist dao j w");
-		
 		List<JOptionVo> optionList = sqlSession.selectList("admingoodslist.optionnumlist",no);
 		System.out.println(optionList);
 		

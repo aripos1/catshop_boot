@@ -9,7 +9,7 @@
 	
 			<![CDATA[
 			
-				select	 no
+				select	no
         			,category
         			,name
         			,content
@@ -96,7 +96,7 @@
 	    <select id="optionnumlist" parameterType="int" resultType="com.javaex.vo.JOptionVo">
 	    
 	    	<![CDATA[
-	    		select   o.no
+	    		select 	 o.no
 						,o.goods_no 
 						,g.category
 						,g.name
@@ -104,7 +104,7 @@
 						,g.price
 						,g.reg_date as regDate
 				from options o
-				join goods as g on
+				join goods g on
 				o.goods_no = g.no
 				where o.goods_no = #{no}
 	    	]]>
