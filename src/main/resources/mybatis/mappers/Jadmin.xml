@@ -22,7 +22,7 @@
         			,user_no as userNo
 				from goods
 				where 1=1
-				order by reg_date desc
+				
 			
 				]]>
 				
@@ -38,6 +38,7 @@
 			</if>	
 			<![CDATA[
 				limit #{startRowNo}, #{listcnt}
+				
 			]]>
 			
 	    </select>
@@ -97,7 +98,7 @@
 	    <select id="optionnumlist" parameterType="int" resultType="com.javaex.vo.JOptionVo">
 	    
 	    	<![CDATA[
-	    		select 	 o.no
+	    		select 	 no
 						,o.goods_no 
 						,g.category
 						,g.name

@@ -20,43 +20,6 @@
 		
 		
 		<style>
-			/* 모달창 배경 회색부분 */
-		.modal {
-		   width: 100%; /* 가로전체 */
-		   height: 100%; /* 세로전체 */
-		   display: none; /* 시작할때 숨김처리 */
-		   position: fixed; /* 화면에 고정 */
-		   left: 0; /* 왼쪽에서 0에서 시작 */
-		   top: 0; /* 위쪽에서 0에서 시작 */
-		   z-index: 999; /* 제일위에 */
-		   overflow: auto; /* 내용이 많으면 스크롤 생김 */
-		   background-color: rgba(0, 0, 0, 0.4); /* 배경이 검정색에 반투명 */
-		}
-		
-		/* 모달창 내용 흰색부분 */
-		.modal .modal-content {
-		   width: 400px;
-		   margin: 100px auto; /* 상하 100px, 좌우 가운데 */
-		   padding: 0px 20px 20px 20px; /* 안쪽여백 */
-		   background-color: #ffffff; /* 배경색 흰색 */
-		   border: 1px solid #888888; /* 테두리 모양 색 */
-		}
-		
-		/* 닫기버튼 */
-		.modal .modal-content .closeBtn {
-		   text-align: right;
-		   color: #aaaaaa;
-		   font-size: 10px;
-		   font-weight: bold;
-		   cursor: pointer;
-		   border: none;
-		}
-		
-		/*옵션추가버튼*/
-		
-		#option-plus{
-		margin-left: 880px
-		}
 		
 		</style>
 		
@@ -140,27 +103,7 @@
                 </div>
                 <!--상품 content 부분 클릭하면 이벤트로 모달창 띄워서 긴 내용 보여주기..? >>고려해보기-->
                 
-                <!-- madal창 추가 -->
-                
-                		<!-- 모달 창 컨텐츠 -->
-	           	<div id="myModal" class="modal">
-					<form>
-		           		<div id="guestbook" class="modal-content">
-		                	<button class="closeBtn" type="button">close</button>
-		                    	<div  class="m-header">옵션 (연어맛,참치맛,치킨맛)</div>
-		                    	<div class="m-body">
-		                       		맛<br><input id="modalPw" class="m-password" type="password" name="password" value=""><br>
-		                       		상품번호<br><input id="ModalNo" class="m-no" type="" name="no" value="${GoodsVo.no}">
-		                    	</div>
-		                    	
-		                    	<div class="m-footer">
-		                       		<br><button id="btn-delete" class="btnDelete" type="submit">등록하기</button>
-		                   		</div>
-		                 </div>
-					</form>
-	             </div>
-
-                <!-- /모달창 끝 -->
+               
                 
                 <!--페이징 부분-->
                 <div id="pagingArea">
