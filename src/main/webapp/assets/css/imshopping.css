@@ -1,15 +1,41 @@
 @charset "UTF-8";
-#header{
 
-    height: 80px;
+/* 전체적인 색상 팔레트 변경 */
+:root {
+    --primary-color: #34495e; /* 부드럽고 진한 블루 계열 */
+    --secondary-color: #2ecc71; /* 초록색 */
+    --background-color: white; /* 밝은 회색 배경 */
+    --text-color: #333; /* 기본 텍스트 색상 */
+    --header-bg-color: #34495e; /* 헤더 배경 색상 */
+    --header-text-color: #ecf0f1; /* 헤더 텍스트 색상 */
+    --button-color: #2ecc71; /* 버튼 색상 */
+    --button-hover-color: #27ae60; /* 버튼 호버 시 색상 */
+    --table-header-color: #2980b9; /* 테이블 헤더 배경색 */
+    --table-row-bg-color: #f9fafc; /* 테이블 행 배경색 */
+    --table-alt-row-bg-color: #ecf0f1; /* 테이블 짝수 행 배경색 */
 }
+
+/* 전체 바디 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: var(--text-color);
+}
+
+/* 헤더 스타일 */
+#header {
+    height: 80px;
+    background-color: white; /* 헤더 배경 색상 통일 */
+
+}
+
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:   white;
     padding: 10px 20px;
-   
 }
 
 .logo {
@@ -17,110 +43,121 @@
     align-items: center;
 }
 
-.header-container  img {
+.header-container img {
     width: 50px;
     height: 50px;
     margin-right: 10px;
-    vertical-align: middle;
 }
 
 .header-container h1 {
     font-size: 1.8rem;
-    color: #444;
+    color: blk; /* 헤더 텍스트 색상 */
     font-family: 'HakgyoansimChilpanjiugaeTTF-B';
 }
 
-
-
-
-/* 장바구니 제목 */
 /* 페이지 제목 스타일 */
 h1 {
     font-size: 1.8em;
     margin: 20px 0;
     text-align: left;
-    color: #333;
-   	font-family: 'GangwonEduPowerExtraBoldA';
+    color: var(--text-color); /* 페이지 제목 색상 */
+    font-family: 'GangwonEduPowerExtraBoldA';
 }
 
 h1 a {
     text-decoration: none;
-    color: #007bff;
-    
+    color: var(--primary-color); /* 링크 색상 */
 }
 
 /* 테이블 스타일 */
 table {
     width: 100%;
-    margin: 0 auto;
+    margin: 20px auto;
     border-collapse: collapse;
-    background-color: white;
+    background-color: var(--table-row-bg-color);
+    border: 1px solid var(--table-border-color); /* 테두리를 얇게 설정 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+    overflow: hidden;
 }
 
 table thead th {
-    background-color:rgb(250, 197, 197);
+    background-color: var(--table-header-color); /* 진한 블루 헤더 */
     color: white;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 12px;
+    border: none;
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
 table tbody td {
-    padding: 10px;
+    padding: 15px; /* 패딩을 늘려 가독성 강화 */
     text-align: center;
-    border: 1px solid #ddd;
+    border: none;
+    color: var(--text-color);
+    background-color: var(--table-row-bg-color); /* 기본 행 배경 */
+    transition: background-color 0.3s ease; /* 배경색 변경 효과 */
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--table-alt-row-bg-color); /* 짝수 행 배경색 */
+}
+
+table tbody tr:hover td {
+    background-color: var(--table-hover-color); /* 행 호버 시 배경색 */
 }
 
 /* 상품 이미지 열 스타일 */
 table tbody td img {
-    width: 100px;
+    width: 80px;
     height: auto;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
 }
 
 /* 수량 input */
 input[type="number"] {
-    padding: 5px;
+    padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 60px;
+    font-size: 1rem;
+    color: var(--text-color);
 }
 
 /* 버튼 스타일 */
 .btn {
-    background-color: rgb(255, 128, 192);
+    background-color: var(--button-color);
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
     font-family: 'HakgyoansimNadeuriTTF-B';
-    
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #FFB2F5;
+    background-color: var(--button-hover-color);
 }
 
 .btn-remove {
-    background-color: darkgray;
+    background-color: #6c757d;
 }
 
 .btn-remove:hover {
-    background-color: #c82333;
+    background-color: #343a40;
 }
 
 /* 주문 요약 테이블 스타일 */
 table:last-of-type thead th {
-    background-color: #FFB2F5;
+    background-color: var(--secondary-color); /* 주문 요약 테이블 헤더 */
     color: white;
 }
 
 table:last-of-type tbody td {
     font-weight: bold;
+    color: var(--text-color);
 }
 
 /* 주문 요약 테이블과 버튼 영역의 간격 */
@@ -135,4 +172,15 @@ table + br, table:last-of-type + br {
     padding: 10px 20px;
     cursor: pointer;
     font-family: 'HakgyoansimNadeuriTTF-B';
+}
+
+/* 링크 스타일 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--button-hover-color);
+    text-decoration: underline;
 }
