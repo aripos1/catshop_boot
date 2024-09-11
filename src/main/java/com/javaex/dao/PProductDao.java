@@ -43,10 +43,20 @@ public class PProductDao {
 	}
 
 	// 리뷰등록
-	public int reviewInsert(PProductVo productVo) {
-		System.out.println("PProductDao.reviewInsert()");
+	//public int reviewInsert(PProductVo productVo) {
+	//	System.out.println("PProductDao.reviewInsert()");
 
-		int count = session.insert("product.insert", productVo);
+	//	int count = session.insert("product.insert", productVo);
+	//	return count;
+	//}
+	
+	//review insert
+	
+	public int reviewinsert(PProductVo insertVo) {
+		System.out.println("dao insert review j w");
+		
+		int count = session.insert("product.reviewinsert", insertVo);
+		
 		return count;
 	}
 

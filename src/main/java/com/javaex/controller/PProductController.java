@@ -57,19 +57,45 @@ public class PProductController {
 	@RequestMapping(value = "/reviewform", method = { RequestMethod.GET, RequestMethod.POST })
 	public String reviewform() {
 		
-		return "";
+		return "/productinfo?goodsNo=";
 	}
 
 	// 등록
-	@RequestMapping(value = "/reviewadd", method = { RequestMethod.GET, RequestMethod.POST })
-	public String reviewadd(@ModelAttribute PProductVo productVo, HttpSession session) {
-		System.out.println("ProductpageController.reviewadd()");
+	//@RequestMapping(value = "/reviewadd", method = { RequestMethod.GET, RequestMethod.POST })
+	//public String reviewadd(@ModelAttribute PProductVo productVo, HttpSession session) {
+		//System.out.println("ProductpageController.reviewadd()");
 
-		UserVo buyer = (UserVo) session.getAttribute("authUser");
+		//UserVo buyer = (UserVo) session.getAttribute("authUser");
 
-		int count = service.exeAdd(productVo);
-		System.out.println(count);
-		return "goods/product";
+		//int count = service.exeAdd(productVo);
+		//System.out.println(count);
+		//return "goods/product";
+	//}
+	
+	//리뷰 insert
+	@RequestMapping(value="/reviewadd", method= {RequestMethod.GET, RequestMethod.POST})
+	public String reviewinsert(HttpSession session,@ModelAttribute PProductVo pproductVo) {
+		System.out.println("리뷰등록 controller j w");
+		
+		UserVo buyUser = (UserVo)session.getAttribute("authUser");
+		System.out.println(buyUser);
+		int userNo = buyUser.getNo();//세션에서 가져온 user_no
+		String r_name = buyUser.getName(); //세션에서 가져온 user_name
+		
+		
+		
+		PProductVo insertVo = new PProductVo();
+		insertVo.setR_name(r_name);
+		insertVo.setUser_no(userNo);
+		insertVo.setNo(pproductVo.getNo());
+		insertVo.setR_content(pproductVo.getR_content());
+		
+		
+		System.out.println("#####ㅈ ㅏㄹ 묶였나요~~~~??"+insertVo);
+		service.exereviewinsert(insertVo);
+		
+		return "redirect:/productinfo?goodsNo="+pproductVo.getNo();
+		
 	}
 
 }
