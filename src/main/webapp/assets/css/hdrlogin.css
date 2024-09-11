@@ -1,110 +1,114 @@
 @charset "UTF-8";
 
-    
-
-
-    
-
-#img {
-	display: flex;
-    text-align: center;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    width: 50px;
-    height: 50px;
-    margin-inline: auto;
+/* 전체 페이지 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9; /* 부드러운 회색 배경 */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 화면 전체 높이 */
 }
 
-.content {
- 
-    padding: 20px;
-    border-radius: 8px;
-
-    
+#wrap {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
+    max-width: 400px;
+    width: 100%;
+    text-align: center; /* 모든 요소를 가운데 정렬 */
 }
 
-
-
-#joinFormBox label{
-    display: block;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: bold;;
+#logo img {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px auto;
 }
 
-#joinFormBox input{
-    width: 300px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 4px;
-    text-align: center;
+h2 {
+    font-size: 2rem;
+    color: #2c3e50; /* 진한 블루 텍스트 */
+    margin-bottom: 30px;
+    font-family: 'GangwonEduPowerExtraBoldA'; /* 고급스러운 폰트 적용 */
 }
 
-#joinFormBox button{
-    width: 100px;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    background-color: #ff4500;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    }
-
-
-/*로그인창*/
+/* 로그인 폼 */
 #loginFormBox label {
-   
     display: block;
     margin-bottom: 10px;
-    
-    text-align: center;
+    font-size: 1rem;
+    color: #34495e;
     font-weight: bold;
 }
 
 #loginFormBox input {
-   
-    width: 300px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 4px;
-    text-align: center;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #2c3e50;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
+#loginFormBox input:focus {
+    border-color: #007bff; /* 포커스 시 파란색 테두리 */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
 
-
+/* 로그인 버튼 */
 #loginFormBox button {
-    width: 100px;
-    padding: 10px 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 15px;
     background-color: #ff4500;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     color: white;
+    font-size: 1.2rem;
     cursor: pointer;
-    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
-#loginFormBox .joinMsg{
-    margin-bottom: 50px;
-    text-align: center;
+#loginFormBox button:hover {
+    background-color: #e03e00; /* hover 시 색상 변경 */
+    transform: translateY(-2px); /* 살짝 위로 올라가는 애니메이션 */
 }
 
-.joinrequest{
+/* 에러 메시지 */
+.error-msg {
+    color: red;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+/* 회원가입 문구 */
+#loginFormBox .joinMsg {
+    margin: 20px 0;
+    font-size: 1rem;
+    color: #7f8c8d;
+}
+
+.joinrequest a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.joinrequest a:hover {
     text-decoration: underline;
+    color: #0056b3;
 }
 
-.joinMsg, .joinrequest {
-    display: inline; /* 블록 요소를 인라인으로 변경 */
-    margin-bottom: 100px;
-}
-
-#loginFormBox {
-    margin-bottom: 50px; /* 푸터와 로그인 박스 사이에 공간 추가 */
-}
-
+/* 푸터와 로그인 박스 사이 간격 */
 footer {
-    margin-top: 50px; /* 푸터와 로그인 폼 사이에 추가 간격 */
+    margin-top: 50px;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9rem;
 }
