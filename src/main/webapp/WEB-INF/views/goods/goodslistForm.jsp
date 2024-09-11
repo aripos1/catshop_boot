@@ -28,7 +28,21 @@
                 <!-- 상단-->
                 <div id="title">
                     <div id="location" class="clearfix">
-                        <h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> AdultFood </a></h1>
+                        <c:choose>
+                        	<c:when test="${param.category == 'ADULT' }">
+                        		<h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> Fooder - Adult </a></h1>
+                        	</c:when>
+                        	<c:when test="${param.category == 'KITTEN' }">
+                        		<h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> Fooder - Kitten </a></h1>
+                        	</c:when>
+                        	<c:when test="${param.category == 'CAN' }">
+                        		<h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> Snack - Can </a></h1>
+                        	</c:when>
+                        	<c:when test="${param.category == 'CHURR' }">
+                        		<h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> Snack - Churr </a></h1>
+                        	</c:when>
+                        
+                       </c:choose> 
                         <p id="totalcount"> 총상품 ${requestScope.pMap.goodsTotalCnt}개 </p>
                     </div>
                     <div id="title-dec">

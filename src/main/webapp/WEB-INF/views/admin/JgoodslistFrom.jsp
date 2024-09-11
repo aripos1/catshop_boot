@@ -144,7 +144,7 @@
 					<form>
 		           		<div id="guestbook" class="modal-content">
 		                	<button class="closeBtn" type="button">close</button>
-		                    	<div  class="m-header" >옵션 (연어맛,참치맛,치킨맛)</div>
+		                    	<div  class="m-header">옵션 (연어맛,참치맛,치킨맛)</div>
 		                    	<div class="m-body">
 		                       		맛<br><input id="modalPw" class="m-password" type="password" name="password" value=""><br>
 		                       		상품번호<br><input id="ModalNo" class="m-no" type="" name="no" value="${GoodsVo.no}">
