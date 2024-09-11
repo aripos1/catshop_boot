@@ -13,7 +13,9 @@ public class ReceiptVo {
 	private String payment;
 	private String userName;
 	private String userHp;
-
+	private String goodsName;
+	private String taste;
+	
 	public ReceiptVo() {
 		super();
 	}
@@ -30,6 +32,23 @@ public class ReceiptVo {
 		this.payment = payment;
 		this.userName = userName;
 		this.userHp = userHp;
+	}
+
+	
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public String getTaste() {
+		return taste;
+	}
+
+	public void setTaste(String taste) {
+		this.taste = taste;
 	}
 
 	public String getUserHp() {

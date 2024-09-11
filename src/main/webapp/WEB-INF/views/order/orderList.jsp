@@ -25,6 +25,13 @@
 				<h1>주문 목록</h1>
 
 				<table>
+				<colgroup>
+					<col style="width: 150px">
+					<col style="width: 150px">
+					<col style="width: 100px">
+					<col style="width: 100px">
+					
+				</colgroup>
 					<thead>
 						<tr>
 							<th>주문일자</th>
@@ -34,8 +41,8 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach items="${orderItemList}" var="orderItem">
-							<tr class="order-row" data-receipt-no="${orderItem.receiptNo}">
+						<c:forEach items="${pMap.orderItemList}" var="orderItem">
+							<tr class="order-row" data-receipt-no="${orderItem.no}">
 								<!-- 주문 일자 -->
 								<td>${orderItem.paymentDate}</td>
 
@@ -47,37 +54,52 @@
 								<td>${orderItem.express}</td>
 
 								<!-- 상세 보기 버튼 -->
-								<td><a href="${pageContext.request.contextPath}/order/orderdetail?receiptNo=${orderItem.receiptNo}">상세보기</a></td>
+								<td><a href="${pageContext.request.contextPath}/order/orderdetail?receiptNo=${orderItem.no}">상세보기</a></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
+				<div class="pagination">
+					<ul>
+
+						<c:if test="${pMap.prev}">
+							<li><a href="${pageContext.request.contextPath}/order/orderlist?crtpage=${pMap.startPageBtnNo-1}">◀</a></li>
+						</c:if>
+
+						<c:forEach begin="${pMap.startPageBtnNo}" end="${pMap.endPageBtnNo}" step="1" var="page">
+							<c:choose>
+								<c:when test="${param.crtpage == page}">
+									<li class="active"><a href="${pageContext.request.contextPath}/order/orderlist?crtpage=${page}">${page}</a></li>
+
+								</c:when>
+								<c:otherwise>
+									<li class=""><a href="${pageContext.request.contextPath}/order/orderlist?crtpage=${page}">${page}</a></li>
+								</c:otherwise>
+
+							</c:choose>
+
+						</c:forEach>
+
+
+						<c:if test="${pMap.next}">
+							<li><a href="${pageContext.request.contextPath}/tboard/list2?crtpage=${pMap.endPageBtnNo+1}">▶</a></li>
+						</c:if>
+
+
+					</ul>
+
+
+					<div class="clear"></div>
+				</div>
 			</div>
 		</div>
 
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 	</div>
 	<script>
-		// JavaScript로 중복된 주문 번호를 처리하는 함수
-		function filterDuplicateOrders() {
-			var rows = document.querySelectorAll(".order-row");
-			var previousReceiptNo = null;
-
-			rows.forEach(function(row) {
-				var receiptNo = row.getAttribute("data-receipt-no");
-				if (previousReceiptNo === receiptNo) {
-					// 중복된 주문 번호가 발견되면 행을 숨김
-					row.style.display = "none";
-				} else {
-					previousReceiptNo = receiptNo;
-				}
-			});
-		}
-
-		// DOM이 로드되면 중복 필터링을 실행
-		window.onload = function() {
-			filterDuplicateOrders();
-		};
+		
 	</script>
+
+
 </body>
 </html>

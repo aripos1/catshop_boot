@@ -71,5 +71,17 @@ public class HOrderDao {
         return sqlSession.selectOne("order.getExpressStatus", receiptNo);
     }
     
+    // 로그인한 유저의 페이징된 영수증 목록 가져오기
+    public List<ReceiptVo> selectList(int startRowNo, int listCnt, int userNo) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("startRowNo", startRowNo);
+        map.put("listCnt", listCnt);
+        map.put("userNo", userNo);
+        return sqlSession.selectList("order.selectOrderListByUser", map);
+    }
 
+    // 로그인한 유저의 총 영수증 수 가져오기
+    public int selectTotalCnt(int userNo) {
+        return sqlSession.selectOne("order.selectTotalCntByUser", userNo);
+    }
 }

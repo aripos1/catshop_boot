@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="${pageContext.request.contextPath}/assets/css/reset.css" rel="stylesheet" type="text/css">
 <link href="${pageContext.request.contextPath}/assets/css/imadminorderlist.css" rel="stylesheet" type="text/css">
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <title>주문 관리</title>
 </head>
@@ -21,6 +21,15 @@
 			<h1>주문 관리</h1>
 
 			<table>
+				<colgroup>
+					<col style="width: 100px">
+					<col style="width: 100px">
+					<col style="width: 130px">
+					<col style="width: 300px">
+					<col style="width: 100px">
+					<col style="width: 100px">
+					<col style="width: 100px">
+				</colgroup>
 				<thead>
 					<tr>
 						<th>영수증 번호</th>
@@ -48,7 +57,30 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="pagination">
+				<c:if test="${prev}">
+					<a href="?crtpage=${startPageBtnNo - 1}">◀</a>
+				</c:if>
+
+				<c:forEach begin="${startPageBtnNo}" end="${endPageBtnNo}" var="i">
+					<c:choose>
+						<c:when test="${i == crtpage}">
+							<span class="current-page">${i}</span>
+						</c:when>
+						<c:otherwise>
+							<a href="?crtpage=${i}">${i}</a>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
+				<c:if test="${next}">
+					<a href="?crtpage=${endPageBtnNo + 1}">▶</a>
+				</c:if>
+			</div>
 		</div>
+
+
+
 	</div>
 
 	<script>

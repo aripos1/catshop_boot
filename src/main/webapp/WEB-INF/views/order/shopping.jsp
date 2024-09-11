@@ -31,6 +31,15 @@
 		</h1>
 		<form id="cartForm" action="${pageContext.request.contextPath}/order/payform" method="get">
 			<table>
+				<colgroup>
+					<col style="width: 20px">
+					<col style="width: 150px">
+					<col style="width: 150px">
+					<col style="width: 100px">
+					<col style="width: 100px">
+					<col style="width: 100px">
+					<col style="width: 50px">
+				</colgroup>
 				<thead>
 					<tr>
 						<th><input type="checkbox" id="select-all-checkbox"> <!-- 모두 선택/해제 체크박스 --></th>

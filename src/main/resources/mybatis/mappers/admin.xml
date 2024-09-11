@@ -5,7 +5,7 @@
 
 <mapper namespace="admin">
 
-<resultMap id="resultMapPAdminVo" type="com.javaex.vo.PAdminVo">
+	<resultMap id="resultMapPAdminVo" type="com.javaex.vo.PAdminVo">
 		<result column="no" property="no" />
 		<result column="category" property="category" />
 		<result column="name" property="name" />
@@ -17,17 +17,38 @@
 		<result column="save_nameb" property="saveName2" />
 		<result column="file_pathb" property="filePath2" />
 	</resultMap>
-	
-	
+
+
 	<insert id="insert" parameterType="map">
 		<![CDATA[
 			insert into goods 
             values(null,#{category}, #{name}, #{content}, #{price}, now(), #{saveNamef},#{filePathf}, #{saveNameb},#{filePathb}, null);
 		]]>
-	
+
 	</insert>
 
 
+	<!-- 영수증 목록 조회 -->
+	<select id="selectList" parameterType="map" resultType="com.javaex.vo.ReceiptVo">
+		SELECT
+		r.no AS receiptNo,
+		r.payment_date AS paymentDate,
+		GROUP_CONCAT(g.name ORDER BY g.name ASC SEPARATOR ', ') AS goodsNames,  <!-- 상품을 묶어서 표시 -->
+		r.express
+		FROM receipt r
+		JOIN item i ON r.no = i.receipt_no
+		JOIN options o ON i.options_no = o.no
+		JOIN goods g ON o.goods_no = g.no
+		WHERE r.user_no = #{userNo}
+		GROUP BY r.no  <!-- 영수증 번호 기준으로 묶기 -->
+		ORDER BY r.payment_date DESC
+		LIMIT #{startRowNo}, #{listCnt}
+	</select>
 
+	<!-- 영수증 총 개수 조회 -->
+	<select id="selectTotalCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM receipt
+	</select>
 
 </mapper>

@@ -98,7 +98,8 @@ public class HOrderController {
 	}
 
 	@RequestMapping(value = "/orderlist", method = { RequestMethod.GET, RequestMethod.POST })
-	public String orderList(HttpSession session, Model model) {
+	public String orderList(@RequestParam(value = "crtpage", required = false, defaultValue = "1") int crtPage,
+			HttpSession session, Model model) {
 
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		if (authUser == null) {
@@ -109,10 +110,10 @@ public class HOrderController {
 
 		// 해당 유저의 영수증 목록 가져오기
 
-		List<Map<String, Object>> orderItemList = hOrderService.getOrderItemsByUserNo(userNo);
-
-		model.addAttribute("orderItemList", orderItemList); // 주문 내역을 JSP로 전달
-
+		Map<String, Object> pMap = hOrderService.getOrderList(crtPage, userNo);
+		System.out.println("pMap"+ pMap);
+		model.addAttribute("pMap", pMap);
+		
 		return "/order/orderList";
 	}
 
@@ -154,7 +155,7 @@ public class HOrderController {
 		// 세션에서 사용자 정보 가져오기
 		UserVo authUser = (UserVo) session.getAttribute("authUser");
 		System.out.println("authUser" + authUser);
-		
+
 		if (authUser == null) {
 			return "로그인이 필요합니다."; // 로그인되어 있지 않으면 오류 메시지 반환
 		}

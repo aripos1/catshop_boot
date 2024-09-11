@@ -25,33 +25,36 @@
 		r.express as express,
 		r.payment_date as paymentDate,
 		g.name as goodsName,
-		o.taste as taste,
+		o.taste
+		as taste,
 		r.user_no as userNo,
 		r.no as receiptNo
 
 		FROM item i
 		JOIN receipt r ON i.receipt_no = r.no
 		JOIN options o ON i.options_no = o.no
-		JOIN goods g ON o.goods_no = g.no
+		JOIN goods g ON o.goods_no
+		= g.no
 		WHERE r.user_no = #{userNo}
 		ORDER BY r.no DESC
 	</select>
 
 	<!-- 특정 영수증 번호에 대한 상품 목록 가져오기 -->
 	<select id="getItemsByReceiptNo" parameterType="int" resultType="com.javaex.vo.ItemVo">
-		SELECT i.*, 
-		g.name as goodsName, 
+		SELECT i.*,
+		g.name as goodsName,
 		o.taste,
 		i.each_price as eachPrice
 		FROM item i
-		JOIN options o ON i.options_no = o.no
+		JOIN options
+		o ON i.options_no = o.no
 		JOIN goods g ON o.goods_no = g.no
 		WHERE i.receipt_no = #{receiptNo}
 	</select>
 
 	<!-- 특정 영수증 번호로 영수증 정보 가져오기 -->
 	<select id="getReceiptByNo" parameterType="int" resultType="com.javaex.vo.ReceiptVo">
-		SELECT 
+		SELECT
 		r.no,
 		r.user_no as userNo,
 		r.address as address,
@@ -65,10 +68,10 @@
 		join user u on r.user_no = u.no
 		WHERE r.no = #{no}
 	</select>
-	
-    <!-- 영수증 전체 내역 불러오기 -->
-    <select id="getAllReceipts" resultType="com.javaex.vo.ReceiptVo">
-        SELECT 
+
+	<!-- 영수증 전체 내역 불러오기 -->
+	<select id="getAllReceipts" resultType="com.javaex.vo.ReceiptVo">
+		SELECT
 		r.no ,
 		r.user_no as userNo,
 		r.address as address,
@@ -80,22 +83,44 @@
 		r.express
 		FROM receipt r
 		join user u on r.user_no = u.no
-        ORDER BY payment_date DESC
-    </select>
-    
-    <!-- 배송 상태 업데이트 쿼리 -->
-    <update id="updateExpressStatus">
-        UPDATE receipt
-        SET express = #{status}
-        WHERE no = #{receiptNo}
-    </update>
+		ORDER BY payment_date DESC
+	</select>
 
-    <!-- 현재 배송 상태 가져오기 -->
-    <select id="getExpressStatus" parameterType="int" resultType="String">
-        SELECT express
-        FROM receipt
-        WHERE no = #{receiptNo}
-    </select>
+	<!-- 배송 상태 업데이트 쿼리 -->
+	<update id="updateExpressStatus">
+		UPDATE receipt
+		SET express = #{status}
+		WHERE no = #{receiptNo}
+	</update>
 
+	<!-- 현재 배송 상태 가져오기 -->
+	<select id="getExpressStatus" parameterType="int" resultType="String">
+		SELECT express
+		FROM receipt
+		WHERE no = #{receiptNo}
+	</select>
+
+	<select id="selectOrderListByUser" parameterType="map" resultType="com.javaex.vo.ReceiptVo">
+			SELECT 
+               r.no,
+               r.payment_date AS paymentDate,
+				g.name AS goodsName,
+				i.taste,
+               r.express
+        FROM receipt r
+        JOIN item i ON r.no = i.receipt_no
+        join options o on i.options_no = o.no
+        join goods g on o.goods_no = g.no
+         WHERE r.user_no = #{userNo}
+		ORDER BY r.payment_date DESC
+		LIMIT #{startRowNo}, #{listCnt}
+	</select>
+
+	<!-- 로그인한 유저의 총 주문 수 조회 -->
+	<select id="selectTotalCntByUser" parameterType="int" resultType="int">
+		SELECT COUNT(DISTINCT no)
+		FROM receipt
+		WHERE user_no = #{userNo}
+	</select>
 
 </mapper>

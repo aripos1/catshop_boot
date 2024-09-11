@@ -144,23 +144,24 @@ button:hover {
 }
 
 /* 페이지네이션 스타일 */
-#paging {
-    text-align: center;
-    margin: 40px 0px;
+.pagination {
+	text-align: center;
+	padding: 10px;
+	font-family: 'HakgyoansimNadeuriTTF-B';
+	font-size: 16px;
 }
 
-#paging ul {
-    list-style: none;
-    padding: 0;
-    display: inline-block;
+.pagination ul {
+	list-style: none;
+	padding: 20px;
+	display: inline-block;
 }
 
-#paging ul li {
-    display: inline;
-    margin: 0 1px;
-    padding: 5px 5px;
-    border-radius: 5px;
-    cursor: pointer;
-
+.pagination ul li {
+	display: inline;
+	margin: 0 5px;
+	padding: 5px 5px;
+	border-radius: 5px;
+	cursor: pointer;
 }
 

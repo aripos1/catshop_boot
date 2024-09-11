@@ -1,6 +1,7 @@
 package com.javaex.service;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -93,11 +94,57 @@ public class HOrderService {
 	public String getExpressStatus(int receiptNo) {
 		return hOrderDao.getExpressStatus(receiptNo);
 	}
-	  // 결제 완료 후 장바구니 전체 삭제 로직 추가
-    @Transactional
-    public void clearCartByUserNo(int userNo) {
-        // 해당 사용자의 장바구니 전체 삭제
-        shoppingDao.clearCartByUserNo(userNo);
-    }	
 
+	// 결제 완료 후 장바구니 전체 삭제 로직 추가
+	@Transactional
+	public void clearCartByUserNo(int userNo) {
+		// 해당 사용자의 장바구니 전체 삭제
+		shoppingDao.clearCartByUserNo(userNo);
+	}
+
+	public Map<String, Object> getOrderList(int crtPage, int userNo) {
+	    int listCnt = 10; // 한 페이지당 보여줄 주문 수
+
+	    // 현재 페이지가 1보다 작으면 1로 설정
+	    crtPage = (crtPage < 1) ? 1 : crtPage;
+
+	    // 총 주문 수 (해당 유저의 주문만 카운트)
+	    int totalCnt = hOrderDao.selectTotalCnt(userNo);
+
+	    // 시작 행 번호 계산 (0부터 시작)
+	    int startRowNo = (crtPage - 1) * listCnt;
+
+	    // 페이징 처리된 로그인한 유저의 주문 목록 가져오기
+	    List<ReceiptVo> orderItemList = hOrderDao.selectList(startRowNo, listCnt, userNo);
+
+	    // 페이징 버튼 수
+	    int pageBtnCount = 5;
+
+	    // 끝 페이지 버튼 번호 계산
+	    int endPageBtnNo = (int) Math.ceil((double) crtPage / pageBtnCount) * pageBtnCount;
+
+	    // 시작 페이지 버튼 번호 계산
+	    int startPageBtnNo = endPageBtnNo - pageBtnCount + 1;
+
+	    // 다음 버튼 표시 여부 결정
+	    boolean next = endPageBtnNo * listCnt < totalCnt;
+
+	    // 마지막 페이지 번호 수정
+	    if (!next) {
+	        endPageBtnNo = (int) Math.ceil((double) totalCnt / listCnt);
+	    }
+
+	    // 이전 버튼 표시 여부 결정
+	    boolean prev = startPageBtnNo > 1;
+
+	    // 페이징 데이터와 주문 목록을 담을 Map 생성
+	    Map<String, Object> pMap = new HashMap<>();
+	    pMap.put("orderItemList", orderItemList);
+	    pMap.put("prev", prev);
+	    pMap.put("next", next);
+	    pMap.put("startPageBtnNo", startPageBtnNo);
+	    pMap.put("endPageBtnNo", endPageBtnNo);
+
+	    return pMap;
+	}
 }
