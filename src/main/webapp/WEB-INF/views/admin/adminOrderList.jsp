@@ -32,9 +32,9 @@
 				</colgroup>
 				<thead>
 					<tr>
-						<th>영수증 번호</th>
-						<th>구매자 UID</th>
-						<th>구매자 이름</th>
+						<th>번호</th>
+						<th>UID</th>
+						<th>이름</th>
 						<th>주문 일자</th>
 						<th>총 금액</th>
 						<th>배송 상태</th>

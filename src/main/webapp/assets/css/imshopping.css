@@ -1,126 +1,186 @@
 @charset "UTF-8";
-#header{
 
-    height: 80px;
+/* 전체적인 색상 팔레트 변경 */
+:root {
+	--primary-color: #2c3e50; /* 다크 네이비 계열 */
+	--secondary-color: #27ae60; /* 초록색 */
+	--background-color: #f8f9fa; /* 부드러운 밝은 회색 배경 */
+	--text-color: #34495e; /* 짙은 블루/그레이 계열 텍스트 색상 */
+	--header-bg-color: #2c3e50; /* 헤더 다크 블루 배경 */
+	--header-text-color: #ecf0f1; /* 헤더 텍스트 흰색 */
+	--button-color: #27ae60; /* 초록색 버튼 */
+	--button-hover-color: #1e8449; /* 어두운 초록색 호버 */
+	--table-header-color: #2980b9; /* 테이블 헤더 진한 블루 */
+	--table-row-bg-color: #ffffff; /* 테이블 행 배경 흰색 */
+	--table-alt-row-bg-color: #f0f3f4; /* 테이블 짝수 행 배경 */
+	--table-border-color: #d5dbdb; /* 테두리 연한 회색 */
+	--table-hover-color: #dfe6e9; /* 테이블 행 호버 시 배경 */
 }
-.header-container {
+
+/* 전체 바디 스타일 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color:   white;
-    padding: 10px 20px;
-   
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* 헤더 스타일 */
+#header {
+	height: 80px;
+	background-color: white; /* 헤더 배경 색상 통일 */
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+	display: flex;
+	align-items: center;
 }
 
-.header-container  img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-    vertical-align: middle;
+.header-container img {
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
 }
 
 .header-container h1 {
-    font-size: 1.8rem;
-    color: #444;
-    font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+	font-size: 1.8rem;
+	color: blk; /* 헤더 텍스트 색상 */
+	font-family: 'HakgyoansimChilpanjiugaeTTF-B';
 }
 
-
-
-
-/* 장바구니 제목 */
 /* 페이지 제목 스타일 */
 h1 {
-    font-size: 1.8em;
-    margin: 20px 0;
+    font-size: 2rem;
+    margin: 30px 0;
     text-align: left;
-    color: #333;
-   	font-family: 'GangwonEduPowerExtraBoldA';
+    color: var(--primary-color);
+    font-family: 'GangwonEduPowerExtraBoldA', sans-serif;
 }
 
+/* 링크 스타일 */
 h1 a {
     text-decoration: none;
-    color: #007bff;
-    
+    color: var(--primary-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--button-hover-color);
+    text-decoration: underline;
 }
 
 /* 테이블 스타일 */
 table {
     width: 100%;
-    margin: 0 auto;
+    margin: 20px auto;
     border-collapse: collapse;
-    background-color: white;
+    background-color: var(--table-row-bg-color);
+    border: 1px solid var(--table-border-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* 테이블에 부드러운 그림자 */
+    overflow: hidden;
 }
 
 table thead th {
-    background-color:rgb(250, 197, 197);
+    background-color: #007bff; /* 헤더 진한 블루 */
     color: white;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 15px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 3px solid var(--table-border-color);
 }
 
 table tbody td {
-    padding: 10px;
+    padding: 20px; /* 충분한 패딩 추가 */
     text-align: center;
-    border: 1px solid #ddd;
+    border: none;
+    color: var(--text-color);
+    background-color: var(--table-row-bg-color);
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: var(--table-alt-row-bg-color);
+}
+
+table tbody tr:hover td {
+    background-color: var(--table-hover-color); /* 행 호버 시 배경색 */
+    transform: translateY(-3px); /* 호버 시 미세하게 들어 올리기 */
 }
 
 /* 상품 이미지 열 스타일 */
 table tbody td img {
     width: 100px;
     height: auto;
-}
-
-table tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+    border-radius: 8px; /* 이미지에 둥근 모서리 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 부드러운 그림자 */
 }
 
 /* 수량 input */
 input[type="number"] {
-    padding: 5px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 60px;
+    width: 80px;
+    font-size: 1rem;
+    color: var(--text-color);
 }
 
 /* 버튼 스타일 */
 .btn {
-    background-color: rgb(255, 128, 192);
+    background-color: var(--button-color);
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    padding: 12px 24px;
+    border-radius: 6px;
     cursor: pointer;
     margin-right: 10px;
     font-family: 'HakgyoansimNadeuriTTF-B';
-    
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
-    background-color: #FFB2F5;
+    background-color: var(--button-hover-color);
+    transform: translateY(-2px); /* 버튼 호버 시 미세하게 들어 올리기 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 버튼 호버 시 그림자 추가 */
 }
 
 .btn-remove {
-    background-color: darkgray;
+    background-color: #6c757d;
 }
 
 .btn-remove:hover {
-    background-color: #c82333;
+    background-color: #343a40;
 }
 
 /* 주문 요약 테이블 스타일 */
 table:last-of-type thead th {
-    background-color: #FFB2F5;
+    background-color: var(--secondary-color); /* 주문 요약 테이블 헤더 */
     color: white;
 }
 
 table:last-of-type tbody td {
     font-weight: bold;
+    color: var(--text-color);
 }
 
 /* 주문 요약 테이블과 버튼 영역의 간격 */
@@ -135,4 +195,15 @@ table + br, table:last-of-type + br {
     padding: 10px 20px;
     cursor: pointer;
     font-family: 'HakgyoansimNadeuriTTF-B';
+}
+
+/* 링크 스타일 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--button-hover-color);
+    text-decoration: underline;
 }

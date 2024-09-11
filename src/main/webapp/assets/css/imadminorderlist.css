@@ -1,10 +1,11 @@
 @charset "UTF-8";
 
+/* 전체 바디 스타일 */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff; /* 부드러운 파스텔톤 배경색 */
+    background-color: #f9fafc; /* 부드러운 배경색 */
     color: #333;
 }
 
@@ -22,7 +23,8 @@ body {
     font-size: 2em;
     margin-bottom: 20px;
     text-align: left;
-    color: #007bff; /* 파란색 포인트 */
+    color: #333;
+    font-weight: bold;
 }
 
 /* 검색창 스타일 */
@@ -38,12 +40,17 @@ body {
     margin-right: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    width: 200px;
+}
+
+.search-bar input {
+    width: 300px;
 }
 
 .search-bar button {
     padding: 10px 20px;
     font-size: 1em;
-    background-color: #ff6a00; /* 오렌지색 버튼 */
+    background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
@@ -52,47 +59,10 @@ body {
 }
 
 .search-bar button:hover {
-    background-color: #ffd700; /* 마우스 오버 시 노란색 */
+    background-color: #0056b3;
 }
 
-/* 날짜 필터 스타일 */
-.date-filter {
-    margin-bottom: 20px;
-}
-
-.date-filter button {
-    background-color: #ff6a00;
-    color: white;
-    border: none;
-    padding: 10px;
-    margin-right: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.date-filter button:hover {
-    background-color: #ffd700;
-}
-
-/* 버튼 스타일 */
-tbody button {
-    background-color: #007bff; /* 기본 파란색 버튼 */
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: 'HakgyoansimNadeuriTTF-B';
-    font-size: 1.1rem;
-    transition: background-color 0.3s ease;
-}
-
-tbody button:hover {
-    background-color: #ffd700; /* 마우스 오버 시 노란색 */
-}
-
-/* 주문 목록 테이블 스타일 */
+/* 테이블 스타일 */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -104,26 +74,51 @@ table {
 }
 
 table th, table td {
-    padding: 15px;
+    padding: 12px; /* 패딩을 조금 줄여서 글자가 작아보이게 조정 */
     text-align: center;
     border-bottom: 1px solid #ddd;
+    font-family: '맑은 고딕', sans-serif;
+    font-size: 0.9rem; /* 테이블 내용 글자 크기 한 단계 줄이기 */
 }
 
 table th {
-    background-color: #007bff;
-    color: white;
-    font-size: 1.1em;
+    background-color: #f8f9fa;
+    color: #333;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+table td {
+    background-color: #fff;
+    color: #333;
 }
 
 table tr:nth-child(even) {
-    background-color: #f0f8ff; /* 짝수 행 배경색 */
+    background-color: #f2f2f2;
+}
+
+/* 옵션 버튼 및 배송 시작 버튼 스타일 */
+tbody button {
+    background-color: #ff6a00;
+    color: white;
+    border: none;
+    padding: 8px 15px; /* 버튼 크기를 한 단계 작게 조정 */
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: '맑은 고딕', sans-serif;
+    font-size: 0.9rem; /* 버튼 텍스트 크기를 줄이기 */
+    transition: background-color 0.3s ease;
+}
+
+tbody button:hover {
+    background-color: #ff7f24;
 }
 
 /* 페이지네이션 스타일 */
 .pagination {
     text-align: center;
     padding: 20px;
-    font-family: 'HakgyoansimNadeuriTTF-B';
+    font-family: '맑은 고딕', sans-serif;
     font-size: 20px;
 }
 
@@ -135,15 +130,21 @@ table tr:nth-child(even) {
 
 .pagination ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 0 5px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #f0f8ff;
+    background-color: #f8f9fa;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .pagination ul li:hover {
-    background-color: #ff6a00;
+    background-color: #007bff;
+    color: white;
+}
+
+/* 페이지네이션의 활성화된 페이지 스타일 */
+.pagination ul li.active {
+    background-color: #007bff;
     color: white;
 }

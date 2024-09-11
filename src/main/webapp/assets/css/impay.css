@@ -1,15 +1,44 @@
 @charset "UTF-8";
-#header{
 
-    height: 80px;
+/* 기본 색상 팔레트 설정 */
+:root {
+    --primary-color: #34495e; /* 다크 블루 */
+    --secondary-color: #1abc9c; /* 청록색 */
+    --background-color: #f4f4f9; /* 연한 회색 배경 */
+    --text-color: #333; /* 기본 텍스트 색상 */
+    --heading-color: #2c3e50; /* 진한 블루 */
+    --border-color: #ddd; /* 테두리 색상 */
+    --button-color: #2ecc71; /* 밝은 그린 */
+    --button-hover-color: #27ae60; /* 진한 그린 */
+    --table-header-bg-color: #2980b9; /* 테이블 헤더 배경색 */
+    --table-row-bg-color: white; /* 테이블 기본 행 배경색 */
+    --table-alt-row-bg-color: #f9f9f9; /* 테이블 짝수 행 배경 */
 }
+
+/* 전체 바디 스타일 */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 헤더 */
+#header {
+    height: 80px;
+    background-color: white;
+
+}
+
 .header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color:   white;
     padding: 10px 20px;
-   
 }
 
 .logo {
@@ -17,138 +46,152 @@
     align-items: center;
 }
 
-.header-container  img {
+.header-container img {
     width: 50px;
     height: 50px;
     margin-right: 10px;
-    vertical-align: middle;
 }
 
 .header-container h1 {
     font-size: 1.8rem;
-    color: #444;
+    color: var(--heading-color);
     font-family: 'HakgyoansimChilpanjiugaeTTF-B';
 }
 
-
-
-
-/* 장바구니 제목 */
 /* 페이지 제목 스타일 */
 h1 {
-    font-size: 1.8em;
+    font-size: 2rem;
     margin: 20px 0;
     text-align: left;
-    color: #333;
-   	font-family: 'GangwonEduPowerExtraBoldA';
+    color: var(--heading-color);
+    font-family: 'GangwonEduPowerExtraBoldA';
 }
 
-h1 a {
-    text-decoration: none;
-    color: #007bff;
-    
-}
-
-
-/* 구매자 및 받는 사람 정보 스타일 */
-.payUser, .recipient {
-    background-color: #f0f0f0;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-}
-
-.payUser h3, .recipient h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    color: #333;
-    text-align: left;
- 
-}
-
+/* 테이블 스타일 - 칸 크기 조정 */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    background-color: white;
-    margin-top :10px;
+    background-color: var(--table-row-bg-color);
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
 }
 
-table td {
-    padding: 10px 30px;
-    text-align: left;
-    border: 1px solid #ddd;
+table th, table td {
+    padding: 15px; /* 패딩을 균일하게 설정 */
+    text-align: center; /* 가운데 정렬 */
+    border: 1px solid var(--border-color); /* 테두리 색상 */
+    word-wrap: break-word; /* 긴 텍스트 줄바꿈 설정 */
 }
 
 table th {
-    width: 70px;
-    background-color: #007bff;
+    background-color: var(--table-header-bg-color); /* 테이블 헤더 배경색 */
     color: white;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+table td {
+    font-size: 1rem;
+    background-color: var(--table-row-bg-color); /* 기본 행 배경색 */
 }
 
 table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: var(--table-alt-row-bg-color); /* 짝수 행 배경색 */
+}
+
+/* 구매자 및 받는 사람 정보 스타일 */
+.payUser, .recipient {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+}
+
+.payUser h3, .recipient h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: var(--heading-color);
 }
 
 /* 주문 상품 정보 스타일 */
-.orderGoods {
-    margin-bottom: 20px;
-    
-}
-
 .orderGoods table {
-  
-    border: 1px solid  #ddd;
+    table-layout: fixed; /* 고정된 너비 설정 */
+    width: 100%;
+    border: 1px solid var(--border-color);
     background-color: transparent;
 }
 
 .orderGoods td {
     padding: 20px;
     border: none;
-    font-size: 1.1em;
-    line-height: 1.5;
+    font-size: 1.2em;
+    line-height: 1.8;
 }
 
 /* 결제수단 스타일 */
 .payment {
     padding: 20px;
     margin-bottom: 20px;
-    border: 1px solid  #ddd;
-   
+    border: 1px solid var(--border-color);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .payment h3 {
-    font-size: 2em;
-    margin-bottom: 10px;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--heading-color);
 }
 
 .payment p {
     font-size: 1.2em;
-    margin-bottom: 10px;
- 
-}
-
-input[type="radio"] {
-    margin-right: 10px;
+    margin-bottom: 15px;
+    color: var(--text-color);
 }
 
 /* 버튼 스타일 */
 button {
-    background-color: #007bff;
+    background-color: var(--button-color);
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 1em;
+    padding: 12px 25px;
+    font-size: 1.1em;
     cursor: pointer;
-    border-radius: 5px;
-    margin-right: 10px;
-    margin-bottom: 30px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 버튼에 그림자 추가 */
+    margin-bottom: 40px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* 호버 시 그림자 강화 */
 }
 
+/* 입력 필드 스타일 */
+input[type="text"], input[type="number"], input[type="email"] {
+    padding: 10px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); /* 입력 필드에 내장된 그림자 */
+}
+
+/* 링크 스타일 */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--button-hover-color);
+    text-decoration: underline;
+}

@@ -28,6 +28,10 @@
 			<!-- 구매자 정보 -->
 			<h3>구매자 정보</h3>
 			<table>
+				<colgroup>
+					<col style="width: 20%">
+					<col style="width: 80%">
+				</colgroup>
 				<tr>
 					<th>구매자</th>
 					<td>${buyer.name}</td>
@@ -40,6 +44,10 @@
 
 			<h3>받는 사람 정보</h3>
 			<table>
+				<colgroup>
+					<col style="width: 20%">
+					<col style="width: 80%">
+				</colgroup>
 				<tr>
 					<th>받는 사람</th>
 					<td>${buyer.name}</td>
@@ -57,6 +65,7 @@
 			<!-- 주문 상품 -->
 			<h3>주문 상품</h3>
 			<table>
+
 				<thead>
 					<tr>
 						<th>상품명</th>
@@ -85,6 +94,10 @@
 			<!-- 결제 금액 -->
 			<h3>결제 금액</h3>
 			<table>
+				<colgroup>
+					<col style="width: 20%">
+					<col style="width: 80%">
+				</colgroup>
 				<tr>
 					<th>주문금액</th>
 					<td>${totalAmount}원</td>
