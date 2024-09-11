@@ -25,27 +25,7 @@
 <title>메인 페이지</title>
 
 
-<style>
-/* 슬라이더 컨테이너 높이와 너비 설정 */
-.swiper {
-	width: 1000px; /* 가로 너비를 1000px로 고정 */
-	height: 250px; /* 슬라이드 높이 */
-	margin: 0 auto; /* 중앙 정렬 */
-}
 
-.swiper-slide {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #ffffff; /* 슬라이드 배경색 */
-}
-
-.swiper-slide img {
-	width: 900px; /* 이미지의 가로 너비 고정 */
-	height: 250px; /* 이미지의 높이 고정 */
-	object-fit: cover; /* 이미지가 슬라이드 크기에 맞도록 조정 */
-}
-</style>
 </head>
 
 <body>
