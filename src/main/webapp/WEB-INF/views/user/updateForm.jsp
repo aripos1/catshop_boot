@@ -20,8 +20,8 @@
      <!-- 왼쪽 사이드바 -->
         <div class="sidebar">
              <h2>MYPAGE</h2>
-                <a href="#">주문 목록</a>
-                <a href="#">회원 정보</a>
+                <a href="${pageContext.request.contextPath}/order/orderlist">주문 목록</a>
+                <a href="${pageContext.request.contextPath}/user/updateform">회원 정보</a>
         </div>
 
  <div class="content">

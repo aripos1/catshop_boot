@@ -18,7 +18,7 @@
 		<div id="container" class="clearfix">
 			<div class="sidebar">
 				<h2>MYPAGE</h2>
-				<a href="#">주문 목록</a> <a href="#">회원 정보</a>
+				<a href="${pageContext.request.contextPath}/order/orderlist">주문 목록</a> <a href="${pageContext.request.contextPath}/user/updateform">회원 정보</a>
 			</div>
 
 			<div class="content">
@@ -97,14 +97,15 @@
 						</tr>
 					</tbody>
 				</table>
-
+				<br>
+				<p>배송이 완료되면 물품 수령을 눌러주세요~</p>
 				<div class="parent-container">
 					<button class="btn" onclick="history.back()">뒤로가기</button>
-				<!-- 배송 상태 표시 -->
+					<!-- 배송 상태 표시 -->
 					<input type="hidden" id="deliveryStatus" value="${receiptVo.express}" />
 					<button class="btn" onclick="confirmreceipt(${receiptVo.no}, '${receiptVo.express}')">물품 수령</button>
 
-	
+
 				</div>
 			</div>
 		</div>

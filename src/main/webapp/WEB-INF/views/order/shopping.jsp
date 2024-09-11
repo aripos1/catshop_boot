@@ -95,7 +95,7 @@
 			</table>
 			<br>
 			<div class="parent-container">
-				<button class="btn" onclick="history.back()">뒤로가기</button>
+				<input type="button" class="btn" value="뒤로가기" onclick="history.back();">
 				<button class="btn" type="submit">결제하기</button>
 			</div>
 		</form>

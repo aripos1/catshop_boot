@@ -87,7 +87,7 @@ public class DUserController {
 	}
 
 	/* 수정 */
-	@RequestMapping(value = "user/update", method = { RequestMethod.GET, RequestMethod.POST })
+	@RequestMapping(value = "/user/update", method = { RequestMethod.GET, RequestMethod.POST })
 	public String update(@ModelAttribute UserVo userVo, HttpSession session) {
 	
 
