@@ -11,6 +11,7 @@
 .header-container {
     width: 100%;
     overflow: hidden; /* float을 사용하기 때문에 clearfix를 위해 추가 */
+    
 }
 
 .logo {
