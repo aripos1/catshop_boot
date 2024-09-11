@@ -25,13 +25,13 @@
 				<h1>주문 목록</h1>
 
 				<table>
-				<colgroup>
-					<col style="width: 150px">
-					<col style="width: 150px">
-					<col style="width: 100px">
-					<col style="width: 100px">
-					
-				</colgroup>
+					<colgroup>
+						<col style="width: 150px">
+						<col style="width: 150px">
+						<col style="width: 100px">
+						<col style="width: 100px">
+
+					</colgroup>
 					<thead>
 						<tr>
 							<th>주문일자</th>
@@ -42,7 +42,8 @@
 					</thead>
 					<tbody>
 						<c:forEach items="${pMap.orderItemList}" var="orderItem">
-							<tr class="order-row" data-receipt-no="${orderItem.no}">
+
+							<tr class="receipt-row" data-receipt-no="${orderItem.no}">
 								<!-- 주문 일자 -->
 								<td>${orderItem.paymentDate}</td>
 
@@ -96,9 +97,23 @@
 
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 	</div>
+
 	<script>
-		
+    document.addEventListener("DOMContentLoaded", function() {
+        const rows = document.querySelectorAll(".receipt-row");
+        let seenReceipts = new Set(); // 중복된 영수증 번호를 추적할 Set
+
+        rows.forEach(row => {
+            const receiptNo = row.getAttribute("data-receipt-no"); // 각 행의 영수증 번호
+            if (seenReceipts.has(receiptNo)) {
+                row.style.display = "none"; // 이미 본 영수증 번호는 숨김 처리
+            } else {
+                seenReceipts.add(receiptNo); // 영수증 번호 추가
+            }
+        });
+    });
 	</script>
+
 
 
 </body>

@@ -55,7 +55,7 @@
 					<c:forEach items="${shoppingList}" var="shoppingVo">
 						<tr id="row-${shoppingVo.shoppingNo}">
 							<td><input type="checkbox" name="selectedItems" value="${shoppingVo.shoppingNo}"></td>
-							<td><img src="${pageContext.request.contextPath}/upload/${pMap.pVo.saveNamef}" alt="제품 상세 이미지"></td>
+							<td><img src="${pageContext.request.contextPath}/upload/${shoppingVo.saveNamef}" alt="제품 상세 이미지"></td>
 							<td>${shoppingVo.goodsName}<br> 옵션 : ${shoppingVo.taste}<br> 담은 날짜 : ${shoppingVo.pickDate}<br> 
 							</td>
 							<td class="item-price">${shoppingVo.price}원</td>

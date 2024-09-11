@@ -101,17 +101,17 @@
 	</select>
 
 	<select id="selectOrderListByUser" parameterType="map" resultType="com.javaex.vo.ReceiptVo">
-			SELECT 
-               r.no,
-               r.payment_date AS paymentDate,
-				g.name AS goodsName,
-				i.taste,
-               r.express
-        FROM receipt r
-        JOIN item i ON r.no = i.receipt_no
-        join options o on i.options_no = o.no
-        join goods g on o.goods_no = g.no
-         WHERE r.user_no = #{userNo}
+		SELECT 
+		r.no,
+		r.payment_date AS paymentDate,
+		g.name AS goodsName,
+		i.taste,
+		r.express
+		FROM receipt r
+		JOIN item i ON r.no = i.receipt_no
+		join options o on i.options_no = o.no
+		join goods g on o.goods_no = g.no
+		WHERE r.user_no = #{userNo}
 		ORDER BY r.payment_date DESC
 		LIMIT #{startRowNo}, #{listCnt}
 	</select>

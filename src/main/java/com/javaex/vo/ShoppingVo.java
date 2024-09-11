@@ -15,6 +15,7 @@ public class ShoppingVo {
 	private String formattedEstimatedDeliveryDate;
 	private String goodsName;
 	private int optionsNo;
+	private String saveNamef;
 
 	public ShoppingVo() {
 		super();
@@ -34,6 +35,14 @@ public class ShoppingVo {
 		this.formattedEstimatedDeliveryDate = formattedEstimatedDeliveryDate;
 		this.goodsName = goodsName;
 		this.optionsNo = optionsNo;
+	}
+
+	public String getSaveNamef() {
+		return saveNamef;
+	}
+
+	public void setSaveNamef(String saveNamef) {
+		this.saveNamef = saveNamef;
 	}
 
 	public int getOptionsNo() {
@@ -131,6 +140,5 @@ public class ShoppingVo {
 				+ formattedPickDate + ", formattedEstimatedDeliveryDate=" + formattedEstimatedDeliveryDate
 				+ ", goodsName=" + goodsName + ", optionsNo=" + optionsNo + "]";
 	}
-
 
 }

@@ -15,7 +15,8 @@
 					    s.pick_date AS pickDate,
 					    g.price AS price,
 					    o.taste AS taste,
-					    g.name as goodsName
+					    g.name as goodsName,
+					    g.save_namef as savenamef
 				FROM shopping s
 				JOIN options o on s.options_no = o.no
 				join goods g on o.goods_no = g.no
