@@ -10,6 +10,7 @@ public class ItemVo {
 	private int receiptNo;
 	private String goodsName;
 	private int goodsNo;
+	private String saveNamef;
 
 	public ItemVo() {
 		super();
@@ -27,6 +28,16 @@ public class ItemVo {
 		this.receiptNo = receiptNo;
 		this.goodsName = goodsName;
 		this.goodsNo = goodsNo;
+	}
+
+
+	public String getSaveNamef() {
+		return saveNamef;
+	}
+
+
+	public void setSaveNamef(String saveNamef) {
+		this.saveNamef = saveNamef;
 	}
 
 
