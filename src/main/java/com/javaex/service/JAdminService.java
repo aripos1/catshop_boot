@@ -24,7 +24,7 @@ public class JAdminService {
 		
 		//페이징
 		int page = jseachVo.getPage();
-		int listcnt = 10;	//페이지당 글 출력갯수
+		int listcnt = 5;	//페이지당 글 출력갯수
 		int totalcnt = jadminDao.aselectgoodstotalcount(jseachVo);	//전체글 갯수 가져오기
 		
 		if(page <= 0) {

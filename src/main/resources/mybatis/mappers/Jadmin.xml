@@ -98,7 +98,7 @@
 	    <select id="optionnumlist" parameterType="int" resultType="com.javaex.vo.JOptionVo">
 	    
 	    	<![CDATA[
-	    		select 	 no
+	    		select 	 o.no
 						,o.goods_no 
 						,g.category
 						,g.name
