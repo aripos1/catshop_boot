@@ -122,7 +122,7 @@
 							<col>
 						</colgroup>
 						<tbody>
-							<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
+							<%-- <c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}"> --%>
 								<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
 								<form action="reviewadd" method="post">
 									<tr>
@@ -132,7 +132,7 @@
 										<td colspan="4" class="text-center"><button type="submit">등록</button></td>
 									</tr>
 								</form>
-							</c:if>
+							<%-- </c:if> --%>
 						</tbody>
 
 					</table>
