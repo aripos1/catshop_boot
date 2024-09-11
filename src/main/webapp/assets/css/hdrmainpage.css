@@ -54,6 +54,7 @@
     text-align: center;
     width: 200px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .product img {
@@ -71,4 +72,3 @@
     color: #ff7f7f;
     font-weight: bold;
 }    
- 

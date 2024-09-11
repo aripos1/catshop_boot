@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="com.javaex.vo.PProductVo"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -41,7 +43,9 @@
 
 				<!-- 상품 가격 -->
 				<div class="product-price">
-					<span class="original-price" id="price" name="price">${pMap.pVo.price}</span> 원
+					<div class="original-price" id="price" name="price">
+						<fmt:formatNumber value="${pMap.pVo.price}" type="number" groupingUsed="true"/>원
+					</div> 
 				</div>
 
 				<!-- 변경x -->
@@ -63,20 +67,25 @@
 
 					<!-- 상품 가격 -->
 					<input type="hidden" name="price" value="${pMap.pVo.price}">
+					
+						<!-- 수량 선택 -->
+						<label for="quantity">수량:</label> <input type="number" id="quantity" name="count" value="1" min="1" onchange="calculateTotalPrice()">
 
-					<!-- 수량 선택 -->
-					<label for="quantity">수량:</label> <input type="number" id="quantity" name="count" value="1" min="1" onchange="calculateTotalPrice()">
-
-					<!-- 옵션 선택 -->
-					<label for="optionsNo">옵션 선택:</label> <select id="optionsNo" name="optionsNo">
-						<c:forEach items="${pMap.oList}" var="option">
-							<option value="${option.optionsNo}">${option.taste}</option>
-						</c:forEach>
+						<!-- 옵션 선택 -->
+						<label for="optionsNo">옵션 선택:</label> <select id="optionsNo" name="optionsNo">
+							<c:forEach items="${pMap.oList}" var="option">
+								<option value="${option.optionsNo}">${option.taste}</option>
+							</c:forEach>
+						
 					</select>
 
 					<!-- 총 가격 -->
 					<div class="order-total">
-						총 가격: <span id="totalprice">${pMap.pVo.price}</span> 원 <input type="hidden" id="hiddenTotalPrice" name="totalprice" value="${pMap.pVo.price}">
+						<div id="totalprice">
+							총가격 : <fmt:formatNumber value="${pMap.pVo.price}" type="number" groupingUsed="true"/>원
+						</div>
+						
+						<input type="hidden" id="hiddenTotalPrice" name="totalprice" value="${pMap.pVo.price}">
 					</div>
 
 					<!-- 장바구니에 추가 버튼 -->
@@ -113,7 +122,7 @@
 							<col>
 						</colgroup>
 						<tbody>
-							<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
+							<%-- <c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}"> --%>
 								<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
 								<form action="reviewadd" method="post">
 									<tr>
@@ -123,7 +132,7 @@
 										<td colspan="4" class="text-center"><button type="submit">등록</button></td>
 									</tr>
 								</form>
-							</c:if>
+							<%-- </c:if> --%>
 						</tbody>
 
 					</table>
