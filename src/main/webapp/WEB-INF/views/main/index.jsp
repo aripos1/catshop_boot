@@ -58,9 +58,9 @@
                 </c:if>
             </c:forEach>
         </div>
-
+ 				
         <h2>간식</h2>
-        <div class="products">
+        <div class="products">	
             <c:forEach var="product" items="${petfoodList}" varStatus="status">
                 <c:if test="${product.category == 'CAN'}">
                     <div class="product">
