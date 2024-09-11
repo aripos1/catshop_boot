@@ -72,7 +72,7 @@
                 <div id="sub_title">
                     <div id="name_title" class="clearfix">
                         <h1 id="goodslist"> 상품관리 리스트 </h1>
-                        <input type="text" name="roll" value="${sessionScope.no.roll}">
+                        <input type="hidden" name="roll" value="${sessionScope.no.roll}">
                     </div>
 
                     <form action="${pageContext.request.contextPath}/admin/list2" method="get">
