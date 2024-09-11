@@ -28,8 +28,8 @@
 		o.taste
 		as taste,
 		r.user_no as userNo,
-		r.no as receiptNo
-
+		r.no as receiptNo,
+		g.save_namef as saveNamef
 		FROM item i
 		JOIN receipt r ON i.receipt_no = r.no
 		JOIN options o ON i.options_no = o.no
