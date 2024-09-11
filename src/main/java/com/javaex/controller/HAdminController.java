@@ -30,14 +30,10 @@ public class HAdminController {
 	        Model model) {
 	    // 페이징된 영수증 목록 불러오기
 	    Map<String, Object> pMap = hAdminService.exeList(crtPage);
-	    
-	    // 영수증 목록과 페이징 데이터를 모델에 추가
-	    model.addAttribute("receiptList", pMap.get("adminOrderList"));
-	    model.addAttribute("prev", pMap.get("prev"));
-	    model.addAttribute("next", pMap.get("next"));
-	    model.addAttribute("startPageBtnNo", pMap.get("startPageBtnNo"));
-	    model.addAttribute("endPageBtnNo", pMap.get("endPageBtnNo"));
-	    
+
+	    // 전체 pMap을 모델에 추가
+	    model.addAttribute("pMap", pMap);
+
 	    return "admin/adminOrderList"; // adminOrderList.jsp로 이동
 	}
 

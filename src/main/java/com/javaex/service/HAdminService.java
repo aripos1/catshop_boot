@@ -48,7 +48,7 @@ public class HAdminService {
 		limitMap.put("startRowNo", startRowNo);
 		System.out.println(limitMap);
 		
-		List<ReceiptVo> adminOrderList = hAdminDao.selectList(limitMap);
+		List<ReceiptVo> adminOrderList = hAdminDao.selectAdminOrderList(limitMap);
 		// 페이지당 버튼 개수
 		int pageBtnCount = 5;
 
