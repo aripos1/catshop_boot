@@ -129,6 +129,8 @@
 			<button type="submit" id="paymentButton">결제하기</button>
 
 		</form>
+		<!— 고정된 뒤로가기 버튼 (왼쪽 하단에 위치) —>
+		<button class="back-button" onclick="history.back();">&larr;</button>
 	</div>
 
 	<script>

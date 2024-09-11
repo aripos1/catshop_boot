@@ -75,12 +75,7 @@
 				<!-- Pagination (점 모양의 페이지네이션) -->
 				<div class="swiper-pagination"></div>
 
-				<!-- Navigation buttons (이전, 다음 버튼) -->
-				<div class="swiper-button-prev"></div>
-				<div class="swiper-button-next"></div>
 
-				<!-- Scrollbar -->
-				<div class="swiper-scrollbar"></div>
 			</div>
 		</section>
 

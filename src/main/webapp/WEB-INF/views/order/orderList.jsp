@@ -94,7 +94,8 @@
 				</div>
 			</div>
 		</div>
-
+		<!— 고정된 뒤로가기 버튼 (왼쪽 하단에 위치) —>
+		<button class="back-button" onclick="history.back();">&larr;</button>
 		<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 	</div>
 

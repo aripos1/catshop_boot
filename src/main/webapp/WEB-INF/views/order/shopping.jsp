@@ -56,7 +56,7 @@
 						<tr id="row-${shoppingVo.shoppingNo}">
 							<td><input type="checkbox" name="selectedItems" value="${shoppingVo.shoppingNo}"></td>
 							<td><img src="${pageContext.request.contextPath}/upload/${shoppingVo.saveNamef}" alt="제품 상세 이미지"></td>
-							<td>${shoppingVo.goodsName}<br> 옵션 : ${shoppingVo.taste}<br> 담은 날짜 : ${shoppingVo.pickDate}<br> 
+							<td>${shoppingVo.goodsName}<br> 옵션 : ${shoppingVo.taste}<br> 담은 날짜 : ${shoppingVo.pickDate}<br>
 							</td>
 							<td class="item-price">${shoppingVo.price}원</td>
 							<td><input type="number" value="${shoppingVo.count}" min="1" style="width: 50px;" data-shopping-no="${shoppingVo.shoppingNo}"
@@ -99,6 +99,8 @@
 				<button class="btn" type="submit">결제하기</button>
 			</div>
 		</form>
+		<!— 고정된 뒤로가기 버튼 (왼쪽 하단에 위치) —>
+		<button class="back-button" onclick="history.back();">&larr;</button>
 	</div>
 
 	<script>
