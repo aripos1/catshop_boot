@@ -76,14 +76,21 @@ body {
 .product-title {
 	font-size: 20px;
 	font-weight: bold;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.product-subtitle {
+	font-size: 15px;
+	margin-bottom: 12px;
 	color: #333;
 }
 
 .rating-and-reviews {
-	display: flex;
+	
 	align-items: center;
 	margin-bottom: 10px;
+	text-align: senter;
 }
 
 .rating-stars {
@@ -108,7 +115,7 @@ body {
 }
 
 .discount-section {
-	margin-bottom: 10px;
+	margin-bottom: 7px;
 	background-color: #f2f2f2;
 	padding: 10px;
 	color: #555;
@@ -116,8 +123,8 @@ body {
 }
 
 .delivery-info {
-	margin-top: 20px;
-	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-bottom: 15px;
 	font-size: 16px;
 }
 
@@ -129,26 +136,27 @@ body {
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
+	text-align: center;
 }
 
 
 .quantity-section input {
 	width: 50px;
-	text-align: center;
-	margin: 0 10px;
-	padding: 8px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
+    text-align: center;
+    margin: 0 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
-#options {
+.options {
 	margin: 10px 0;
 }
 
-#options select {
-	padding: 8px;
-	border: 1px solid #ddd;
-	border-radius: 4px;
+.options select {
+	 padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 .order-total {
@@ -324,3 +332,45 @@ body {
 .delete-btn:hover {
 	background-color: #d43f3f;
 }
+
+#guestAdd {
+	width: 100%;
+}
+
+.review-box {
+            margin: 20px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            max-width: 100%;
+        }
+
+        .review-box textarea {
+            width: calc(100% - 40px); /* 양쪽 마진 20px씩 제외 */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .review-box .button-area {
+            text-align: right;
+            justify-content: flex-end;
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+
+        .review-box button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .review-box button:hover {
+            background-color: #0056b3;
+        }
