@@ -16,6 +16,9 @@
 
 <body>
 	<div id="wrap">
+
+		<!-- 고정된 뒤로가기 버튼 (왼쪽 하단에 위치) -->
+		<button class="back-button" onclick="history.back();">&larr;</button>
 		<!-- import header -->
 		<c:import url="/WEB-INF/views/include/header.jsp"></c:import>
 
@@ -83,69 +86,70 @@
 			</div>
 		</div>
 
-	</div>
 
 
 
-	<div class="details-toggle">
-		<button id="toggle-details">제품 상세 이미지 보기</button>
-		<button id="toggle-reviews">구매 후기 보기</button>
-	</div>
+		<div class="details-toggle">
+			<button id="toggle-details">제품 상세 이미지 보기</button>
+			<button id="toggle-reviews">구매 후기 보기</button>
+		</div>
 
-	<!-- 상세 이미지 -->
-	<div class="details-content" id="details-content">
-		<img src="${pageContext.request.contextPath}/upload/${requestScope.pMap.pVo.saveNameb}" alt="제품 상세 이미지">
-	</div>
-	<!--------->
+		<!-- 상세 이미지 -->
+		<div class="details-content" id="details-content">
+			<img src="${pageContext.request.contextPath}/upload/${requestScope.pMap.pVo.saveNameb}" alt="제품 상세 이미지">
+		</div>
+		<!--------->
 
-	<div class="review-container">
+		<div class="review-container">
 
-		<!-- 리뷰 -->
-		<div class="review-box" id="reviews-content">
-			<form action="${pageContext.request.contextPath}/product/reviewform" method="get">
-				<table id="guestAdd">
-					<colgroup>
-						<col style="width: 70px;">
-						<col>
-						<col style="width: 70px;">
-						<col>
-					</colgroup>
-					<tbody>
-						<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
-							<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
-							<form action="reviewadd" method="post">
-								<tr>
-									<td colspan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
-								</tr>
-								<tr class="button-area">
-									<td colspan="4" class="text-center"><button type="submit">등록</button></td>
-								</tr>
-							</form>
-						</c:if>
-					</tbody>
+			<!-- 리뷰 -->
+			<div class="review-box" id="reviews-content">
+				<form action="${pageContext.request.contextPath}/product/reviewform" method="get">
+					<table id="guestAdd">
+						<colgroup>
+							<col style="width: 70px;">
+							<col>
+							<col style="width: 70px;">
+							<col>
+						</colgroup>
+						<tbody>
+							<c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}">
+								<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
+								<form action="reviewadd" method="post">
+									<tr>
+										<td colspan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
+									</tr>
+									<tr class="button-area">
+										<td colspan="4" class="text-center"><button type="submit">등록</button></td>
+									</tr>
+								</form>
+							</c:if>
+						</tbody>
 
-				</table>
-				<!-- //guestWrite -->
+					</table>
+					<!-- //guestWrite -->
 
-			</form>
-
-			<!-- Review Body -->
-			<c:forEach items="${requestScope.pMap.rList}" var="productVo">
-				<form class="review-content">
-					<div class="review-body" id="list">
-
-						<br>
-
-						<div class="review-text">
-							<br> <span class="name" name="name">${productVo.r_name}</span> <span class="stars" name="변경x">★★★★☆</span> <span class="verified" name="변경x">구매인증됨</span>
-							<span class="date" name="review_date">${productVo.review_date}</span><br> <br> <span class="content" name="r_content">${productVo.r_content}</span><br>
-							<br>
-							<button class="delete-btn">삭제</button>
-						</div>
-
-					</div>
 				</form>
-			</c:forEach>
+
+				<!-- Review Body -->
+				<c:forEach items="${requestScope.pMap.rList}" var="productVo">
+					<form class="review-content">
+						<div class="review-body" id="list">
+
+							<br>
+
+							<div class="review-text">
+								<br> <span class="name" name="name">${productVo.r_name}</span> <span class="stars" name="변경x">★★★★☆</span> <span class="verified" name="변경x">구매인증됨</span>
+								<span class="date" name="review_date">${productVo.review_date}</span><br> <br> <span class="content" name="r_content">${productVo.r_content}</span><br>
+								<br>
+								<button class="delete-btn">삭제</button>
+							</div>
+
+						</div>
+					</form>
+				</c:forEach>
+			</div>
+
 		</div>
 		<script>
 			// Toggle between product details and reviews

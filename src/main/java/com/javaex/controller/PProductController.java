@@ -21,8 +21,7 @@ public class PProductController {
 
 	@Autowired
 	private PProductService service;
-
-	// 상품정보 가져오기
+	
 
 	// 상품상세 폼 상품 정보 가져오기
 	@RequestMapping(value = "/productinfo", method = { RequestMethod.GET, RequestMethod.POST })
@@ -32,7 +31,7 @@ public class PProductController {
 		UserVo buyer = (UserVo) session.getAttribute("authUser");
 
 		Map<String, Object> pMap = service.exeProduct(no);
-		// System.out.println("김유찬"+pMap);
+		
 		model.addAttribute("pMap", pMap);
 
 		return "goods/product";

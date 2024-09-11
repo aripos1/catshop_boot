@@ -16,15 +16,20 @@ public class PProductService {
 	@Autowired
 	private PProductDao dao;
 
+	
 	// 상세 폼 상품데이터 가져오기
 	public Map<String, Object> exeProduct(int no) {
 		System.out.println(no);
+		
+		//상품넘버로 정보 가져오기
 		PProductVo pVo = dao.productSelectOne(no);
 		// System.out.println("service##############"+pVo);
 
+		//상품넘버로 옵션 리스트 가져오기
 		List<PProductVo> oList = dao.optionList(no);
 		// System.out.println("service@@@@@@@@@@@@@@"+oList);
 
+		//상품넘버로 리뷰 리스트 가져오기
 		List<PProductVo> rList = dao.reviewListr(no);
 		System.out.println("service##########3#####" + rList);
 
