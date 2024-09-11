@@ -87,7 +87,6 @@ body {
 }
 
 .rating-and-reviews {
-	
 	align-items: center;
 	margin-bottom: 10px;
 	text-align: senter;
@@ -114,7 +113,6 @@ body {
 	color: #e74c3c;
 	margin-bottom: 10px;
 } */
-
 .discount-section {
 	margin-bottom: 7px;
 	background-color: #f2f2f2;
@@ -137,17 +135,15 @@ body {
 	display: flex;
 	align-items: center;
 	margin-bottom: 20px;
-	text-align: center;
 }
-
 
 .quantity-section input {
 	width: 50px;
-    text-align: center;
-    margin: 0 10px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+	text-align: center;
+	margin: 0 10px;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
 .options {
@@ -155,9 +151,9 @@ body {
 }
 
 .options select {
-	 padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
 }
 
 .order-total {
@@ -165,7 +161,6 @@ body {
 	color: #333;
 	margin-bottom: 20px;
 }
-
 
 .add-to-cart-button {
 	padding: 15px;
@@ -339,39 +334,39 @@ body {
 }
 
 .review-box {
-            margin: 20px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            max-width: 100%;
-        }
+	margin: 20px;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	max-width: 100%;
+}
 
-        .review-box textarea {
-            width: calc(100% - 40px); /* 양쪽 마진 20px씩 제외 */
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            resize: vertical;
-            min-height: 100px;
-        }
+.review-box textarea {
+	width: calc(100% - 40px); /* 양쪽 마진 20px씩 제외 */
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid #ddd;
+	resize: vertical;
+	min-height: 100px;
+}
 
-        .review-box .button-area {
-            text-align: right;
-            justify-content: flex-end;
-            margin-top: 10px;
-            margin-right: 20px;
-        }
+.review-box .button-area {
+	text-align: right;
+	justify-content: flex-end;
+	margin-top: 10px;
+	margin-right: 20px;
+}
 
-        .review-box button {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.review-box button {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
 
-        .review-box button:hover {
-            background-color: #0056b3;
-        }
+.review-box button:hover {
+	background-color: #0056b3;
+}
