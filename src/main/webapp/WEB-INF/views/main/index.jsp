@@ -139,7 +139,6 @@
 								src="${pageContext.request.contextPath}/upload/${product.saveNamef}" alt="${product.name}">
 								<p>${product.name}</p>
 								<p>츄르</p>
-								<p>${product.regDate}</p>
 								<p>
 									<fmt:formatNumber value="${product.price}" pattern="#,###" />
 									원
