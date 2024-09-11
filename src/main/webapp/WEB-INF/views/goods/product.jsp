@@ -158,14 +158,15 @@
 								<span class="date" name="review_date">${productVo.review_date}</span>
 								<br> <br> <span class="content" name="r_content">${productVo.r_content}</span><br>
 								<br>
-								<button class="delete-btn">삭제</button>
+								<!-- <button class="delete-btn">삭제</button> -->
 							</div>
 
 						</div>
 					</form>
 				</c:forEach>
 			</div>
-
+			
+			<c:import url="/WEB-INF/views/include/footer.jsp"></c:import>
 		</div>
 		<script>
 			// Toggle between product details and reviews

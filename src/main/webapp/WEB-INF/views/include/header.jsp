@@ -69,7 +69,7 @@
         <div class="nav-menu">
             <ul>
                 <li><h2>사료 |</h2></li>
-                <li><a href="${pageContext.request.contextPath}/goods/list2?category=ADULT">성인묘</a></li>
+                <li><a href="${pageContext.request.contextPath}/goods/list2?category=ADULT">성묘</a></li>
                 <li><a href="${pageContext.request.contextPath}/goods/list2?category=KITTEN">아가묘</a></li>
                 <li><h2>간식 |</h2></li>
                 <li><a href="${pageContext.request.contextPath}/goods/list2?category=CAN">캔</a></li>

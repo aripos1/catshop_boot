@@ -21,6 +21,7 @@
     width: 50px;
     height: 50px;
     margin-right: 10px;
+    margin-left: 20px;
     vertical-align: middle;
 }
 
@@ -35,6 +36,8 @@
 .menu {
     float: right; /* 오른쪽 정렬 */
     text-align: right;
+    margin-right: 20px;
+    
 }
 
 .menu p {
@@ -50,7 +53,7 @@
     
     padding: 10px 20px;
     border: none;
-    background-color: rgb(250, 197, 197);
+    background-color: f5a623;;
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -64,7 +67,7 @@
 .button{
 	padding: 10px 20px;
     border: none;
-    background-color: #fc6363;
+    background-color:rgb(255, 106, 0);
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -87,21 +90,21 @@
 .search input {
     width: 330px;
     padding: 8px;
-    border: 1px solid  #ffe2e2;
+    border: 1px solid #f5a623;
     border-radius: 5px;
 }
 
 .search button {
     padding: 11px;
     border: none;
-    background-color: #fff0ed;
+    background-color: rgb(255, 106, 0);
     color: white;
     cursor: pointer;
     border-radius: 5px;
 }
 
 .search button:hover {
-    background-color: #fc6363;
+    background-color: #f5a623;
 }
 
 .nav-menu {
@@ -122,17 +125,25 @@
 
 .nav-menu li h2 {
     font-size: 24px;
-    color: #333;
+    color: rgb(255, 106, 0);
     font-family: 'GangwonEduPowerExtraBoldA';
 }
 
 .nav-menu li a {
     text-decoration: none;
     font-size: 20px;
-    color:  #ff9898;
+    color:  #f5a623;
     font-family: 'HakgyoansimNadeuriTTF-B';
 }
 
 .nav-menu li a:hover {
     color: #fc6363;
+}
+
+.nav-menu li #logo {
+	margin: 0px;
+}
+
+.nav-menu li img {
+	width: 40px;
 }
