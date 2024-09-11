@@ -24,7 +24,7 @@
             
         <!--/header-->
             <div id="content">
-                <div id="sub_title">
+                <div class="option-box" id="sub_title">
                     <div id="name_title" class="clearfix">
                         <h1 id="goodslist"> 옵션등록 </h1>
                     </div>

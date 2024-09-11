@@ -50,7 +50,7 @@
 	                        <li>
 	                            <a href="${pageContext.request.contextPath}/productinfo?goodsNo=${goodsVo.no}">
 	                                <div class="view">
-	                                    <img class="imgItem" src="${pageContext.request.contextPath}/assets/images/">
+	                                    <img class="imgItem" src="${pageContext.request.contextPath}/upload/${goodsVo.saveNamef}">
 	                                    <div class="imgName">${goodsVo.name}</div>
 	                                    <div class="imgContent">${goodsVo.content}</div>
 	                                    <div class="imgPrice">${goodsVo.price}</div>

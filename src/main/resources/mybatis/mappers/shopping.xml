@@ -12,7 +12,6 @@
 					    s.no AS shoppingNo,
 					    s.user_no AS userNo,
 					    s.count AS count,
-						s.options_no AS optionsNo,
 					    s.pick_date AS pickDate,
 					    g.price AS price,
 					    o.taste AS taste,

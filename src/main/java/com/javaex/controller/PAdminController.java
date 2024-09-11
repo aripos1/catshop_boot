@@ -43,7 +43,7 @@ public class PAdminController {
 		String saveName = service.exeupload(file,file2,padminvo);
 //		model.addAttribute("saveName.", saveName);
 		
-		return "admin/insertForm";
+		return "redirect:/admin/list2";
 
 	}
 	
