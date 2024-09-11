@@ -74,7 +74,7 @@ public class JAdminCotroller {
 		System.out.println(optionVo);
 		jadminService.exeinsertoption(optionVo);
 		
-		return "redirect:/admin/list2";
+		return "redirect:/admin/optionlist?goods_no="+optionVo.getGoods_no();
 	}
 	
 	//option page list

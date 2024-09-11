@@ -110,6 +110,17 @@
 
         </div>
         <!-- /wrap-->
+        
+           <script>
+        // 
+        $(document).ready(function() {
+            // ID가 btn-insertoption인 버튼에 클릭 이벤트 핸들러 추가
+            $('#btn-insertoption').on('click', function() {
+                // 클릭 시 alert 창 띄우기
+                alert('Button clicked!');
+            });
+        });
+    </script>
     </body>
 
 </html>
