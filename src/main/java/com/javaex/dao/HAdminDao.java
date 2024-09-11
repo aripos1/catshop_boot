@@ -17,10 +17,10 @@ public class HAdminDao {
     private SqlSession sqlSession;
     
     
-    public List<ReceiptVo> selectList(Map<String, Integer> limitMap) {
+    public List<ReceiptVo> selectAdminOrderList(Map<String, Integer> limitMap) {
 
 		System.out.println("selectList2");
-		List<ReceiptVo> adminOrderList = sqlSession.selectList("admin.selectList", limitMap);
+		List<ReceiptVo> adminOrderList = sqlSession.selectList("admin.selectAdminOrderList", limitMap);
 		System.out.println(adminOrderList.size());
 
 		return adminOrderList;

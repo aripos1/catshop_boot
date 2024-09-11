@@ -22,13 +22,13 @@
 
 			<table>
 				<colgroup>
-					<col style="width: 100px">
-					<col style="width: 100px">
-					<col style="width: 130px">
+					<col style="width: 80px">
+					<col style="width: 90px">
+					<col style="width: 90px">
 					<col style="width: 300px">
 					<col style="width: 100px">
 					<col style="width: 100px">
-					<col style="width: 100px">
+					<col style="width: 150px">
 				</colgroup>
 				<thead>
 					<tr>
@@ -42,7 +42,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${receiptList}" var="receipt">
+					<c:forEach items="${pMap.adminOrderList}" var="receipt">
 						<tr>
 							<td>${receipt.no}</td>
 							<td>${receipt.userNo}</td>
@@ -54,7 +54,7 @@
 									<button onclick="startDelivery(${receipt.no}, this)">배송 시작</button>
 								</c:if></td>
 						</tr>
-					</c:forEach>
+				</c:forEach>
 				</tbody>
 			</table>
 			<div class="pagination">
