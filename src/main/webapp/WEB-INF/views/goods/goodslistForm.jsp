@@ -57,7 +57,7 @@
                             <li class="main-titletext">|</li>
                         </ul>
 
-                    </div>
+                    </div> 
                 </div>
                 
                 <!--- 이미지 반복 영역 -->
