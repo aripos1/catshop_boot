@@ -54,7 +54,7 @@
 }
 
 .menu a.button:hover {
-    background-color: #0056b3; /* 어두운 블루 호버 효과 */
+    background-color: rgb(115, 152, 172); /* 어두운 블루 호버 효과 */
 }
 
 .button {
@@ -71,11 +71,11 @@
 }
 
 .button:hover {
-    background-color: #0056b3; /* 어두운 블루 호버 효과 */
+    background-color: rgb(115, 152, 172); /* 어두운 블루 호버 효과 */
 }
 
 #logoutBtn:hover {
-    background-color: #0056b3;
+    background-color:rgb(115, 152, 172);
 }
 
 .search {
@@ -102,17 +102,21 @@
 }
 
 .search button:hover {
-    background-color: #0056b3; /* 어두운 블루 호버 효과 */
+    background-color: rgb(115, 152, 172); /* 어두운 블루 호버 효과 */
 }
 
-.nav-menu {
+/* .nav-menu {
     margin: 40px 0px;
     text-align: center;
-}
+    height:100px;
+} */
 
 .nav-menu ul {
     list-style: none;
     padding: 0;
+    margin: 40px 0px;
+    text-align: center;
+    height:100px;
 }
 
 .nav-menu li {
@@ -135,7 +139,7 @@
 }
 
 .nav-menu li a:hover {
-    color: #0056b3; /* 어두운 블루 호버 효과 */
+    color:rgb(115, 152, 172); /* 어두운 블루 호버 효과 */
 }
 
 .nav-menu li #logo {
