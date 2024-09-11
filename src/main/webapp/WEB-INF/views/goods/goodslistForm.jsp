@@ -22,6 +22,8 @@
     <body>
         <div id="wrap">
             
+            <!-- 고정된 위로가기 버튼 (왼쪽 하단에 위치) -->
+			<button class="back-button" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&uarr; Top</button>
 		     <!-- import header -->
     <c:import url="/WEB-INF/views/include/header.jsp"></c:import>
     
