@@ -97,7 +97,7 @@
     height: 380px;
     margin: 5px 0px 10px 40px;
     float: left;
-    border: 2px solid #e3e3e3;
+   /* border: 2px solid #e3e3e3;*/
     padding-bottom: 5px;
 }
 
@@ -105,12 +105,14 @@
     width: 250px;
     height: 260px;
     margin: 10px 10px 7px 15px;
+    padding-right:3px
 }
 
 #gallery #viewArea .view .imgName{
     text-align: center;
     font-weight: bold;
     font-size: 17px;
+    padding-top:3px;
 }
 
 #gallery #viewArea .view .imgContent{
@@ -122,6 +124,10 @@
 
 #gallery #viewArea .view{
 	background-color:#eee;
+}
+
+#gallery #viewArea .view .imgContent{
+	padding-block:5px;
 }
 
 

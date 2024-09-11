@@ -62,6 +62,7 @@
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px; /* 상품 간 간격을 추가 */
+    margin-bottom: 30px;
 }
 
 .product {
