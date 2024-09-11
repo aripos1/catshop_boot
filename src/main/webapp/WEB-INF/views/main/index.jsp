@@ -23,7 +23,7 @@
     <!-- 배너 섹션 -->
     <section class="banner">
         <div class="banner-slides">
-            <img src="${pageContext.request.contextPath}/assets/images/banner_im3.webp" alt="배너 이미지 1"> 
+            <img src="${pageContext.request.contextPath}/assets/images/banner_im.jpg" alt="배너 이미지 1"> 
             <img src="${pageContext.request.contextPath}/assets/images/banner_im3.webp" alt="배너 이미지 2"> 
             <img src="${pageContext.request.contextPath}/assets/images/banner_im3.webp" alt="배너 이미지 3">
         </div>

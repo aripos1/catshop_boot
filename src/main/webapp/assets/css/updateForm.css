@@ -1,109 +1,104 @@
 @charset "UTF-8";
-@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
 /* 사이드바 스타일 */
 .sidebar {
-    float: left;
-    width: 180px;
-    background-color: #ffe4e1; /* 사이드바 배경색 연한 핑크 */
-    padding: 15px;
-    height: 100%;
+	float: left;
+	width: 180px;
+	background-color: rgb(250, 197, 197);
+	padding: 15px;
+	height: 100%;
+	border-radius: 20px;
+	margin-top: 10px;
 }
 
 .sidebar h2 {
-    font-size: 1.2em;
-    margin-bottom: 15px;
+	margin-bottom: 15px;
 }
 
 .sidebar a {
-    display: block;
-    margin-bottom: 10px;
-    text-decoration: none;
-    color: #333;
+	display: block;
+	margin-bottom: 10px;
+	text-decoration: none;
+	color: #333;
+	font-family: 'HakgyoansimNadeuriTTF-B';
+	font-size: 16px;
 }
 
 .sidebar a:hover {
-    color: #f06292; /* 마우스 오버 시 진한 핑크 */
+	color: white; /* 마우스 오버 시 밝은 갈색 */
 }
 
-    
-
-
-
-
 .content {
-    margin-left: 220px;
-    padding: 10px;
+	margin-left: 220px;
+	padding: 10px;
 }
 
 .content h1 {
-    font-size: 1.8em;
-    margin-bottom: 20px;
-    text-align: left;
+	font-size: 1.8em;
+	margin-bottom: 20px;
+	text-align: left;
 }
 
-#joinFormBox label{
-    display: block;
-    margin-bottom: 10px;
-    text-align: center;
-    font-weight: bold;;
+#joinFormBox label {
+	 font-family: 'HakgyoansimNadeuriTTF-B';
+	 font-size: 20px;
+	display: block;
+	margin-bottom: 10px;
+	text-align: center;
+	font-weight: bold;;
 }
 
-#joinFormBox input{
-    width: 300px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 4px;
-    text-align: center;
+#joinFormBox input {
+	 font-family: 'HakgyoansimNadeuriTTF-B';
+	  font-size: 16px;
+	width: 300px;
+	margin-bottom: 15px;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
 }
 
-#joinFormBox button{
-    width: 100px;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    background-color: #ff4500;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    text-align: center;
-    }
-
-
-/*로그인창*/
-#loginFormBox label {
-   
-    display: block;
-    margin-bottom: 10px;
-    
-    text-align: center;
-    font-weight: bold;
+#joinFormBox button {
+	 font-family: 'HakgyoansimNadeuriTTF-B';
+	  font-size: 16px;
+	width: 100px;
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	background-color: rgb(255, 128, 192);
+	border: none;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
 }
 
 #loginFormBox input {
-   
-    width: 300px;
-    margin-bottom: 15px;
-    padding: 10px;
-    border-radius: 4px;
-    text-align: center;
+	width: 220px;
+	margin-bottom: 15px;
+	padding: 10px;
+	border-radius: 4px;
+	text-align: center;
 }
-
-
 
 #loginFormBox button {
-    width: 100px;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    background-color: #ff4500;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    text-align: center;
+	width: 100px;
+	padding: 10px 10px;
+	margin-bottom: 10px;
+	background-color: #ff4500;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
 }
 
-
-#loginFormBox .joinMsg{
-    margin-bottom: 50px;
-    text-align: center;
+#loginFormBox .joinMsg {
+	margin-bottom: 50px;
+	text-align: center;
 }
