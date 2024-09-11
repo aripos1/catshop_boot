@@ -28,6 +28,8 @@ public class PProductVo {
 	private String r_content;
 	private int point;
 
+
+	
 	public PProductVo() {
 		super();
 	}
@@ -208,5 +210,18 @@ public class PProductVo {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "PProductVo [no=" + no + ", category=" + category + ", name=" + name + ", content=" + content
+				+ ", price=" + price + ", regDate=" + regDate + ", saveNamef=" + saveNamef + ", filePathf=" + filePathf
+				+ ", saveNameb=" + saveNameb + ", filePathb=" + filePathb + ", optionsNo=" + optionsNo + ", taste="
+				+ taste + ", r_no=" + r_no + ", r_name=" + r_name + ", user_no=" + user_no + ", item_no=" + item_no
+				+ ", review_date=" + review_date + ", r_content=" + r_content + ", point=" + point + "]";
+	}
+	
+	
 
 }

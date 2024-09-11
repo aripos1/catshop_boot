@@ -41,16 +41,27 @@
 		]]>
 	</select>
 
-
-
-
-
-	<!-- 리뷰등록 -->
-	<insert id="insert" parameterType="com.javaex.vo.PProductVo">
-		<![CDATA[ 
+	<!-- review insert sy -->
+	<insert id="reviewinsert" parameterType="com.javaex.vo.PProductVo">
+	
+		<![CDATA[
+			
 			insert into review
-			value(null, #{content}, now())
-		]]>
+			values(null, #{r_name}, now(), #{r_content}, #{user_no},#{no},null);
+			
+		]]>	
+	
 	</insert>
+
+
+
+
+
+	
+	
+	
+	
+	
+	
 
 </mapper>

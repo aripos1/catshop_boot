@@ -113,7 +113,7 @@
 
 			<!-- 리뷰 -->
 			<div class="review-box" id="reviews-content">
-				<form action="${pageContext.request.contextPath}/product/reviewform" method="get">
+				
 					<table id="guestAdd">
 						<colgroup>
 							<col style="width: 70px;">
@@ -122,23 +122,27 @@
 							<col>
 						</colgroup>
 						<tbody>
-							<%-- <c:if test="${not empty sessionScope.SPRING_SECURITY_CONTEXT}"> --%>
+							<c:if test="${sessionScope.authUser != null }">
 								<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
-								<form action="reviewadd" method="post">
+								<form action="${pageContext.request.contextPath}/reviewadd" method="get">
 									<tr>
-										<td colspan="4"><textarea name="content" cols="72" rows="5"></textarea></td>
+										<td colspan="4"><textarea name="r_content" cols="72" rows="5"></textarea></td>
 									</tr>
 									<tr class="button-area">
-										<td colspan="4" class="text-center"><button type="submit">등록</button></td>
+										<td colspan="4" class="text-center">
+											<button type="submit"> 등록 </button>
+										</td>
+										<input type="hidden" name="no" value="${param.goodsNo}">
 									</tr>
+									
 								</form>
-							<%-- </c:if> --%>
+							</c:if>
 						</tbody>
 
 					</table>
 					<!-- //guestWrite -->
 
-				</form>
+				
 
 				<!-- Review Body -->
 				<c:forEach items="${requestScope.pMap.rList}" var="productVo">
@@ -148,8 +152,11 @@
 							<br>
 
 							<div class="review-text">
-								<br> <span class="name" name="name">${productVo.r_name}</span> <span class="stars" name="변경x">★★★★☆</span> <span class="verified" name="변경x">구매인증됨</span>
-								<span class="date" name="review_date">${productVo.review_date}</span><br> <br> <span class="content" name="r_content">${productVo.r_content}</span><br>
+								<br> <span class="name" name="name">${productVo.r_name}</span>
+								<span class="stars" name="변경x">★★★★☆</span>
+								<span class="verified" name="변경x">구매인증됨</span>
+								<span class="date" name="review_date">${productVo.review_date}</span>
+								<br> <br> <span class="content" name="r_content">${productVo.r_content}</span><br>
 								<br>
 								<button class="delete-btn">삭제</button>
 							</div>

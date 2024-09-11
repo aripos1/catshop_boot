@@ -44,11 +44,20 @@ public class PProductService {
 	}
 
 	// 등록
-	public int exeAdd(PProductVo productVo) {
-		System.out.println("PProductService.exeAdd()");
+	//public int exeAdd(PProductVo productVo) {
+		//System.out.println("PProductService.exeAdd()");
 
-		int count = dao.reviewInsert(productVo);
-		return count;
+		//int count = dao.reviewInsert(productVo);
+		//return count;
+	//}
+
+	//review insert sy
+	
+	public int exereviewinsert(PProductVo insertVo) {
+		System.out.println("review insert service j w");
+		System.out.println("까꿍@@@@@@@"+insertVo);
+		dao.reviewinsert(insertVo);
+		
+		return 0;
 	}
-
 }
