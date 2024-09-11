@@ -70,27 +70,26 @@
 					<input type="hidden" name="price" value="${pMap.pVo.price}">
 
 					<div class="quantity-section">
-					<!-- 수량 선택 -->
-					<label for="quantity">수량:</label> <input type="number" id="quantity" name="count" value="1" min="1" onchange="calculateTotalPrice()">
+						<!-- 수량 선택 -->
+						<label for="quantity">수량:</label> <input type="number" id="quantity" name="count" value="1" min="1" onchange="calculateTotalPrice()">
 
-					<!-- 옵션 선택 -->
-					<div class="options">
-					<label for="optionsNo">옵션 선택:</label> 
-					<select id="optionsNo" name="optionsNo">
-						<c:forEach items="${pMap.oList}" var="option">
-							<option value="${option.optionsNo}">${option.taste}</option>
-						</c:forEach>
+						<!-- 옵션 선택 -->
+						<div class="options">
+							<label for="optionsNo">옵션 선택:</label> <select id="optionsNo" name="optionsNo">
+								<c:forEach items="${pMap.oList}" var="option">
+									<option value="${option.optionsNo}">${option.taste}</option>
+								</c:forEach>
 
-					</select>
-					</div>
+							</select>
+						</div>
 					</div>
 
 					<!-- 총 가격 -->
 					<div class="order-total">
+
 						<div id="totalprice">
-							총가격 :
-							<fmt:formatNumber value="${pMap.pVo.price}" type="number" groupingUsed="true" />
-							원
+							총 가격: <span id="totalPriceDisplay"> <fmt:formatNumber value="${pMap.pVo.price}" type="number" groupingUsed="true" />
+							</span> 원
 						</div>
 
 						<input type="hidden" id="hiddenTotalPrice" name="totalprice" value="${pMap.pVo.price}">
@@ -132,19 +131,19 @@
 					<tbody>
 						<c:if test="${sessionScope.authUser != null }">
 							<!-- 로그인한 사용자의 경우 리뷰 등록창 표시 -->
-							<div class="review-insertbox" >
-							<form  action="${pageContext.request.contextPath}/reviewadd" method="get">
-							<tr>
-								<td colspan="4"><textarea name="r_content" cols="72" rows="5"></textarea></td>
-							</tr>
-							<tr class="button-area">
-								<td colspan="4" class="text-center">
-									<button type="submit">등록</button>
-								</td>
-								<input type="hidden" name="no" value="${param.goodsNo}">
-							</tr>
+							<div class="review-insertbox">
+								<form action="${pageContext.request.contextPath}/reviewadd" method="get">
+									<tr>
+										<td colspan="4"><textarea name="r_content" cols="72" rows="5"></textarea></td>
+									</tr>
+									<tr class="button-area">
+										<td colspan="4" class="text-center">
+											<button type="submit">등록</button>
+										</td>
+										<input type="hidden" name="no" value="${param.goodsNo}">
+									</tr>
 
-							</form>
+								</form>
 							</div>
 						</c:if>
 					</tbody>
@@ -200,14 +199,18 @@
 
 	// 수량이 변경될 때 총 가격을 자동으로 계산하는 함수
 	function calculateTotalPrice() {
-		const quantity = document.getElementById('quantity').value; // 사용자가 선택한 수량
-		const price = document.getElementById('price').innerText; // 기본 상품 가격
+		const quantity = parseInt(document.getElementById('quantity').value); // 사용자가 선택한 수량
+		const price = parseFloat(document.getElementById('price').innerText
+				.replace(/,/g, '')); // 가격 텍스트에서 쉼표 제거 후 숫자로 변환
 		const totalPrice = quantity * price; // 수량 * 가격 계산
-		document.getElementById('totalprice').innerText = totalPrice
-				.toLocaleString(); // 계산된 총 가격 표시
-		document.getElementById('hiddenTotalPrice').value = totalPrice; // 총 가격을 hidden 필드에 저장
-	}
+		
 
+		// 계산된 총 가격을 화면에 표시
+	    document.getElementById('totalprice').innerHTML = '총 가격: ' + totalPrice.toLocaleString() + ' 원';
+
+		// 계산된 총 가격을 hidden 필드에 저장
+		document.getElementById('hiddenTotalPrice').value = totalPrice;
+	}
 	// 수량 입력 필드에 이벤트 리스너 추가 (수량 변경 시 총 가격 계산)
 	document.getElementById('quantity').addEventListener('input',
 			calculateTotalPrice);

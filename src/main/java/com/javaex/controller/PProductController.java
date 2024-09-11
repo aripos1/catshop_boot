@@ -38,6 +38,8 @@ public class PProductController {
 
 	}
 	
+	
+	
 //	// 현성 상품상세 폼 상품 정보 가져오기
 //	@RequestMapping(value = "/productinfo", method = { RequestMethod.GET, RequestMethod.POST })
 //	public String prodinfo(@RequestParam(value = "goodsNo") int no, Model model, HttpSession session) {
