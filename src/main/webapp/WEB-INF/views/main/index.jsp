@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 
 
@@ -85,7 +86,7 @@
 
 		<!-- 상품 목록 -->
 		<section class="product-list">
-			<h2>사료</h2>
+			<h2>사료</h2><a class="new">이 달의 신상품 new</a>
 			<div class="products">
 				<c:forEach var="product" items="${petfoodList}" varStatus="status">
 					<c:if test="${product.category == 'ADULT'}">
@@ -94,7 +95,6 @@
 								src="${pageContext.request.contextPath}/upload/${product.saveNamef}" alt="${product.name}">
 								<p>${product.name}</p>
 								<p>성인묘</p>
-								<p>${product.regDate}</p>
 								<p>
 									<fmt:formatNumber value="${product.price}" pattern="#,###" />
 									원
@@ -108,7 +108,6 @@
 								src="${pageContext.request.contextPath}/upload/${product.saveNamef}" alt="${product.name}">
 								<p>${product.name}</p>
 								<p>아가묘</p>
-								<p>${product.regDate}</p>
 								<p>
 									<fmt:formatNumber value="${product.price}" pattern="#,###" />
 									원
@@ -118,7 +117,7 @@
 					</c:if>
 				</c:forEach>
 			</div>
-			<h2>간식</h2>
+			<h2>간식</h2><a class="new"> 이 달의 신상품 new</a>
 			<div class="products">
 				<c:forEach var="product" items="${petfoodList}" varStatus="status">
 					<c:if test="${product.category == 'CAN'}">
@@ -127,7 +126,6 @@
 								src="${pageContext.request.contextPath}/upload/${product.saveNamef}" alt="${product.name}">
 								<p>${product.name}</p>
 								<p>캔</p>
-								<p>${product.regDate}</p>
 								<p>
 									<fmt:formatNumber value="${product.price}" pattern="#,###" />
 									원

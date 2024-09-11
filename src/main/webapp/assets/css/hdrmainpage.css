@@ -74,3 +74,18 @@
     color: #ff7f7f;
     font-weight: bold;
 }    
+.new{
+	margin-right: 600px;
+   	display: inline-block; /* transform을 사용하기 위해 설정 */
+    transform: translateY(-40px); 
+	font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimChilpanjiugaeTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-size:30px;
+    color: #ff7f7f; /* 기본 글자 색상 */
+  
+}
+
+
+  
