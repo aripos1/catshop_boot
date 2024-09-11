@@ -45,8 +45,8 @@ public class JAdminService {
 		//list 가져오기
 		List<GoodsVo> admingoodsList = jadminDao.selectgoodslist2(fMap);
 		System.out.println("servvice///////"+admingoodsList);
-		admingoodsList.get(0).getNo();
-		System.out.println(admingoodsList.get(0).getNo());
+		//admingoodsList.get(0).getNo();
+		//System.out.println(admingoodsList.get(0).getNo());
 		//딜리트 해주기
 		
 		//jadminDao.admindeletegoodsOne();

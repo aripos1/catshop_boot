@@ -43,6 +43,7 @@ public class JAdminCotroller {
 		
 		model.addAttribute("jmap",jmap);
 		
+		
 		return "/admin/JgoodslistFrom";
 	}
 	

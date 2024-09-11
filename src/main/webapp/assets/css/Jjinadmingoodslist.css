@@ -1,132 +1,125 @@
 @charset "UTF-8";
 
-#content{width: 100%;}
-#wrap{ margin: 0px auto; width: 1000px;}
-#sub_title{width: 1000px; padding-top: 20px; border-bottom: 3px solid #e3e3e3;}
-#list-table{width: 1000px; padding-top: 20px;}
-#pagingArea{width: 1000px;}
-
-
-
-/* 상단 타이틀 부분(검색창) */
-
-#wrap #content #sub_title{
-    /* background-color: bisque; */
+body {
+	
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
-#wrap #content #sub_title #name_title h1{
-    float: left;
-    margin: 10px 0px 0px 10px;
-    /* text-decoration: underline; */
-    /* text-decoration-color: #ffe2e2; */
-    font-size: px;
-    
+.search-box{
+	padding: 6px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 10px;
 }
 
-/*카테고리 선택 */
-
-#wrap #content #sub_title #form-group{
-    padding-bottom: 10px;
+/* 컨테이너 스타일 */
+.container {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
 }
 
-
-#wrap #content #sub_title #form-group #search_menu{
-    float: right;
-    margin-right: 10px;
-    padding: 5px 5px;
-    width: 125px;
-    border-radius: 3px;
+.goodslist {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align:left;
 }
 
-#wrap #content #sub_title #form-group #serch_text{
-    float: right;
-    margin-right: 17px;
+/* 테이블 스타일 */
+.table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
 }
 
-#wrap #content #sub_title #form-group #serch_text input{
-    width: 200px;
-    font-size: 13px;
-    padding: 0px 10px;
-    border-radius: 3px;
+.table thead th {
+	padding: 12px;
+	text-align: center;
+	border: 1px solid #ddd;
 }
 
-#wrap #content #sub_title #form-group #serch_text button{
-    padding: 4px 8px;
-    width: 50px;
-    border-radius: 2px;
-    background-color: #ddd;
-    font-size: 13px;
+.table thead th {
+	background-color: #f2f2f2;
+	font-size: 16px;
+	font-weight: bold;
+	border: 1px solid #ddd
 }
 
-/* 테이블 1개 */
-
-#wrap #content #list-table{
-    /* background-color:darkorchid */
-    
-    
-
+.table tbody tr td {
+	padding: 12px;
+	font-size: 14px;
+	vertical-align: middle;
+	border: 1px solid #ddd
 }
 
-#wrap #content #list-table table{
-    padding: 10px 0;
-    margin: 0px 0px 0px 22px;
-    font-size: 15px;
-
-    border-collapse: collapse;
-
+.table tbody tr:nth-child(even) {
+	background-color: #f9f9f9;
 }
 
-#wrap #content #list-table table th,td:not(:last-child){
-    padding: 3px 0px;
-    border: 1px solid #000000;
-    
+.table tbody tr:hover {
+	background-color: #f1f1f1;
 }
 
-
-
-#wrap #content #list-table table .btn-delete{
-    padding: 1px 8px;
-    margin-left: 15px;
-    border-radius: 3px;
-    background-color: rgb(252, 228, 216); 
-    width: 80px
+/* 검색과 옵션 선택 스타일 */
+.search-section {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
 }
 
-.list{
-	high: 100px;
+.search-section select {
+	padding: 10px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 10px;
 }
 
-#wrap #content #list-table table th{
-    background-color: rgb(252, 228, 216);
+.search-section button {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-
-/* 페이징 */
-
-
-#pagingArea #paging{
-    /* background-color: cadetblue; */
-
+.search-section button:hover {
+	background-color: #0056b3;
 }
 
-#paging ul{
-   /* background-color: chartreuse; */
-    width: 310px;
-    margin-left: 345px;
-    padding: 20px 0px;
-    padding-left: 37px;
+/* 옵션 버튼 스타일 */
+.option-button {
+	padding: 5px 10px;
+	background-color: #ff6347;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
-#paging ul>li{
-    float: left;
-    margin: 0px 5px;
-
-    font-size: 15px;
-    font-weight: bolder;
-    
+.option-button:hover {
+	background-color: #ff4500;
 }
 
-#pagingArea #paging .page_move{
-    font-size: 10px;
+/* 페이지네이션 */
+.pagination {
+	text-align: center;
+	margin-top: 20px;
+}
 
+.pagination a {
+	padding: 8px 16px;
+	margin: 0 4px;
+	border: 1px solid #ddd;
+	text-decoration: none;
+	color: #007bff;
+}
+
+.pagination a:hover {
+	background-color: #ddd;
 }

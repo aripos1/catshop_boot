@@ -1,145 +1,154 @@
 @charset "UTF-8";
 
-#content{width: 100%;}
-#wrap{ margin: 0px auto; width: 1000px;}
-#sub_title{width: 1000px; padding-top: 20px; border-bottom: 3px solid #e3e3e3;}
-#list-table{width: 1000px; padding-top: 20px;}
-#pagingArea{width: 1000px;}
 
-
-
-/* 상단 타이틀 부분(검색창) */
-
-#wrap #content #sub_title{
-    /* background-color: bisque; */
+body {
+	
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
 }
 
-#btn-insertoption {
-	padding: 4px;
-}
-
-#goodslist{
-	margin-left: 20px;
-}
-
-#wrap #content h1{
-    float: left;
-    margin: 10px 0px 0px 10px;
-    /* text-decoration: underline; */
-    /* text-decoration-color: #ffe2e2; */
-    font-size: px;
-    
-}
-
-/*카테고리 선택 */
-
-#wrap #content #sub_title #form-group{
-    padding-bottom: 10px;
-}
-
-
-#wrap #content #sub_title #form-group #search_menu{
-    float: right;
-    margin-right: 10px;
-    padding: 5px 5px;
-    width: 130px;
-    border-radius: 5px;
-}
-
-#wrap #content #sub_title #form-group #serch_text{
-    float: right;
-    margin-right: 17px;
-}
-
-#wrap #content #sub_title #form-group #serch_text input{
-    width: 200px;
-    font-size: 13px;
-    padding: 0px 10px;
-    border-radius: 5px;
-}
-
-#wrap #content #sub_title #form-group #serch_text button{
-    padding: 4px 8px;
-    width: 50px;
-    border-radius: 3px;
-}
-
-/* 테이블 1개 */
-
-#wrap #content #list-table{
-    /* background-color:darkorchid */
-    
-    
-
-}
-
-#wrap #content #list-table table{
-    padding: 10px 0;
-    margin: 0px 0px 0px 22px;
-    font-size: 15px;
-
-    border-collapse: collapse;
-
-}
-
-#wrap #content #list-table table th,td:not(:last-child){
-    padding: 3px 0px;
-    border: 1px solid #000000;
-    
-}
-
-
-
-#wrap #content #list-table table .btn-delete{
-    padding: 1px 8px;
-    margin-left: 15px;
-    border-radius: 3px;
-    background-color:rgb(246, 221, 226);
-}
-
-#wrap #content #list-table table th{
-    background-color: rgb(252, 228, 216);
-}
-
-
-/* 페이징 */
-
-
-#pagingArea #paging{
-    /* background-color: cadetblue; */
-
-}
-
-#paging ul{
-   /* background-color: chartreuse; */
-    width: 310px;
-    margin-left: 345px;
-    padding: 20px 0px;
-    padding-left: 37px;
-}
-
-#paging ul>li{
-    float: left;
-    margin: 0px 5px;
-
-    font-size: 15px;
-    font-weight: bolder;
-    
-}
-
-#pagingArea #paging .page_move{
-    font-size: 10px;
-
-}
-
-.option-box {
+.option-box{
 	margin-block: 20px;
 }
 
-.option-box .form-box {
+.search-box{
+	padding: 5px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+
+/* 컨테이너 스타일 */
+.container {
+	max-width: 1200px;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+.goodslist {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	text-align:left;
+}
+
+/* 테이블 스타일 */
+.table {
+	width: 100%;
+	border-collapse: collapse;
 	margin-bottom: 20px;
 }
 
-.option-box .btninsert-area {
+.table thead th {
+	padding: 12px;
+	text-align: center;
+	border: 1px solid #ddd;
+}
 
+.table thead th {
+	background-color: #f2f2f2;
+	font-size: 16px;
+	font-weight: bold;
+	border: 1px solid #ddd
+}
+
+.table tbody tr td {
+	padding: 12px;
+	font-size: 14px;
+	vertical-align: middle;
+	border: 1px solid #ddd
+}
+
+.table tbody tr:nth-child(even) {
+	background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+	background-color: #f1f1f1;
+}
+
+/* 검색과 옵션 선택 스타일 */
+.search-section {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+
+.search-section select {
+	padding: 10px;
+	font-size: 14px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 10px;
+}
+
+.btn-insertoption {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.btn-insertoption button:hover {
+	background-color: #0056b3;
+}
+
+/* 옵션 버튼 스타일 */
+.option-button {
+	padding: 5px 10px;
+	background-color: #ff6347;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.option-button:hover {
+	background-color: #ff4500;
+}
+
+/* 페이지네이션 */
+.pagination {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.pagination a {
+	padding: 8px 16px;
+	margin: 0 4px;
+	border: 1px solid #ddd;
+	text-decoration: none;
+	color: #007bff;
+}
+
+.pagination a:hover {
+	background-color: #ddd;
+}
+
+/* 고정된 동그란 뒤로가기 버튼 */
+.back-button {
+	position: fixed;
+	left: 20px;
+	bottom: 120px; /* 버튼 위치를 조금 위로 이동 */
+	width: 50px;
+	height: 50px;
+	background-color: #d3d3d3; /* 밝은 회색으로 변경 */
+	color: white;
+	border: none;
+	border-radius: 50%; /* 동그란 버튼 */
+	font-size: 24px; /* 화살표 크기 */
+	text-align: center;
+	line-height: 50px;
+	cursor: pointer;
+	z-index: 1000;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	margin-left: 20px;
+}
+
+.back-button:hover {
+	background-color: #b0b0b0; /* 호버 시 어두운 회색 */
 }

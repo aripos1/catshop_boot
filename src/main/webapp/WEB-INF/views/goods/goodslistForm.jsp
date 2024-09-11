@@ -44,9 +44,12 @@
                         	<c:when test="${param.category == 'CHURR' }">
                         		<h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> Snack - Churr </a></h1>
                         	</c:when>
-                        
+                        	
+                        	<c:otherwise>
+                        		<h1 id="page_name"><a href="${pageContext.request.contextPath}/goods/list2?category=${param.category}"> 검색상품 </a></h1>
+                        	</c:otherwise>
                        </c:choose> 
-                        <p id="totalcount"> 총상품 ${requestScope.pMap.goodsTotalCnt}개 </p>
+                        <p id="totalcount"> 총상품: ${requestScope.pMap.goodsTotalCnt}개 </p>
                     </div>
                     <div id="title-dec">
                         <ul class="clearfix">

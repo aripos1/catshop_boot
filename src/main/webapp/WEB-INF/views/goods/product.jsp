@@ -37,7 +37,6 @@
 				<!-- 변경x -->
 				<div class="rating-and-reviews">
 					<div class="rating-stars">★★★★★</div>
-					<div class="review-count">(2,62개의 후기)</div>
 				</div>
 				<!--------->
 
