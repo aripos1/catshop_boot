@@ -118,8 +118,6 @@
 
 	<script>
 	function confirmreceipt(receiptNo, deliveryStatus) {
-	    console.log('confirmReceipt 호출됨'); // 함수가 호출되는지 확인
-	    console.log('receiptNo:', receiptNo, 'deliveryStatus:', deliveryStatus); // 변수 값 출력
 
 	    // 배송 상태가 '배송중'이 아닐 경우 경고 메시지 표시
 	    if (deliveryStatus !== '배송중') {
